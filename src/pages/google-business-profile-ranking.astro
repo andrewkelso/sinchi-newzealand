@@ -1,0 +1,503 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const gbpFaqs = [
+  {
+    q: "How long does it take for a Google Business Profile to rank in the top 3?",
+    a: "Most New Zealand businesses notice ranking improvements within 3 to 8 weeks of correcting primary categories, filling profile gaps, and implementing a review schedule. High-density metropolitan searches (like Auckland CBD or Christchurch central) usually take 3 to 5 months of consistent optimization."
+  },
+  {
+    q: "Do I have to give you my Google login password?",
+    a: "No. You never need to share your password. You simply invite our agency email as a 'Manager' inside your Google Business Profile dashboard. You retain full primary ownership at all times and can revoke access with a single click."
+  },
+  {
+    q: "What is the difference between a storefront and a service-area business?",
+    a: "If customers visit your physical premises (like a dental clinic or retail store), your address is displayed on Google Maps. If you travel to your customers (like an electrician, plumber, or mobile driving school), Google lets you hide your street address and set specific service suburbs across New Zealand."
+  },
+  {
+    q: "How do you handle fake reviews or competitor spam?",
+    a: "We systematically audit your local search radius for spam listings (fake names stuffed with keywords, duplicate profiles, and non-existent addresses) and submit formal redressal complaints to Google to remove them, clearing space for legitimate local businesses."
+  },
+  {
+    q: "Can I cancel the monthly ranking service at any time?",
+    a: "Yes. All Sinchi monthly optimization agreements operate on a flexible month-to-month basis with zero lock-in contracts. You stay because you are receiving calls, not because of fine print."
+  }
+];
+---
+
+<Layout
+  title="Google Business Profile Optimisation NZ | Sinchi"
+  description="Google Business Profile ranking service for New Zealand businesses. Climb into the local 3-pack on Google Maps and turn nearby searchers into phone calls."
+>
+  <!-- Service Hero -->
+  <section class="service-hero">
+    <div class="container container-narrow">
+      <div class="hero-badge">Google Maps Local Search</div>
+      <h1 class="service-title">
+        Google Business Profile optimisation for NZ businesses
+      </h1>
+      
+      <!-- AEO Answer-First Lead Paragraph (40-60 words) -->
+      <div class="answer-first-lead">
+        <p>
+          Google Business Profile optimisation is the process of configuring, verifying, and actively managing your Google listing so your business appears in the coveted local 3-pack on Google Maps. It is designed for New Zealand tradies, clinics, and service providers who want local customers to find and call them within 3 to 8 weeks.
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <a href="/free-google-check" class="btn btn-primary">
+          Get my free check
+        </a>
+        <a href="#whats-included" class="service-secondary-btn">
+          See what's included ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inclusions Section -->
+  <section class="section section-alt" id="whats-included">
+    <div class="container">
+      <div class="section-header">
+        <h2>What's included in profile optimisation</h2>
+        <p class="section-intro">
+          Every lever required to climb Google Maps and maintain your position against aggressive local competitors.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">🏷️</div>
+          <h3>Category & Service Architecture</h3>
+          <p>
+            We audit high-volume search queries and assign the highest-leverage primary category, supported by exact secondary categories and custom service items with local pricing.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">⭐</div>
+          <h3>Review Velocity System & Keyword Replies</h3>
+          <p>
+            We set up a simple review collection workflow for your customers and provide tailored reply templates that weave in your specific trade and suburb names naturally.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">📍</div>
+          <h3>NZ Citation & Directory Sync</h3>
+          <p>
+            We build and clean up your Name, Address, and Phone (NAP) citations across trusted New Zealand directories (Yellow, Finda, UBD, Localist) so Google has zero entity ambiguity.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🛡️</div>
+          <h3>Spam & Duplicate Redressal</h3>
+          <p>
+            Competitors often stuff keywords into their business names or create fake pin locations. We submit evidence to Google to have illicit competitor pins removed.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">📸</div>
+          <h3>Geotagged Photo & Post Updates</h3>
+          <p>
+            Regular photo uploads and Google updates showing real, local jobs in your area, signaling active operations to Google's ranking crawlers.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">📊</div>
+          <h3>Monthly 5km Geo-Grid Tracking</h3>
+          <p>
+            A multi-point map grid report delivered to your inbox every month showing exactly where you rank across each suburb you service, alongside phone call analytics.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Monthly Deliverable Breakdown -->
+  <section class="section">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <h2>What you receive every month</h2>
+        <p class="section-intro">
+          No 50-page jargon PDFs. You get clear numbers showing visibility, phone calls, and ranking progression.
+        </p>
+      </div>
+
+      <div class="report-breakdown-card">
+        <div class="report-row">
+          <div class="report-icon">🗺️</div>
+          <div class="report-text">
+            <h3>Suburb-by-suburb ranking map</h3>
+            <p>A visual heatmap showing whether you are #1, #2, or #3 across all key search terms in your target suburbs.</p>
+          </div>
+        </div>
+
+        <div class="report-row">
+          <div class="report-icon">📞</div>
+          <div class="report-text">
+            <h3>Direct customer actions</h3>
+            <p>Verified counts of phone call clicks, website visits, and driving direction requests originating directly from your Google profile.</p>
+          </div>
+        </div>
+
+        <div class="report-row">
+          <div class="report-icon">🔍</div>
+          <div class="report-text">
+            <h3>Competitor movement tracking</h3>
+            <p>Alerts if a new competitor enters your area, changes their primary category, or launches an aggressive review campaign.</p>
+          </div>
+        </div>
+
+        <div class="report-row">
+          <div class="report-icon">🔧</div>
+          <div class="report-text">
+            <h3>Action plan for the following month</h3>
+            <p>Exact next steps we are executing to expand your ranking radius into neighboring suburbs.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Transparent Pricing Section -->
+  <section class="section section-alt" id="pricing">
+    <div class="container container-narrow">
+      <div class="pricing-card">
+        <div class="pricing-badge">Simple, Transparent Pricing</div>
+        <h2 class="pricing-title">Google Business Profile Ranking</h2>
+        <p class="pricing-subtitle">Everything needed to gain and keep your top 3 position.</p>
+
+        <div class="pricing-amount">
+          <span class="currency">NZD</span>
+          <span class="price">From $495</span>
+          <span class="period">/ month</span>
+        </div>
+
+        <p class="pricing-note">
+          Exact pricing depends on your service territory size and local competition. We provide a firm quote inside your free visibility report.
+        </p>
+
+        <ul class="pricing-checks">
+          <li>✓ Complete profile setup, optimization & verification support</li>
+          <li>✓ NZ directory citation building & NAP cleanup</li>
+          <li>✓ Monthly geo-grid tracking across your target suburbs</li>
+          <li>✓ Spam listing removal & profile protection</li>
+          <li>✓ Zero lock-in contracts (month-to-month flexibility)</li>
+        </ul>
+
+        <div class="pricing-cta">
+          <a href="/free-google-check" class="btn btn-primary btn-pricing">
+            Get my free visibility check & quote
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <h2>Frequently asked questions</h2>
+        <p class="section-intro">Got questions about Google Business Profile ranking? Here are the facts.</p>
+      </div>
+
+      <div class="faq-list">
+        {gbpFaqs.map((faq) => (
+          <div class="faq-card">
+            <h3 class="faq-card-title">{faq.q}</h3>
+            <p class="faq-card-desc">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Band -->
+  <CtaBand
+    title="Ready to climb into the Google Maps top 3?"
+    subtitle="Request your free visibility check today. We'll show you where you rank and who is currently taking your calls."
+    primaryButtonText="Get my free check"
+  />
+</Layout>
+
+<style>
+  /* Service Hero */
+  .service-hero {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 4.5rem);
+    background-color: var(--color-white);
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1.25rem;
+  }
+
+  .service-title {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .answer-first-lead {
+    background-color: var(--color-lilac-subtle);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    text-align: left;
+    margin: 0 auto 2rem auto;
+    max-width: 720px;
+  }
+
+  .answer-first-lead p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-plum);
+    font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .service-secondary-btn {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-plum);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .service-secondary-btn:hover {
+    color: var(--color-primary);
+  }
+
+  /* Section Headers */
+  .section-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem auto;
+  }
+
+  .section-header h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .section-intro {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Features Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-item {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .feature-item p {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  /* Report Breakdown Card */
+  .report-breakdown-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .report-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .report-icon {
+    font-size: 1.75rem;
+    background-color: var(--color-lilac-soft);
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .report-text h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .report-text p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  /* Pricing Card */
+  .pricing-card {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+
+  .pricing-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+  }
+
+  .pricing-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.0625rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .pricing-amount {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .currency {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+  }
+
+  .price {
+    font-size: clamp(2.75rem, 5vw, 3.75rem);
+    font-weight: 800;
+    color: var(--color-plum);
+    letter-spacing: -0.03em;
+  }
+
+  .period {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .pricing-note {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.45;
+  }
+
+  .pricing-checks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 460px;
+    margin: 0 auto 2.5rem auto;
+    text-align: left;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-plum);
+  }
+
+  .btn-pricing {
+    width: 100%;
+    max-width: 420px;
+    padding: 1rem 1.75rem;
+    font-size: 1.125rem;
+  }
+
+  /* FAQ Cards */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .faq-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-card-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-card-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 600px) {
+    .report-row {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  }
+</style>

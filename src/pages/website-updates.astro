@@ -1,0 +1,532 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const websiteFaqs = [
+  {
+    q: "Why does my website speed affect my Google Maps ranking?",
+    a: "Google's local search algorithm evaluates your website to verify entity trust, mobile responsiveness, and Core Web Vitals. A slow, unresponsive website weakens your profile's authority and causes mobile visitors to bounce, signaling poor user experience to Google."
+  },
+  {
+    q: "Do I have to rebuild my entire website from scratch?",
+    a: "Usually, no. In most cases, we can optimize your existing WordPress, Squarespace, Wix, or custom site by eliminating heavy scripts, setting up click-to-call buttons, adding LocalBusiness schema, and creating dedicated suburb service pages."
+  },
+  {
+    q: "What is LocalBusiness Schema markup and why does it matter?",
+    a: "LocalBusiness Schema is structured JSON-LD code embedded in your site that explicitly tells Google, Bing, and AI crawlers your exact business name, phone number, operating hours, service areas, and geo-coordinates without relying on visual interpretation."
+  },
+  {
+    q: "How fast should my website load on a mobile phone?",
+    a: "Under Google's Core Web Vitals standard, the Largest Contentful Paint (LCP) should occur within 2.5 seconds, and the site should be instantly interactive. We optimize images, fonts, and scripts to hit 95+ mobile Lighthouse performance."
+  },
+  {
+    q: "How long do typical website updates take to complete?",
+    a: "Standard speed, schema, and mobile call-to-action updates are typically completed and deployed within 3 to 7 working days with zero downtime to your live website."
+  }
+];
+---
+
+<Layout
+  title="Website Updates for NZ Small Businesses | Sinchi"
+  description="Website updates that turn Google visitors into phone calls. Fast mobile speeds, click-to-call buttons, LocalBusiness schema, and service area pages for NZ businesses."
+>
+  <!-- Service Hero -->
+  <section class="service-hero">
+    <div class="container container-narrow">
+      <div class="hero-badge">Website Conversion & Speed</div>
+      <h1 class="service-title">
+        Website updates that turn Google visitors into calls
+      </h1>
+      
+      <!-- AEO Answer-First Lead Paragraph (40-60 words) -->
+      <div class="answer-first-lead">
+        <p>
+          Website updates for local businesses focus on fixing mobile page speed, adding one-tap click-to-call buttons, embedding LocalBusiness structured schema, and creating suburb-targeted service pages. These updates ensure Google validates your local ranking authority and visitors immediately convert into direct phone enquiries.
+        </p>
+      </div>
+
+      <div class="hero-actions">
+        <a href="/free-google-check" class="btn btn-primary">
+          Get my free check
+        </a>
+        <a href="#whats-included" class="service-secondary-btn">
+          See what we update ↓
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inclusions Section -->
+  <section class="section section-alt" id="whats-included">
+    <div class="container">
+      <div class="section-header">
+        <h2>What we fix on your website</h2>
+        <p class="section-intro">
+          Targeted technical, conversion, and local SEO enhancements that make a measurable difference.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <h3>Mobile Speed & Core Web Vitals</h3>
+          <p>
+            We compress images to modern WebP/AVIF formats, optimize render-blocking CSS/JS, and ensure your site loads in under 2 seconds on mobile data.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">📱</div>
+          <h3>One-Tap Click-to-Call Buttons</h3>
+          <p>
+            We install persistent, high-converting mobile phone call buttons and clean 3-field enquiry forms so customers can reach you with zero friction.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🏙️</div>
+          <h3>Service & Suburb Landing Pages</h3>
+          <p>
+            We build dedicated pages for each core trade and local suburb you serve (e.g. "Heat Pump Installation Papakura") so Google ranks you in neighboring towns.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🤖</div>
+          <h3>LocalBusiness JSON-LD Schema</h3>
+          <p>
+            We implement comprehensive machine-readable schema for Google, Apple Maps, and AI search engines, confirming your legal entity, services, and areas served.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🔄</div>
+          <h3>Profile & Website Alignment</h3>
+          <p>
+            We align your website's primary heading, metadata, contact info, and business categories with your Google Business Profile to maximize ranking trust.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon">🛡️</div>
+          <h3>Local Trust Signals & Proof</h3>
+          <p>
+            We embed your real Google reviews, trade licences, Master Builders / Master Plumbers credentials, and photos of real work to convert cautious visitors.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Before & After Comparison -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2>The difference between a leaky site and a converting site</h2>
+        <p class="section-intro">
+          Why small technical and layout changes dramatically boost phone enquiries.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Before Card -->
+        <div class="comparison-card before-card">
+          <div class="comparison-header">
+            <span class="comparison-badge before-badge">Before Updates</span>
+            <h3 class="comparison-title">A Leaky Website</h3>
+          </div>
+          <ul class="comparison-list">
+            <li>✕ Takes 5+ seconds to load on mobile phones</li>
+            <li>✕ Phone number is buried in tiny footer text</li>
+            <li>✕ Generic homepage trying to cover everything</li>
+            <li>✕ Zero schema data for Google's local algorithm</li>
+            <li>✕ 75% of visitors bounce without calling</li>
+          </ul>
+        </div>
+
+        <!-- After Card -->
+        <div class="comparison-card after-card">
+          <div class="comparison-header">
+            <span class="comparison-badge after-badge">After Sinchi Updates</span>
+            <h3 class="comparison-title">A High-Converting Local Site</h3>
+          </div>
+          <ul class="comparison-list">
+            <li>✓ Loads in under 1.5 seconds on mobile data</li>
+            <li>✓ Sticky click-to-call button always visible on screen</li>
+            <li>✓ Dedicated suburb pages matching local searches</li>
+            <li>✓ Full LocalBusiness JSON-LD structured schema</li>
+            <li>✓ High-trust proof converts visitors into phone calls</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="section section-alt" id="pricing">
+    <div class="container container-narrow">
+      <div class="pricing-card">
+        <div class="pricing-badge">Transparent Pricing</div>
+        <h2 class="pricing-title">Website Speed & Conversion Updates</h2>
+        <p class="pricing-subtitle">One-off tune-up or bundled with monthly ranking.</p>
+
+        <div class="pricing-amount">
+          <span class="currency">NZD</span>
+          <span class="price">From $650</span>
+          <span class="period">one-off</span>
+        </div>
+
+        <p class="pricing-note">
+          Includes full Core Web Vitals speed optimization, mobile click-to-call implementation, LocalBusiness schema injection, and conversion tuning.
+        </p>
+
+        <ul class="pricing-checks">
+          <li>✓ 95+ Mobile Lighthouse performance target</li>
+          <li>✓ One-tap phone calling & simplified enquiry forms</li>
+          <li>✓ Validated LocalBusiness Schema JSON-LD markup</li>
+          <li>✓ Suburb and service alignment with Google profile</li>
+          <li>✓ Full before/after speed and conversion benchmark report</li>
+        </ul>
+
+        <div class="pricing-cta">
+          <a href="/free-google-check" class="btn btn-primary btn-pricing">
+            Request my free website & ranking check
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <h2>Frequently asked questions</h2>
+        <p class="section-intro">Straight answers about website speed and conversion fixes.</p>
+      </div>
+
+      <div class="faq-list">
+        {websiteFaqs.map((faq) => (
+          <div class="faq-card">
+            <h3 class="faq-card-title">{faq.q}</h3>
+            <p class="faq-card-desc">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Band -->
+  <CtaBand
+    title="Turn your website into your best salesperson"
+    subtitle="Let's audit your site's mobile speed, schema, and local Google visibility for free."
+    primaryButtonText="Get my free check"
+  />
+</Layout>
+
+<style>
+  /* Service Hero */
+  .service-hero {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 4.5rem);
+    background-color: var(--color-white);
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1.25rem;
+  }
+
+  .service-title {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .answer-first-lead {
+    background-color: var(--color-lilac-subtle);
+    border-left: 4px solid var(--color-primary);
+    padding: 1.25rem 1.5rem;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    text-align: left;
+    margin: 0 auto 2rem auto;
+    max-width: 720px;
+  }
+
+  .answer-first-lead p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--color-plum);
+    font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .service-secondary-btn {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-plum);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .service-secondary-btn:hover {
+    color: var(--color-primary);
+  }
+
+  /* Section Headers */
+  .section-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 3rem auto;
+  }
+
+  .section-header h2 {
+    margin-bottom: 0.75rem;
+  }
+
+  .section-intro {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Features Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .feature-item {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .feature-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .feature-item p {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  /* Comparison Grid */
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .comparison-card {
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .before-card {
+    background-color: #FFF8F8;
+    border: 1px solid #F5D3D3;
+  }
+
+  .after-card {
+    background: linear-gradient(135deg, #FAF4FF 0%, #F5ECFC 100%);
+    border: 2px solid var(--color-primary);
+  }
+
+  .comparison-header {
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 1rem;
+  }
+
+  .comparison-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.5rem;
+  }
+
+  .before-badge {
+    background-color: #FCE8E8;
+    color: #A32020;
+  }
+
+  .after-badge {
+    background-color: #EBD6FA;
+    color: var(--color-primary);
+  }
+
+  .comparison-title {
+    font-size: 1.375rem;
+  }
+
+  .comparison-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  .before-card .comparison-list li {
+    color: #7A3333;
+  }
+
+  .after-card .comparison-list li {
+    color: var(--color-plum);
+  }
+
+  /* Pricing Card */
+  .pricing-card {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    box-shadow: var(--shadow-md);
+  }
+
+  .pricing-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+  }
+
+  .pricing-title {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    margin-bottom: 0.5rem;
+  }
+
+  .pricing-subtitle {
+    color: var(--color-text-muted);
+    font-size: 1.0625rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .pricing-amount {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .currency {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+  }
+
+  .price {
+    font-size: clamp(2.75rem, 5vw, 3.75rem);
+    font-weight: 800;
+    color: var(--color-plum);
+    letter-spacing: -0.03em;
+  }
+
+  .period {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+  }
+
+  .pricing-note {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    max-width: 480px;
+    margin: 0 auto 2rem auto;
+    line-height: 1.45;
+  }
+
+  .pricing-checks {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 480px;
+    margin: 0 auto 2.5rem auto;
+    text-align: left;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-plum);
+  }
+
+  .btn-pricing {
+    width: 100%;
+    max-width: 440px;
+    padding: 1rem 1.75rem;
+    font-size: 1.125rem;
+  }
+
+  /* FAQ Cards */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .faq-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-card-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-card-desc {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 860px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

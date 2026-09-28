@@ -12,8 +12,8 @@
 | **0** | **Plan & Setup** | 🟢 Done | Architecture design, token definition, Astro + TypeScript setup, PROGRESS.md, Git init |
 | **1** | **Design System & Layout** | 🟢 Done | Header with brand logo & mobile nav, Footer with entity & compliance, Layout.astro, 404 page, CSS tokens |
 | **2** | **Home Page** | 🟢 Done | Hero with Google Maps 3-pack animation, Problem block, 2 Services, 3-Step Process, Proof/Audit mockups, FAQ, Final CTA |
-| **3** | **Service Pages** | 🟡 Next | `/google-business-profile-ranking` & `/website-updates` (Answer-first, deliverables, report sample, pricing placeholder, FAQ, CTA) |
-| **4** | **CTA Pages & Forms** | ⚪ Not Started | `/free-google-check` (distraction-free), `/3-quick-fixes`, `/thanks`, API routes to n8n with honeypot & fallback |
+| **3** | **Service Pages** | 🟢 Done | `/google-business-profile-ranking` & `/website-updates` (Answer-first, deliverables, report sample, pricing placeholder, FAQ, CTA) |
+| **4** | **CTA Pages & Forms** | 🟡 Next | `/free-google-check` (distraction-free), `/3-quick-fixes`, `/thanks`, API routes to n8n with honeypot & fallback |
 | **5** | **Trust & Legal Pages** | ⚪ Not Started | `/about` (Andrew's engineering background), `/faq` (14+ AEO questions), `/privacy` (NZ Privacy Act 2020), `/terms` |
 | **6** | **SEO, AEO & GEO** | ⚪ Not Started | JSON-LD schemas (Org, Service, FAQ, Person, Breadcrumbs), sitemap.xml, robots.txt, llms.txt, Open Graph meta |
 | **7** | **QA & Performance** | ⚪ Not Started | Lighthouse 95+ audit across all 4 scores, 320px mobile test, WCAG 2.2 AA contrast, link checks |
