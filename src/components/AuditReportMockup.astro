@@ -1,0 +1,379 @@
+---
+// Sample Visibility Check & Suburb Rank Tracking Mockup
+// Illustrates how Sinchi diagnoses ranking issues and tracks local 3-pack positions across suburbs.
+---
+
+<div class="proof-container">
+  <!-- Left Card: Sample Audit Diagnosis -->
+  <div class="proof-card audit-sample-card">
+    <div class="card-header">
+      <div class="header-tag">Sample Visibility Check Report</div>
+      <div class="report-meta">Anonymised Auckland Tradie (Pre-Optimisation)</div>
+    </div>
+
+    <div class="audit-score-row">
+      <div class="score-circle">
+        <span class="score-val">42%</span>
+        <span class="score-label">Visibility</span>
+      </div>
+      <div class="score-summary">
+        <h3 class="summary-title">3 critical ranking issues identified</h3>
+        <p class="summary-text">
+          Fixing these three items is the fastest path to climbing from #7 into the top 3 pack.
+        </p>
+      </div>
+    </div>
+
+    <ul class="audit-checks-list">
+      <li class="check-item issue">
+        <div class="check-status-icon error" aria-label="Action required">✕</div>
+        <div class="check-info">
+          <span class="check-name">Primary GBP Category</span>
+          <span class="check-detail">Set as "Handyman" instead of "Plumber". Huge ranking penalty.</span>
+        </div>
+      </li>
+      <li class="check-item issue">
+        <div class="check-status-icon error" aria-label="Action required">✕</div>
+        <div class="check-info">
+          <span class="check-name">Review Velocity & Replies</span>
+          <span class="check-detail">Last review was 4 months ago; 0 replies containing service keywords.</span>
+        </div>
+      </li>
+      <li class="check-item issue">
+        <div class="check-status-icon error" aria-label="Action required">✕</div>
+        <div class="check-info">
+          <span class="check-name">Website Schema & Mobile Speed</span>
+          <span class="check-detail">Missing LocalBusiness schema; mobile site takes 4.8s to become interactive.</span>
+        </div>
+      </li>
+      <li class="check-item ok">
+        <div class="check-status-icon pass" aria-label="Passing">✓</div>
+        <div class="check-info">
+          <span class="check-name">NAP Consistency</span>
+          <span class="check-detail">Business name, address, and phone number match across existing directories.</span>
+        </div>
+      </li>
+    </ul>
+
+    <div class="card-footer-note">
+      <span>Every free check includes this full diagnosis for your specific service and town.</span>
+    </div>
+  </div>
+
+  <!-- Right Card: Suburb Rank Tracking Matrix -->
+  <div class="proof-card rank-matrix-card">
+    <div class="card-header">
+      <div class="header-tag">Monthly Geo-Grid Tracking</div>
+      <div class="report-meta">Live ranking across your service area</div>
+    </div>
+
+    <div class="matrix-explanation">
+      <h3 class="matrix-title">How you dominate your local territory</h3>
+      <p class="matrix-text">
+        Google Maps rankings change suburb by suburb. We track your position on a 5km radius grid so you know exactly where you are winning calls.
+      </p>
+    </div>
+
+    <div class="geo-grid-mockup">
+      <div class="grid-header-row">
+        <span>Target Suburb</span>
+        <span>Search Query</span>
+        <span>Position</span>
+      </div>
+      <div class="grid-row rank-1">
+        <span class="suburb-name">Ponsonby</span>
+        <span class="query-name">hot water cylinder repair</span>
+        <span class="rank-chip rank-top">#1 in Map</span>
+      </div>
+      <div class="grid-row rank-1">
+        <span class="suburb-name">Grey Lynn</span>
+        <span class="query-name">emergency plumber</span>
+        <span class="rank-chip rank-top">#1 in Map</span>
+      </div>
+      <div class="grid-row rank-2">
+        <span class="suburb-name">Mount Eden</span>
+        <span class="query-name">blocked drain unblocking</span>
+        <span class="rank-chip rank-top">#2 in Map</span>
+      </div>
+      <div class="grid-row rank-2">
+        <span class="suburb-name">Newmarket</span>
+        <span class="query-name">plumber near me</span>
+        <span class="rank-chip rank-top">#2 in Map</span>
+      </div>
+      <div class="grid-row rank-3">
+        <span class="suburb-name">Takapuna</span>
+        <span class="query-name">gas fitter auckland</span>
+        <span class="rank-chip rank-top">#3 in Map</span>
+      </div>
+    </div>
+
+    <div class="proof-placeholder-band">
+      <span class="placeholder-label">[CLIENT RESULT PLACEHOLDER]</span>
+      <span class="placeholder-desc">Real case studies & local ranking charts added upon client consent.</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .proof-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+  }
+
+  .proof-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1.25rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding-bottom: 1rem;
+  }
+
+  .header-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+  }
+
+  .report-meta {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+  }
+
+  .audit-score-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+    background-color: var(--color-lilac-subtle);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+  }
+
+  .score-circle {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-full);
+    background-color: var(--color-plum);
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .score-val {
+    font-size: 1.125rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .score-label {
+    font-size: 0.625rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #D6C2EB;
+  }
+
+  .summary-title {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .summary-text {
+    font-size: 0.8125rem;
+    line-height: 1.4;
+    color: var(--color-text-muted);
+  }
+
+  .audit-checks-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    padding: 0.5rem;
+    border-radius: var(--radius-sm);
+  }
+
+  .check-item.issue {
+    background-color: #FFF6F6;
+  }
+
+  .check-item.ok {
+    background-color: #F4FAF6;
+  }
+
+  .check-status-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .check-status-icon.error {
+    background-color: #F8D7DA;
+    color: #842029;
+  }
+
+  .check-status-icon.pass {
+    background-color: #D1E7DD;
+    color: #0F5132;
+  }
+
+  .check-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .check-name {
+    font-weight: 700;
+    color: var(--color-plum);
+  }
+
+  .check-detail {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .card-footer-note {
+    margin-top: auto;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-align: center;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .matrix-explanation {
+    margin-bottom: 1.25rem;
+  }
+
+  .matrix-title {
+    font-size: 1.125rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .matrix-text {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+  }
+
+  .geo-grid-mockup {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+
+  .grid-header-row {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr 1fr;
+    padding: 0.5rem 0.75rem;
+    background-color: var(--color-lilac-subtle);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-plum);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .grid-row {
+    display: grid;
+    grid-template-columns: 1.2fr 2fr 1fr;
+    align-items: center;
+    padding: 0.6rem 0.75rem;
+    font-size: 0.8125rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  .grid-row:last-child {
+    border-bottom: none;
+  }
+
+  .suburb-name {
+    font-weight: 700;
+    color: var(--color-plum);
+  }
+
+  .query-name {
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rank-chip {
+    display: inline-flex;
+    justify-content: center;
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 800;
+  }
+
+  .rank-top {
+    background-color: #EBD6FA;
+    color: var(--color-primary);
+  }
+
+  .proof-placeholder-band {
+    margin-top: auto;
+    background-color: #FAF8FC;
+    border: 1px dashed var(--color-border);
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .placeholder-label {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--color-text-muted);
+  }
+
+  .placeholder-desc {
+    font-size: 0.75rem;
+    color: #8C7B99;
+  }
+
+  @media (max-width: 860px) {
+    .proof-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
