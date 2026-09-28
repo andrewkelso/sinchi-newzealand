@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Page Not Found (404) | Sinchi"
+  description="Sorry, that page can't be found. Head back to Sinchi home or request a free Google visibility check."
+  noindex={true}
+>
+  <section class="section error-section">
+    <div class="container container-narrow">
+      <div class="error-card">
+        <span class="error-badge">404 Error</span>
+        <h1 class="error-title">Page not found</h1>
+        <p class="error-description">
+          Looks like this link took a wrong turn, or the page has moved. Don't worry — we can get you back on track.
+        </p>
+
+        <div class="error-actions">
+          <a href="/" class="btn btn-primary">Back to home page</a>
+          <a href="/free-google-check" class="btn btn-secondary">Get my free check</a>
+        </div>
+
+        <div class="quick-links-box">
+          <h2 class="quick-links-title">Popular pages</h2>
+          <ul class="quick-links-list">
+            <li>
+              <a href="/google-business-profile-ranking">Google Business Profile Ranking</a>
+            </li>
+            <li>
+              <a href="/website-updates">Website Updates & Speed</a>
+            </li>
+            <li>
+              <a href="/faq">Frequently Asked Questions</a>
+            </li>
+            <li>
+              <a href="/about">About Andrew & Sinchi</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .error-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    padding: 4rem 1.5rem;
+  }
+
+  .error-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .error-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1.25rem;
+  }
+
+  .error-title {
+    margin-bottom: 1rem;
+  }
+
+  .error-description {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+  }
+
+  .error-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+  }
+
+  .quick-links-box {
+    border-top: 1px solid var(--color-border-subtle);
+    padding-top: 2rem;
+    text-align: left;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .quick-links-title {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.875rem;
+    color: var(--color-plum);
+  }
+
+  .quick-links-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+
+  .quick-links-list a {
+    font-size: 0.9375rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: 500px) {
+    .quick-links-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

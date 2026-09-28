@@ -1,0 +1,222 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-grid">
+      <!-- Entity Column -->
+      <div class="footer-brand-col">
+        <a href="/" class="footer-logo-link" aria-label="Sinchi — Home">
+          <img
+            src="/brand/Sinchi_LOGO.png"
+            alt="Sinchi"
+            width="140"
+            height="56"
+            class="footer-logo"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+        <p class="entity-definition">
+          Sinchi is a local SEO service that helps New Zealand businesses rank in Google Maps and improve their websites.
+        </p>
+        <p class="footer-contact">
+          Enquiries: <a href="mailto:hello@sinchi.co.nz" class="footer-contact-link">hello@sinchi.co.nz</a>
+        </p>
+      </div>
+
+      <!-- Services Column -->
+      <div class="footer-nav-col">
+        <h2 class="footer-heading">Services</h2>
+        <ul class="footer-links">
+          <li>
+            <a href="/google-business-profile-ranking">Google Business Profile Ranking</a>
+          </li>
+          <li>
+            <a href="/website-updates">Website Updates & Speed</a>
+          </li>
+          <li>
+            <a href="/free-google-check">Free Google Visibility Check</a>
+          </li>
+          <li>
+            <a href="/3-quick-fixes">3 Quick Fixes Guide</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="footer-nav-col">
+        <h2 class="footer-heading">Company</h2>
+        <ul class="footer-links">
+          <li>
+            <a href="/about">About Andrew</a>
+          </li>
+          <li>
+            <a href="/faq">Questions & Answers</a>
+          </li>
+          <li>
+            <a href="/privacy">Privacy Policy</a>
+          </li>
+          <li>
+            <a href="/terms">Terms of Service</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Market / Compliance Column -->
+      <div class="footer-nav-col">
+        <h2 class="footer-heading">New Zealand Focus</h2>
+        <p class="footer-compliance-text">
+          Designed specifically for Kiwi tradies, clinics, schools, and local service providers across Auckland, Wellington, Christchurch, and regional NZ.
+        </p>
+        <div class="trust-badge">
+          <span>🇳🇿 New Zealand Owned & Operated</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <p class="copyright">
+        © {currentYear} Sinchi. All rights reserved. New Zealand English spelling and pricing in NZD.
+      </p>
+      <p class="legal-disclaimer">
+        Compliant with the NZ Privacy Act 2020 and Fair Trading Act 1986. We never guarantee #1 Google rankings because only Google controls search algorithms.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-plum);
+    color: #E2D4F0;
+    border-top: 1px solid #441666;
+    margin-top: auto;
+    padding-top: clamp(3rem, 6vw, 4.5rem);
+    padding-bottom: 2.5rem;
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+    gap: 2.5rem;
+  }
+
+  .footer-logo-link {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-logo {
+    height: 40px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+  }
+
+  .entity-definition {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #D6C2EB;
+    margin-bottom: 1.25rem;
+  }
+
+  .footer-contact {
+    font-size: 0.9375rem;
+    color: #BBA0D9;
+  }
+
+  .footer-contact-link {
+    color: #FFFFFF;
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .footer-contact-link:hover {
+    color: var(--color-lilac-soft);
+  }
+
+  .footer-heading {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .footer-links a {
+    color: #D6C2EB;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+  }
+
+  .footer-compliance-text {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: #CBB4E5;
+    margin-bottom: 1rem;
+  }
+
+  .trust-badge {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: var(--radius-sm);
+    padding: 0.375rem 0.75rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #FFFFFF;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    padding-top: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    font-size: 0.8125rem;
+    color: #A98EC7;
+  }
+
+  .legal-disclaimer {
+    color: #9275B3;
+    font-size: 0.78125rem;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 960px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 580px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

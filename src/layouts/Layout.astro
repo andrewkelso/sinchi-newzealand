@@ -1,18 +1,24 @@
 ---
 import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 interface Props {
   title: string;
   description: string;
   canonicalUrl?: string;
   noindex?: boolean;
+  hideNav?: boolean;
+  hideFooter?: boolean;
 }
 
 const {
   title,
   description,
   canonicalUrl = Astro.url.href,
-  noindex = false
+  noindex = false,
+  hideNav = false,
+  hideFooter = false
 } = Astro.props;
 
 const siteName = 'Sinchi';
@@ -89,6 +95,18 @@ const fullTitle = title.includes('Sinchi') ? title : `${title} | ${siteName}`;
   </head>
   <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    <slot />
+    <Header hideNav={hideNav} />
+    <main id="main-content" class="site-main">
+      <slot />
+    </main>
+    {!hideFooter && <Footer />}
   </body>
 </html>
+
+<style>
+  .site-main {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+</style>

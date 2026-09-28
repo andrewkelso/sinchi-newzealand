@@ -10,8 +10,8 @@
 | Stage | Name | Status | Summary / Deliverables |
 |---|---|---|---|
 | **0** | **Plan & Setup** | 🟢 Done | Architecture design, token definition, Astro + TypeScript setup, PROGRESS.md, Git init |
-| **1** | **Design System & Layout** | 🟡 Next | CSS design tokens, Archivo font, Header, Footer, Base Layout, 404 page |
-| **2** | **Home Page** | ⚪ Not Started | Hero with Google Maps 3-pack animation, Problem block, 2 Services, 3-Step Process, Proof/Audit placeholders, FAQ, Final CTA |
+| **1** | **Design System & Layout** | 🟢 Done | Header with brand logo & mobile nav, Footer with entity & compliance, Layout.astro, 404 page, CSS tokens |
+| **2** | **Home Page** | 🟡 Next | Hero with Google Maps 3-pack animation, Problem block, 2 Services, 3-Step Process, Proof/Audit placeholders, FAQ, Final CTA |
 | **3** | **Service Pages** | ⚪ Not Started | `/google-business-profile-ranking` & `/website-updates` (Answer-first, deliverables, report sample, pricing placeholder, FAQ, CTA) |
 | **4** | **CTA Pages & Forms** | ⚪ Not Started | `/free-google-check` (distraction-free), `/3-quick-fixes`, `/thanks`, API routes to n8n with honeypot & fallback |
 | **5** | **Trust & Legal Pages** | ⚪ Not Started | `/about` (Andrew's engineering background), `/faq` (14+ AEO questions), `/privacy` (NZ Privacy Act 2020), `/terms` |
