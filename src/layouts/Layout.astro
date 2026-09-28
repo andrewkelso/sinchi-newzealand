@@ -1,0 +1,94 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  canonicalUrl?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  canonicalUrl = Astro.url.href,
+  noindex = false
+} = Astro.props;
+
+const siteName = 'Sinchi';
+const fullTitle = title.includes('Sinchi') ? title : `${title} | ${siteName}`;
+---
+
+<!doctype html>
+<html lang="en-NZ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/png" href="/brand/Sinchi_Favacon.png" />
+    <link rel="apple-touch-icon" href="/brand/Sinchi_Favacon.png" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL('/brand/avatar.png', Astro.url).href} />
+    <meta property="og:locale" content="en_NZ" />
+    <meta property="og:site_name" content={siteName} />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL('/brand/avatar.png', Astro.url).href} />
+
+    <!-- Sitewide JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://sinchi.co.nz/#organization",
+          "name": "Sinchi",
+          "url": "https://sinchi.co.nz",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://sinchi.co.nz/brand/Sinchi_LOGO.png"
+          },
+          "areaServed": {
+            "@type": "Country",
+            "name": "New Zealand"
+          },
+          "description": "Sinchi is a local SEO service that helps New Zealand businesses rank in Google Maps and improve their websites.",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "hello@sinchi.co.nz",
+            "areaServed": "NZ"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://sinchi.co.nz/#website",
+          "url": "https://sinchi.co.nz",
+          "name": "Sinchi",
+          "publisher": {
+            "@id": "https://sinchi.co.nz/#organization"
+          },
+          "inLanguage": "en-NZ"
+        }
+      ]
+    })} />
+    <slot name="head" />
+  </head>
+  <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <slot />
+  </body>
+</html>
