@@ -1,0 +1,301 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+---
+
+<Layout
+  title="About Andrew & Sinchi | Local SEO & Google Maps NZ"
+  description="Meet Andrew, the engineer behind Sinchi. Bringing 20+ years of high-stakes systems engineering to local search and Google Maps ranking for NZ businesses."
+>
+  <section class="section about-hero">
+    <div class="container container-narrow">
+      <div class="about-header">
+        <span class="about-badge">E-E-A-T & Engineering Discipline</span>
+        <h1 class="about-title">The engineer's approach to local search</h1>
+        <p class="about-subtitle">
+          Why a background in mission-critical security systems produces better Google Maps rankings than generic marketing fluff.
+        </p>
+      </div>
+
+      <div class="about-story-card">
+        <div class="profile-row">
+          <div class="profile-avatar-box">
+            <img
+              src="/brand/avatar.png"
+              alt="Andrew — Founder of Sinchi"
+              width="120"
+              height="120"
+              class="profile-img"
+              loading="eager"
+            />
+            <span class="engineer-tag">Andrew Kelso</span>
+            <span class="engineer-role">Founder & Systems Specialist</span>
+          </div>
+          <div class="profile-intro">
+            <h2 class="intro-headline">"Search engines are rule-based systems. We treat them like engineering problems."</h2>
+            <p>
+              I spent 20+ years designing, testing, and commissioning high-stakes electronic security and infrastructure systems. In that world, guesswork is unacceptable. If a sensor fails or a communication protocol drops, the system fails.
+            </p>
+            <p>
+              When I looked at how most SEO agencies treated local New Zealand businesses, I saw the exact opposite: vague reports, buzzwords, lock-in contracts, and zero accountability.
+            </p>
+          </div>
+        </div>
+
+        <div class="story-content">
+          <h3>How Sinchi operates differently</h3>
+          <p>
+            Sinchi was built on a simple premise: Google Maps rankings are determined by measurable inputs—primary category hierarchy, geographic grid relevance, review cadence, and website schema alignment.
+          </p>
+          <p>
+            Instead of charging thousands for bloated agency overhead, we leverage smart AI automation to handle the data collection and monitoring. That means you pay strictly for high-impact fixes that generate calls, not administrative fluff.
+          </p>
+
+          <div class="remote-notice-box">
+            <h4>🇳🇿 100% Focused on New Zealand (Remote Service Model)</h4>
+            <p>
+              We want to be completely upfront: Sinchi operates as a specialized remote consultancy serving Kiwi businesses across Auckland, Hamilton, Tauranga, Wellington, Christchurch, Dunedin, and regional NZ. We don't pretend to have a physical high-street storefront in every town—honest communication is the bedrock of how we work.
+            </p>
+          </div>
+
+          <h3>Our core engineering principles</h3>
+          <ul class="principles-list">
+            <li>
+              <strong>1. Test and Measure Everything:</strong> We never guess why a competitor is outranking you. We inspect the raw data across every suburb grid point.
+            </li>
+            <li>
+              <strong>2. Plain English Reporting:</strong> You will never receive a 40-page jargon PDF. You get clear numbers: your rank position, your phone call trends, and what was fixed.
+            </li>
+            <li>
+              <strong>3. No Ranking Guarantees (Fair Trading Act):</strong> Google controls search algorithms. We never make illegal #1 guarantees; we deliver the rigorous optimization that puts the odds heavily in your favor.
+            </li>
+            <li>
+              <strong>4. Zero Lock-In Contracts:</strong> We operate on flexible month-to-month agreements. You stay because your phone is ringing.
+            </li>
+          </ul>
+
+          <div class="author-social-row">
+            <span class="social-label">Connect with Andrew:</span>
+            <a
+              href="https://www.linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="linkedin-link"
+            >
+              LinkedIn Profile ↗
+            </a>
+            <span class="divider">·</span>
+            <a href="mailto:hello@sinchi.co.nz" class="email-link">
+              hello@sinchi.co.nz
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <CtaBand
+    title="Want an engineer to inspect your Google visibility?"
+    subtitle="Request your free visibility check. We'll show you exactly where your listing stands today."
+    primaryButtonText="Get my free check"
+  />
+</Layout>
+
+<style>
+  .about-hero {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .about-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .about-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+  }
+
+  .about-title {
+    font-size: clamp(2.15rem, 4.5vw, 3.25rem);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+
+  .about-subtitle {
+    font-size: 1.1875rem;
+    color: var(--color-text-muted);
+    max-width: 620px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .about-story-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .profile-row {
+    display: flex;
+    gap: 2.5rem;
+    align-items: flex-start;
+    padding-bottom: 2.25rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    margin-bottom: 2.25rem;
+  }
+
+  .profile-avatar-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+  }
+
+  .profile-img {
+    width: 110px;
+    height: 110px;
+    border-radius: var(--radius-full);
+    border: 3px solid var(--color-primary);
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+  }
+
+  .engineer-tag {
+    font-weight: 800;
+    color: var(--color-plum);
+    font-size: 1.0625rem;
+  }
+
+  .engineer-role {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    font-weight: 600;
+  }
+
+  .profile-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .intro-headline {
+    font-size: 1.375rem;
+    color: var(--color-primary);
+    line-height: 1.35;
+    font-style: italic;
+  }
+
+  .profile-intro p {
+    font-size: 1.0625rem;
+    color: var(--color-text-main);
+    line-height: 1.6;
+  }
+
+  .story-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .story-content h3 {
+    font-size: 1.375rem;
+    margin-top: 0.5rem;
+  }
+
+  .story-content p {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+
+  .remote-notice-box {
+    background-color: var(--color-lilac-subtle);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .remote-notice-box h4 {
+    font-size: 1.0625rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-plum);
+  }
+
+  .remote-notice-box p {
+    font-size: 0.9375rem;
+    color: var(--color-text-main);
+    line-height: 1.55;
+  }
+
+  .principles-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .principles-list li {
+    background-color: #FAF8FC;
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--color-text-main);
+    border-left: 3px solid var(--color-primary);
+  }
+
+  .principles-list strong {
+    color: var(--color-plum);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .author-social-row {
+    margin-top: 1rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-border-subtle);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    flex-wrap: wrap;
+  }
+
+  .social-label {
+    font-weight: 700;
+    color: var(--color-plum);
+  }
+
+  .linkedin-link,
+  .email-link {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .divider {
+    color: var(--color-border);
+  }
+
+  @media (max-width: 700px) {
+    .profile-row {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+    }
+  }
+</style>

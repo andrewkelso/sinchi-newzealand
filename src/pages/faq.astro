@@ -1,0 +1,232 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CtaBand from '../components/CtaBand.astro';
+
+const allFaqs = [
+  {
+    category: "Google Maps & Profile Basics",
+    items: [
+      {
+        q: "What is a Google Business Profile?",
+        a: "A Google Business Profile (formerly Google My Business) is a free listing provided by Google that allows local businesses to appear on Google Maps and in local search results. It showcases your business name, address, services, photos, and customer reviews to nearby searchers looking for immediate solutions."
+      },
+      {
+        q: "How long does it take to rank in the Google Maps top 3 in NZ?",
+        a: "Most local New Zealand businesses see noticeable ranking improvements within 3 to 8 weeks after fixing primary categories, addressing profile gaps, and implementing a review schedule. Highly competitive metro areas (such as central Auckland or Christchurch) typically take 3 to 6 months of steady optimization."
+      },
+      {
+        q: "What is the difference between a storefront and a service-area business?",
+        a: "A storefront profile displays a public physical address on Google Maps where customers visit you in person (e.g. clinics, retail, repair shops). A service-area business (SAB) hides the physical residential address and instead designates specific suburbs or regions you travel to (e.g. mobile tradies, driving instructors)."
+      },
+      {
+        q: "Do I need a website if I only want Google Maps rankings?",
+        a: "Yes. Google uses your website's speed, LocalBusiness structured data, and service area content to corroborate what your business does and where you operate. A fast website that matches your Google Business Profile is one of the strongest ranking signals for local search."
+      }
+    ]
+  },
+  {
+    category: "Rankings, Reviews & Competitors",
+    items: [
+      {
+        q: "Can you guarantee a #1 ranking on Google Maps?",
+        a: "No, and any agency promising a guaranteed ranking is violating Google's guidelines and the NZ Fair Trading Act. Google's algorithms dynamically adjust rankings based on proximity, relevance, and user search patterns. We use mathematically proven optimization methods that give you the strongest possible competitive advantage."
+      },
+      {
+        q: "How many Google reviews do I need to rank in the top 3?",
+        a: "There is no fixed number. What matters most is review velocity (getting 1-3 new reviews every week) and review sentiment compared to your top 3 competitors. Consistent new reviews with natural trade and suburb keywords will quickly outrank older, dormant competitor profiles with larger review counts."
+      },
+      {
+        q: "What is Google Business Profile category dilution?",
+        a: "Category dilution happens when you add too many irrelevant secondary categories to your profile, confusing Google's understanding of your core business. Your primary category should reflect your main revenue driver, with only 3 to 5 closely related secondary categories selected."
+      },
+      {
+        q: "Why did my Google Business Profile get suspended?",
+        a: "Google suspends profiles primarily due to address policy violations (e.g. using a virtual office, PO Box, or co-working space), stuffing keywords into the business name, or making drastic simultaneous edits. We audit suspended profiles and submit official reinstatement requests with supporting utility bills and council records."
+      }
+    ]
+  },
+  {
+    category: "Cost, Contracts & Operations",
+    items: [
+      {
+        q: "How much does local SEO cost in New Zealand?",
+        a: "In New Zealand, professional Google Business Profile optimization and local SEO typically costs between $450 and $1,200 NZD per month depending on your market competition and service area size. We provide exact, fixed pricing in your free visibility report with zero hidden extras."
+      },
+      {
+        q: "Do you lock clients into long-term contracts?",
+        a: "No. All Sinchi optimization services operate on a month-to-month basis with zero lock-in contracts. You can pause or cancel at any time. Our business model relies on keeping your phone ringing so you choose to stay."
+      },
+      {
+        q: "Do you work with businesses outside Auckland?",
+        a: "Yes. Sinchi works remotely with local businesses across all of New Zealand, including Wellington, Christchurch, Hamilton, Tauranga, Napier, Dunedin, Queenstown, and regional towns throughout the North and South Islands."
+      },
+      {
+        q: "What are NAP citations and why do they matter in NZ?",
+        a: "NAP stands for Name, Address, and Phone Number. When your exact NAP details match across trusted NZ business directories (like Yellow, Finda, and UBD), Google gains high confidence in your business's physical existence and rewards you with stronger local map visibility."
+      },
+      {
+        q: "How do AI engines (ChatGPT, Perplexity, Gemini) use my Google profile?",
+        a: "Generative AI search engines ingest verified Google Business data, local structured schema, and customer review sentiment to recommend local providers when users ask conversational questions like 'Who is the most reliable electrician in Takapuna?'"
+      },
+      {
+        q: "Can I manage my profile myself after you optimize it?",
+        a: "Yes. We never hold your assets hostage. You always maintain full primary ownership of your Google profile and website. If you choose to manage it internally after our initial optimization, you are free to do so."
+      }
+    ]
+  }
+];
+---
+
+<Layout
+  title="Local SEO & Google Maps FAQ for NZ Businesses | Sinchi"
+  description="Clear, honest answers to common questions about Google Maps rankings, Google Business Profile optimization, review systems, and local SEO costs in New Zealand."
+>
+  <section class="section faq-hero">
+    <div class="container container-narrow">
+      <div class="faq-hero-header">
+        <span class="faq-badge">Answer-First Knowledge Base</span>
+        <h1 class="faq-hero-title">Frequently asked questions</h1>
+        <p class="faq-hero-sub">
+          Straight, engineer-tested answers to the questions Kiwi business owners ask us most about Google Maps, rankings, and local search.
+        </p>
+      </div>
+
+      <div class="faq-sections-wrapper">
+        {allFaqs.map((section) => (
+          <div class="faq-category-block">
+            <h2 class="faq-category-title">{section.category}</h2>
+            <div class="faq-cards-stack">
+              {section.items.map((item) => (
+                <div class="faq-full-card">
+                  <h3 class="faq-full-question">{item.q}</h3>
+                  <p class="faq-full-answer">{item.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="faq-help-box">
+        <h3>Have a question not answered here?</h3>
+        <p>Send an email directly to Andrew at <a href="mailto:hello@sinchi.co.nz">hello@sinchi.co.nz</a> or request a free visibility check for your listing.</p>
+        <div class="faq-help-btn-row">
+          <a href="/free-google-check" class="btn btn-primary">Get my free check</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Band -->
+  <CtaBand />
+</Layout>
+
+<style>
+  .faq-hero {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .faq-hero-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .faq-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+  }
+
+  .faq-hero-title {
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+
+  .faq-hero-sub {
+    font-size: 1.1875rem;
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .faq-sections-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .faq-category-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .faq-category-title {
+    font-size: 1.5rem;
+    color: var(--color-plum);
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .faq-cards-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .faq-full-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .faq-full-question {
+    font-size: 1.1875rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-plum);
+  }
+
+  .faq-full-answer {
+    color: var(--color-text-main);
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .faq-help-box {
+    margin-top: 3.5rem;
+    background-color: var(--color-lilac-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    text-align: center;
+  }
+
+  .faq-help-box h3 {
+    font-size: 1.375rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-help-box p {
+    font-size: 1.0625rem;
+    color: var(--color-text-muted);
+    max-width: 520px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .faq-help-btn-row {
+    display: flex;
+    justify-content: center;
+  }
+</style>

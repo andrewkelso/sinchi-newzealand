@@ -14,8 +14,8 @@
 | **2** | **Home Page** | 🟢 Done | Hero with Google Maps 3-pack animation, Problem block, 2 Services, 3-Step Process, Proof/Audit mockups, FAQ, Final CTA |
 | **3** | **Service Pages** | 🟢 Done | `/google-business-profile-ranking` & `/website-updates` (Answer-first, deliverables, report sample, pricing placeholder, FAQ, CTA) |
 | **4** | **CTA Pages & Forms** | 🟢 Done | `/free-google-check` (distraction-free), `/3-quick-fixes`, `/thanks`, API routes to n8n with honeypot & fallback |
-| **5** | **Trust & Legal Pages** | 🟡 Next | `/about` (Andrew's engineering background), `/faq` (14+ AEO questions), `/privacy` (NZ Privacy Act 2020), `/terms` |
-| **6** | **SEO, AEO & GEO** | ⚪ Not Started | JSON-LD schemas (Org, Service, FAQ, Person, Breadcrumbs), sitemap.xml, robots.txt, llms.txt, Open Graph meta |
+| **5** | **Trust & Legal Pages** | 🟢 Done | `/about` (Andrew's engineering background), `/faq` (14+ AEO questions), `/privacy` (NZ Privacy Act 2020), `/terms` |
+| **6** | **SEO, AEO & GEO** | 🟡 Next | JSON-LD schemas (Org, Service, FAQ, Person, Breadcrumbs), sitemap.xml, robots.txt, llms.txt, Open Graph meta |
 | **7** | **QA & Performance** | ⚪ Not Started | Lighthouse 95+ audit across all 4 scores, 320px mobile test, WCAG 2.2 AA contrast, link checks |
 | **8** | **Deploy & Handover** | ⚪ Not Started | Git repository clean, Vercel build config, environment variables documentation, README |
 

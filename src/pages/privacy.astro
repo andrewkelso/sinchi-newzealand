@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Privacy Policy | Sinchi"
+  description="Sinchi Privacy Policy. How we collect, use, and protect your information in compliance with the New Zealand Privacy Act 2020."
+>
+  <section class="section">
+    <div class="container container-narrow">
+      <div class="legal-header">
+        <span class="legal-badge">New Zealand Compliance</span>
+        <h1 class="legal-title">Privacy Policy</h1>
+        <p class="legal-updated">Last updated: 29 September 2026 · Compliant with the NZ Privacy Act 2020</p>
+      </div>
+
+      <div class="legal-card">
+        <section class="legal-section">
+          <h2>1. Introduction</h2>
+          <p>
+            Sinchi ("we", "our", or "us") is committed to protecting the privacy of individuals and businesses who use our website (<a href="https://sinchi.co.nz">sinchi.co.nz</a>) and services. This Privacy Policy outlines how we collect, use, store, and disclose personal information in strict compliance with the <strong>New Zealand Privacy Act 2020</strong>.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>2. Information We Collect</h2>
+          <p>When you use our website, request a free Google visibility check, or download resources, we may collect the following information:</p>
+          <ul class="legal-list">
+            <li><strong>Contact details:</strong> Your name, work email address, and phone number (if provided).</li>
+            <li><strong>Business information:</strong> Your registered business name, website URL, primary service/trade, and town/city of operation.</li>
+            <li><strong>Technical analytics:</strong> IP address, device type, browser specifications, and usage interactions collected anonymously to improve site performance (via privacy-focused Vercel Analytics).</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>3. Why We Collect Your Information</h2>
+          <p>We collect and process your information solely for legitimate business purposes:</p>
+          <ul class="legal-list">
+            <li>To perform your requested Google Maps ranking scan and prepare your personalised visibility report.</li>
+            <li>To communicate with you regarding your report findings and answer any questions you submit.</li>
+            <li>To deliver the 3 Quick Fixes checklist and local search guides you have opted in to receive.</li>
+            <li>To meet our legal obligations under New Zealand law.</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>4. Storage, Security and Overseas Data Processing</h2>
+          <p>
+            We take all reasonable technical and administrative precautions to safeguard your data against unauthorised access, loss, or misuse.
+          </p>
+          <p>
+            Our website and automation systems utilize secure cloud infrastructure (including Vercel, n8n, and reputable encrypted cloud providers). While our primary operations are focused on New Zealand, some automated data processing and server hosting may occur on encrypted servers located overseas (such as Australia or the United States). By using our service, you acknowledge this transmission under Information Privacy Principle 12 of the Privacy Act 2020.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>5. Marketing Communications & Unsubscribe</h2>
+          <p>
+            In accordance with the <strong>Unsolicited Electronic Messages Act 2007</strong>:
+          </p>
+          <ul class="legal-list">
+            <li>We only send marketing or educational emails if you have explicitly checked the consent box on our forms.</li>
+            <li>We never sell, rent, or trade your contact information to third-party data brokers or marketing agencies.</li>
+            <li>Every email we send contains a functional, one-click unsubscribe link that immediately removes you from future mailings.</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>6. Your Rights to Access and Correction</h2>
+          <p>
+            Under the Privacy Act 2020, you have the right to request access to any personal information we hold about you, and to request correction or deletion of that information at any time.
+          </p>
+          <p>
+            To exercise these rights, simply email our Privacy Officer at: <a href="mailto:hello@sinchi.co.nz">hello@sinchi.co.nz</a>. We will respond to your request within 20 working days.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>7. Updates to this Policy</h2>
+          <p>
+            We may update this Privacy Policy periodically to reflect changes in our operational practices or legal requirements. Any revisions will be published on this page with an updated modification date.
+          </p>
+        </section>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .legal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .legal-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+  }
+
+  .legal-title {
+    font-size: clamp(2.25rem, 4.5vw, 3.25rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-updated {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+  }
+
+  .legal-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  .legal-section h2 {
+    font-size: 1.375rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-plum);
+  }
+
+  .legal-section p {
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--color-text-main);
+    margin-bottom: 0.75rem;
+  }
+
+  .legal-list {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+</style>
