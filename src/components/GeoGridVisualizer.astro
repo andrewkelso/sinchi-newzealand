@@ -1,18 +1,16 @@
 ---
-// Interactive 3x3 Suburb Geo-Grid Map Visualizer
-// Demonstrates how Google Maps rankings drop off by distance before optimisation,
-// and expand across all suburbs after Sinchi's geo-radius optimisation.
+// Interactive 3x3 Suburb Geo-Grid Map Visualizer (Dark Purple Theme)
 ---
 
 <div class="geogrid-wrapper" id="geogrid-module">
-  <div class="geogrid-card">
+  <div class="geogrid-card card-surface">
     <!-- Header with Live Toggle -->
     <div class="geogrid-header">
       <div class="geogrid-title-block">
-        <span class="badge-pill">
+        <div class="badge-pill">
           <span class="badge-dot"></span>
           <span>Live Geo-Grid Simulation</span>
-        </span>
+        </div>
         <h3 class="geogrid-title">Google Maps Suburb Ranking Heatmap</h3>
         <p class="geogrid-sub">Toggle between Before & After to see how rank radius expands across Auckland suburbs.</p>
       </div>
@@ -223,11 +221,7 @@
   }
 
   .geogrid-card {
-    background: linear-gradient(180deg, #FFFFFF 0%, #FAF6FD 100%);
-    border: 1.5px solid var(--color-border);
-    border-radius: var(--radius-xl);
     padding: clamp(1.75rem, 4vw, 2.75rem);
-    box-shadow: var(--shadow-lg);
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -250,7 +244,7 @@
 
   .geogrid-title {
     font-size: clamp(1.5rem, 3vw, 2rem);
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
   .geogrid-sub {
@@ -260,8 +254,8 @@
 
   .toggle-pill-group {
     display: inline-flex;
-    background-color: var(--color-lilac-soft);
-    border: 1px solid var(--color-border);
+    background-color: rgba(16, 2, 26, 0.8);
+    border: 1px solid rgba(168, 85, 247, 0.3);
     border-radius: var(--radius-full);
     padding: 0.35rem;
     gap: 0.35rem;
@@ -277,15 +271,15 @@
     border-radius: var(--radius-full);
     border: none;
     background: transparent;
-    color: var(--color-plum);
+    color: #CBB4E5;
     cursor: pointer;
     transition: background-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
   }
 
   .toggle-btn.active {
-    background-color: var(--color-white);
-    color: var(--color-plum);
-    box-shadow: 0 2px 8px rgba(42, 8, 64, 0.1);
+    background: linear-gradient(135deg, #9D38E0 0%, #6D10A3 100%);
+    color: #FFFFFF;
+    box-shadow: 0 0 16px rgba(157, 56, 224, 0.4);
   }
 
   .state-indicator {
@@ -295,18 +289,18 @@
   }
 
   .state-indicator.red {
-    background-color: #E53935;
+    background-color: #EF4444;
   }
 
   .state-indicator.green {
-    background-color: #10B981;
+    background-color: #34D399;
   }
 
   /* Map Grid Canvas */
   .map-grid-canvas {
     background: linear-gradient(135deg, #240537 0%, #150222 100%);
     border-radius: var(--radius-lg);
-    border: 1.5px solid rgba(142, 43, 201, 0.3);
+    border: 1.5px solid rgba(142, 43, 201, 0.35);
     padding: clamp(2rem, 5vw, 3.5rem);
     position: relative;
     overflow: hidden;
@@ -315,7 +309,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.5);
   }
 
   .map-bg-lines {
@@ -330,7 +324,7 @@
   .radius-circle {
     position: absolute;
     border-radius: var(--radius-full);
-    border: 1px dashed rgba(168, 85, 247, 0.2);
+    border: 1px dashed rgba(168, 85, 247, 0.25);
   }
 
   .radius-circle.r1 { width: 160px; height: 160px; }
@@ -366,7 +360,7 @@
     font-weight: 800;
     font-size: 1rem;
     color: var(--color-white);
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
     border: 2px solid rgba(255, 255, 255, 0.4);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
   }
@@ -381,7 +375,7 @@
 
   .pin-badge.rank-green {
     background: linear-gradient(135deg, #10B981 0%, #059669 100%);
-    box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.6);
     transform: scale(1.08);
   }
 
@@ -399,8 +393,8 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: var(--radius-full);
     padding: 0.4rem 1rem;
@@ -417,7 +411,7 @@
   }
 
   .chip-dot.red { background-color: #EF4444; }
-  .chip-dot.green { background-color: #10B981; }
+  .chip-dot.green { background-color: #34D399; }
 
   /* Footer Stats */
   .geogrid-footer {
@@ -427,8 +421,8 @@
   }
 
   .stat-pill {
-    background-color: var(--color-lilac-subtle);
-    border: 1px solid var(--color-border);
+    background-color: rgba(16, 2, 26, 0.6);
+    border: 1px solid rgba(168, 85, 247, 0.2);
     border-radius: var(--radius-md);
     padding: 1rem 1.25rem;
     display: flex;
@@ -448,11 +442,11 @@
   .stat-val {
     font-size: 1.125rem;
     font-weight: 800;
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
   .stat-val.highlight.green {
-    color: #059669;
+    color: #34D399;
   }
 
   @media (max-width: 760px) {

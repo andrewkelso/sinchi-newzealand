@@ -1,9 +1,8 @@
 ---
-// Kiwi Industry Category & Search Intent Selector
-// Allows tradies, clinics, schools, and professionals to inspect category recommendations and search strategies for their exact trade.
+// Kiwi Industry Category & Search Intent Selector (Dark Purple Theme)
 ---
 
-<div class="industry-module-card" id="industry-tabs-module">
+<div class="industry-module-card card-surface" id="industry-tabs-module">
   <div class="industry-module-header">
     <div class="badge-pill">
       <span class="badge-dot"></span>
@@ -148,11 +147,7 @@
 
 <style>
   .industry-module-card {
-    background: linear-gradient(180deg, #FFFFFF 0%, #FAF6FD 100%);
-    border: 1.5px solid var(--color-border);
-    border-radius: var(--radius-xl);
     padding: clamp(2rem, 5vw, 3.25rem);
-    box-shadow: var(--shadow-md);
     margin-top: 1.5rem;
   }
 
@@ -168,6 +163,7 @@
 
   .industry-module-title {
     font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+    color: #FFFFFF;
   }
 
   .industry-module-sub {
@@ -182,36 +178,37 @@
     gap: 0.75rem;
     flex-wrap: wrap;
     margin-bottom: 2rem;
-    border-bottom: 1px solid var(--color-border);
-    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border-subtle);
+    padding-bottom: 1.25rem;
   }
 
   .ind-tab {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: var(--color-white);
-    border: 1.5px solid var(--color-border);
+    background-color: rgba(16, 2, 26, 0.6);
+    border: 1.5px solid rgba(168, 85, 247, 0.25);
     padding: 0.65rem 1.25rem;
     border-radius: var(--radius-full);
     font-size: 0.9375rem;
     font-weight: 700;
-    color: var(--color-plum);
+    color: #E2D4F0;
     cursor: pointer;
     box-shadow: var(--shadow-sm);
     transition: all var(--transition-fast);
   }
 
   .ind-tab:hover {
-    border-color: var(--color-primary);
-    background-color: var(--color-lilac-soft);
+    border-color: var(--color-primary-light);
+    background-color: rgba(157, 56, 224, 0.2);
+    color: #FFFFFF;
   }
 
   .ind-tab.active {
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-plum) 100%);
+    background: linear-gradient(135deg, #9D38E0 0%, #6D10A3 100%);
     color: var(--color-white);
-    border-color: transparent;
-    box-shadow: 0 4px 14px rgba(109, 16, 163, 0.25);
+    border-color: rgba(192, 132, 252, 0.5);
+    box-shadow: 0 0 20px rgba(157, 56, 224, 0.4);
   }
 
   .tab-icon {
@@ -235,8 +232,8 @@
   }
 
   .panel-box {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
+    background: rgba(18, 2, 31, 0.65);
+    border: 1px solid rgba(168, 85, 247, 0.2);
     border-radius: var(--radius-md);
     padding: 1.5rem;
     display: flex;
@@ -247,8 +244,8 @@
 
   .panel-box.full-width {
     grid-column: 1 / -1;
-    background: linear-gradient(180deg, #F8F3FC 0%, #F3ECFA 100%);
-    border-left: 4px solid var(--color-primary);
+    background: rgba(36, 6, 56, 0.7);
+    border-left: 4px solid var(--color-primary-light);
   }
 
   .panel-tag {
@@ -256,12 +253,12 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-primary);
+    color: var(--color-primary-light);
   }
 
   .panel-h4 {
     font-size: 1.125rem;
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
   .panel-box p {
@@ -272,10 +269,15 @@
 
   .quote-box {
     font-size: 1rem;
-    color: var(--color-plum);
+    color: #E9D5FF;
     font-style: italic;
     line-height: 1.6;
     margin-top: 0.25rem;
+  }
+
+  .quote-box strong {
+    color: #FFFFFF;
+    text-decoration: underline;
   }
 
   @keyframes fadeIn {

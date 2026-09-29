@@ -53,18 +53,21 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .error-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
+    background: var(--color-bg-surface);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-xl);
     padding: clamp(2rem, 5vw, 3.5rem);
     text-align: center;
-    box-shadow: var(--shadow-sm);
+    box-shadow: var(--shadow-lg);
   }
 
   .error-badge {
     display: inline-block;
-    background-color: var(--color-lilac-soft);
-    color: var(--color-primary);
+    background-color: rgba(157, 56, 224, 0.2);
+    border: 1px solid rgba(192, 132, 252, 0.4);
+    color: #E9D5FF;
     font-size: 0.875rem;
     font-weight: 700;
     padding: 0.35rem 0.85rem;
@@ -74,6 +77,7 @@ import Layout from '../layouts/Layout.astro';
 
   .error-title {
     margin-bottom: 1rem;
+    color: #FFFFFF;
   }
 
   .error-description {
@@ -105,7 +109,7 @@ import Layout from '../layouts/Layout.astro';
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 0.875rem;
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
   .quick-links-list {
@@ -118,6 +122,11 @@ import Layout from '../layouts/Layout.astro';
   .quick-links-list a {
     font-size: 0.9375rem;
     font-weight: 600;
+    color: var(--color-primary-light);
+  }
+
+  .quick-links-list a:hover {
+    color: #FFFFFF;
   }
 
   @media (max-width: 500px) {

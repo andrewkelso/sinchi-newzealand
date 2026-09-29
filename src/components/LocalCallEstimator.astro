@@ -1,9 +1,8 @@
 ---
-// Interactive Local Call & Revenue Impact Estimator
-// Allows Kiwi business owners to calculate the phone calls and revenue lost by being below the Top 3 map pack.
+// Interactive Local Call & Revenue Impact Estimator (Dark Purple Theme)
 ---
 
-<div class="calculator-card" id="call-calculator">
+<div class="calculator-card card-surface" id="call-calculator">
   <div class="calculator-header">
     <div class="badge-pill">
       <span class="badge-dot"></span>
@@ -119,13 +118,10 @@
 
     searchDisplay.textContent = `${searches.toLocaleString()} searches/mo`;
 
-    // Local 3-Pack capture rate is ~22%
     const topCalls = Math.round(searches * 0.22);
-    // Below fold capture rate is ~2%
     const hiddenCalls = Math.round(searches * 0.02);
     const diffCalls = Math.max(0, topCalls - hiddenCalls);
 
-    // Conservative close rate (e.g. 30% of calls convert to paying jobs)
     const convertedJobs = Math.round(diffCalls * 0.30);
     const potentialRevenue = convertedJobs * avgValue;
 
@@ -134,7 +130,6 @@
     gainedCalls.textContent = `+${diffCalls} Calls / mo`;
     gainedRevenue.textContent = `+$${potentialRevenue.toLocaleString()} NZD`;
 
-    // Visual bar update
     const topPercent = Math.min(95, Math.max(20, (topCalls / (topCalls + 50)) * 100));
     const hiddenPercent = Math.min(25, Math.max(6, (hiddenCalls / (topCalls + 50)) * 100));
 
@@ -159,11 +154,7 @@
 
 <style>
   .calculator-card {
-    background: linear-gradient(180deg, #FFFFFF 0%, #FAF6FD 100%);
-    border: 1.5px solid var(--color-border);
-    border-radius: var(--radius-xl);
     padding: clamp(2rem, 5vw, 3.5rem);
-    box-shadow: var(--shadow-lg);
     width: 100%;
     margin-top: 1rem;
     position: relative;
@@ -184,12 +175,15 @@
     text-align: center;
     max-width: 680px;
     margin: 0 auto 2.5rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .calculator-title {
     font-size: clamp(1.65rem, 3vw, 2.25rem);
-    margin-top: 0.85rem;
-    margin-bottom: 0.5rem;
+    color: #FFFFFF;
   }
 
   .calculator-sub {
@@ -219,26 +213,25 @@
   .calc-label {
     font-size: 0.9375rem;
     font-weight: 700;
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
   .calc-select {
     width: 100%;
-    padding: 0.875rem 1rem;
-    border: 1.5px solid var(--color-border);
+    padding: 0.9rem 1rem;
+    border: 1.5px solid rgba(168, 85, 247, 0.3);
     border-radius: var(--radius-sm);
     font-family: inherit;
     font-size: 0.9375rem;
     font-weight: 600;
-    color: var(--color-plum);
-    background-color: var(--color-white);
+    color: #FFFFFF;
+    background-color: rgba(16, 2, 26, 0.85);
     cursor: pointer;
-    box-shadow: var(--shadow-sm);
   }
 
   .calc-select:focus {
     outline: none;
-    border-color: var(--color-primary);
+    border-color: var(--color-primary-light);
   }
 
   .slider-header {
@@ -250,8 +243,9 @@
   .slider-display {
     font-size: 0.875rem;
     font-weight: 800;
-    color: var(--color-primary);
-    background-color: var(--color-lilac-soft);
+    color: #E9D5FF;
+    background-color: rgba(157, 56, 224, 0.25);
+    border: 1px solid rgba(168, 85, 247, 0.4);
     padding: 0.2rem 0.65rem;
     border-radius: var(--radius-sm);
   }
@@ -260,9 +254,9 @@
     width: 100%;
     height: 8px;
     border-radius: 4px;
-    background: #E4D5F0;
+    background: rgba(157, 56, 224, 0.25);
     outline: none;
-    accent-color: var(--color-primary);
+    accent-color: var(--color-primary-light);
     cursor: pointer;
   }
 
@@ -270,17 +264,18 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.75rem;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-weight: 600;
   }
 
   /* Results Card */
   .calc-results-card {
-    background: linear-gradient(135deg, #2A0840 0%, #190328 100%);
+    background: linear-gradient(135deg, #240537 0%, #150222 100%);
+    border: 1.5px solid rgba(142, 43, 201, 0.4);
     color: var(--color-white);
     border-radius: var(--radius-lg);
     padding: 2rem;
-    box-shadow: 0 12px 32px rgba(42, 8, 64, 0.2);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -338,19 +333,19 @@
   }
 
   .top-fill {
-    background: linear-gradient(90deg, #8E2BC9, #B867EE);
+    background: linear-gradient(90deg, #9D38E0, #C084FC);
   }
 
   .hidden-fill {
-    background-color: #6C5284;
+    background-color: #553B6D;
   }
 
   .results-impact-banner {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: var(--radius-md);
     padding: 1rem;
   }
@@ -379,7 +374,7 @@
   }
 
   .impact-val.revenue {
-    color: #6CE5A1;
+    color: #34D399;
   }
 
   .impact-divider {
@@ -390,10 +385,8 @@
 
   .btn-calc {
     width: 100%;
-    padding: 0.9rem;
+    padding: 0.95rem;
     font-size: 1rem;
-    background: linear-gradient(135deg, #8E2BC9 0%, #6D10A3 100%);
-    border: 1px solid #A348DA;
   }
 
   @media (max-width: 880px) {

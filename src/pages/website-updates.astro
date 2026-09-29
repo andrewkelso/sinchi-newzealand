@@ -33,13 +33,16 @@ const websiteFaqs = [
   <!-- Service Hero -->
   <section class="service-hero">
     <div class="container container-narrow">
-      <div class="hero-badge">Website Conversion & Speed</div>
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        <span>Website Conversion & Speed</span>
+      </div>
       <h1 class="service-title">
         Website updates that turn Google visitors into calls
       </h1>
       
       <!-- AEO Answer-First Lead Paragraph (40-60 words) -->
-      <div class="answer-first-lead">
+      <div class="answer-first-lead card-surface">
         <p>
           Website updates for local businesses focus on fixing mobile page speed, adding one-tap click-to-call buttons, embedding LocalBusiness structured schema, and creating suburb-targeted service pages. These updates ensure Google validates your local ranking authority and visitors immediately convert into direct phone enquiries.
         </p>
@@ -60,6 +63,10 @@ const websiteFaqs = [
   <section class="section section-alt" id="whats-included">
     <div class="container">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Technical & Conversion Inclusions</span>
+        </div>
         <h2>What we fix on your website</h2>
         <p class="section-intro">
           Targeted technical, conversion, and local SEO enhancements that make a measurable difference.
@@ -67,7 +74,7 @@ const websiteFaqs = [
       </div>
 
       <div class="features-grid">
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">⚡</div>
           <h3>Mobile Speed & Core Web Vitals</h3>
           <p>
@@ -75,7 +82,7 @@ const websiteFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">📱</div>
           <h3>One-Tap Click-to-Call Buttons</h3>
           <p>
@@ -83,7 +90,7 @@ const websiteFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">🏙️</div>
           <h3>Service & Suburb Landing Pages</h3>
           <p>
@@ -91,7 +98,7 @@ const websiteFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">🤖</div>
           <h3>LocalBusiness JSON-LD Schema</h3>
           <p>
@@ -99,7 +106,7 @@ const websiteFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">🔄</div>
           <h3>Profile & Website Alignment</h3>
           <p>
@@ -107,7 +114,7 @@ const websiteFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">🛡️</div>
           <h3>Local Trust Signals & Proof</h3>
           <p>
@@ -122,6 +129,10 @@ const websiteFaqs = [
   <section class="section">
     <div class="container">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Conversion Benchmark</span>
+        </div>
         <h2>The difference between a leaky site and a converting site</h2>
         <p class="section-intro">
           Why small technical and layout changes dramatically boost phone enquiries.
@@ -130,7 +141,7 @@ const websiteFaqs = [
 
       <div class="comparison-grid">
         <!-- Before Card -->
-        <div class="comparison-card before-card">
+        <div class="comparison-card before-card card-surface">
           <div class="comparison-header">
             <span class="comparison-badge before-badge">Before Updates</span>
             <h3 class="comparison-title">A Leaky Website</h3>
@@ -145,7 +156,7 @@ const websiteFaqs = [
         </div>
 
         <!-- After Card -->
-        <div class="comparison-card after-card">
+        <div class="comparison-card after-card card-surface">
           <div class="comparison-header">
             <span class="comparison-badge after-badge">After Sinchi Updates</span>
             <h3 class="comparison-title">A High-Converting Local Site</h3>
@@ -165,8 +176,11 @@ const websiteFaqs = [
   <!-- Pricing Section -->
   <section class="section section-alt" id="pricing">
     <div class="container container-narrow">
-      <div class="pricing-card">
-        <div class="pricing-badge">Transparent Pricing</div>
+      <div class="pricing-card card-surface">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Transparent Pricing</span>
+        </div>
         <h2 class="pricing-title">Website Speed & Conversion Updates</h2>
         <p class="pricing-subtitle">One-off tune-up or bundled with monthly ranking.</p>
 
@@ -201,13 +215,17 @@ const websiteFaqs = [
   <section class="section">
     <div class="container container-narrow">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>FAQ</span>
+        </div>
         <h2>Frequently asked questions</h2>
         <p class="section-intro">Straight answers about website speed and conversion fixes.</p>
       </div>
 
       <div class="faq-list">
         {websiteFaqs.map((faq) => (
-          <div class="faq-card">
+          <div class="faq-card card-surface">
             <h3 class="faq-card-title">{faq.q}</h3>
             <p class="faq-card-desc">{faq.a}</p>
           </div>
@@ -227,45 +245,32 @@ const websiteFaqs = [
 <style>
   /* Service Hero */
   .service-hero {
-    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(3rem, 6vw, 5.5rem);
     padding-bottom: clamp(3rem, 6vw, 4.5rem);
-    background-color: var(--color-white);
     text-align: center;
   }
 
-  .hero-badge {
-    display: inline-block;
-    background-color: var(--color-lilac-soft);
-    color: var(--color-primary);
-    font-size: 0.875rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1.25rem;
-  }
-
   .service-title {
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-size: clamp(2.35rem, 4.5vw, 3.75rem);
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
     line-height: 1.15;
   }
 
   .answer-first-lead {
-    background-color: var(--color-lilac-subtle);
-    border-left: 4px solid var(--color-primary);
-    padding: 1.25rem 1.5rem;
+    background: rgba(36, 6, 56, 0.75);
+    border-left: 4px solid var(--color-primary-light);
+    padding: 1.5rem 1.75rem;
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     text-align: left;
-    margin: 0 auto 2rem auto;
-    max-width: 720px;
+    margin: 0 auto 2.25rem auto;
+    max-width: 740px;
   }
 
   .answer-first-lead p {
     font-size: 1.125rem;
     line-height: 1.6;
-    color: var(--color-plum);
+    color: var(--color-text-main);
     font-weight: 500;
   }
 
@@ -280,13 +285,13 @@ const websiteFaqs = [
   .service-secondary-btn {
     font-weight: 700;
     font-size: 1rem;
-    color: var(--color-plum);
+    color: #FFFFFF;
     text-decoration: underline;
     text-underline-offset: 4px;
   }
 
   .service-secondary-btn:hover {
-    color: var(--color-primary);
+    color: var(--color-primary-light);
   }
 
   /* Section Headers */
@@ -294,10 +299,10 @@ const websiteFaqs = [
     text-align: center;
     max-width: 680px;
     margin: 0 auto 3rem auto;
-  }
-
-  .section-header h2 {
-    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .section-intro {
@@ -313,20 +318,24 @@ const websiteFaqs = [
   }
 
   .feature-item {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    box-shadow: var(--shadow-sm);
+    padding: 2.25rem;
   }
 
   .feature-icon {
-    font-size: 2rem;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius-md);
+    background: rgba(157, 56, 224, 0.18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .feature-item h3 {
     font-size: 1.25rem;
+    color: #FFFFFF;
     margin-bottom: 0.6rem;
   }
 
@@ -346,24 +355,24 @@ const websiteFaqs = [
   .comparison-card {
     border-radius: var(--radius-lg);
     padding: 2.25rem;
-    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
   }
 
   .before-card {
-    background-color: #FFF8F8;
-    border: 1px solid #F5D3D3;
+    background: rgba(45, 10, 18, 0.6);
+    border: 1.5px solid rgba(239, 68, 68, 0.3);
   }
 
   .after-card {
-    background: linear-gradient(135deg, #FAF4FF 0%, #F5ECFC 100%);
-    border: 2px solid var(--color-primary);
+    background: rgba(38, 8, 62, 0.85);
+    border: 2px solid var(--color-primary-light);
+    box-shadow: 0 0 24px rgba(157, 56, 224, 0.3);
   }
 
   .comparison-header {
     margin-bottom: 1.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid var(--color-border-subtle);
     padding-bottom: 1rem;
   }
 
@@ -379,17 +388,20 @@ const websiteFaqs = [
   }
 
   .before-badge {
-    background-color: #FCE8E8;
-    color: #A32020;
+    background-color: rgba(239, 68, 68, 0.2);
+    color: #F87171;
+    border: 1px solid rgba(239, 68, 68, 0.4);
   }
 
   .after-badge {
-    background-color: #EBD6FA;
-    color: var(--color-primary);
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34D399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
   }
 
   .comparison-title {
     font-size: 1.375rem;
+    color: #FFFFFF;
   }
 
   .comparison-list {
@@ -402,39 +414,28 @@ const websiteFaqs = [
   }
 
   .before-card .comparison-list li {
-    color: #7A3333;
+    color: #FCA5A5;
   }
 
   .after-card .comparison-list li {
-    color: var(--color-plum);
+    color: #E9D5FF;
   }
 
   /* Pricing Card */
   .pricing-card {
-    background-color: var(--color-white);
-    border: 2px solid var(--color-primary);
-    border-radius: var(--radius-lg);
-    padding: clamp(2rem, 5vw, 3.5rem);
+    border: 2px solid var(--color-primary-light);
+    padding: clamp(2.25rem, 5vw, 3.5rem);
     text-align: center;
-    box-shadow: var(--shadow-md);
-  }
-
-  .pricing-badge {
-    display: inline-block;
-    background-color: var(--color-lilac-soft);
-    color: var(--color-primary);
-    font-size: 0.8125rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.3rem 0.8rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .pricing-title {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    margin-top: 0.85rem;
     margin-bottom: 0.5rem;
+    color: #FFFFFF;
   }
 
   .pricing-subtitle {
@@ -460,7 +461,7 @@ const websiteFaqs = [
   .price {
     font-size: clamp(2.75rem, 5vw, 3.75rem);
     font-weight: 800;
-    color: var(--color-plum);
+    color: #FFFFFF;
     letter-spacing: -0.03em;
   }
 
@@ -488,13 +489,13 @@ const websiteFaqs = [
     text-align: left;
     font-size: 0.9375rem;
     font-weight: 600;
-    color: var(--color-plum);
+    color: #E9D5FF;
   }
 
   .btn-pricing {
     width: 100%;
     max-width: 440px;
-    padding: 1rem 1.75rem;
+    padding: 1.1rem 1.75rem;
     font-size: 1.125rem;
   }
 
@@ -506,16 +507,13 @@ const websiteFaqs = [
   }
 
   .faq-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
+    padding: 1.75rem;
   }
 
   .faq-card-title {
     font-size: 1.125rem;
     margin-bottom: 0.5rem;
+    color: #FFFFFF;
   }
 
   .faq-card-desc {

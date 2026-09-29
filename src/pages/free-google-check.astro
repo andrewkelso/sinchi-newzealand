@@ -366,33 +366,39 @@ import AuditRadarSimulation from '../components/AuditRadarSimulation.astro';
   .form-label {
     font-size: 0.875rem;
     font-weight: 700;
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
-  .required { color: #D32F2F; }
+  .required { color: #FF8080; }
   .optional { font-size: 0.75rem; color: var(--color-text-light); }
 
   .form-input {
     width: 100%;
     padding: 0.8125rem 1rem;
-    border: 1.5px solid var(--color-border);
+    border: 1.5px solid rgba(168, 85, 247, 0.3);
     border-radius: var(--radius-sm);
     font-family: inherit;
     font-size: 0.9375rem;
-    background-color: #FFFFFF;
-    color: var(--color-plum);
+    background-color: rgba(18, 2, 31, 0.85);
+    color: #FFFFFF;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   }
 
   .form-input:focus {
     outline: none;
-    border-color: var(--color-primary);
-    box-shadow: 0 0 0 3px rgba(109, 16, 163, 0.15);
+    background-color: rgba(28, 5, 44, 0.95);
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px rgba(157, 56, 224, 0.35);
+  }
+
+  .form-input::placeholder {
+    color: #8C76A8;
   }
 
   .field-error {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #D32F2F;
+    color: #FF9999;
     min-height: 0.9rem;
   }
 
@@ -429,9 +435,9 @@ import AuditRadarSimulation from '../components/AuditRadarSimulation.astro';
   }
 
   .form-global-error {
-    background-color: #FFEEEE;
-    border: 1px solid #FFCCCC;
-    color: #C03232;
+    background-color: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #FCA5A5;
     padding: 0.75rem;
     border-radius: var(--radius-sm);
     font-size: 0.875rem;
@@ -449,12 +455,13 @@ import AuditRadarSimulation from '../components/AuditRadarSimulation.astro';
     display: flex;
     align-items: flex-start;
     gap: 1rem;
-    background-color: var(--color-lilac-subtle);
+    background-color: rgba(157, 56, 224, 0.12);
+    border: 1px solid var(--color-border);
     padding: 1rem 1.25rem;
     border-radius: var(--radius-md);
     font-size: 0.875rem;
     line-height: 1.5;
-    color: var(--color-plum);
+    color: var(--color-text-main);
   }
 
   .engineer-avatar-icon {
