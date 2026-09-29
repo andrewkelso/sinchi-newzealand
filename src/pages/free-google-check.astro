@@ -1,0 +1,538 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Free Google Visibility Check | Sinchi"
+  description="See where your New Zealand business ranks on Google Maps and who is beating you. Get your free personalized visibility check within 1 working day."
+  hideNav={true}
+>
+  <div class="landing-wrapper">
+    <div class="container container-narrow">
+      <!-- Top Minimal Nav -->
+      <div class="landing-header">
+        <a href="/" class="landing-logo-link" aria-label="Sinchi — Home">
+          <img
+            src="/brand/Sinchi_LOGO.png"
+            alt="Sinchi"
+            width="140"
+            height="56"
+            class="landing-logo"
+            loading="eager"
+          />
+        </a>
+        <a href="/" class="back-home-link">← Back to main site</a>
+      </div>
+
+      <div class="landing-card">
+        <div class="landing-headline-block">
+          <span class="badge-free">100% Free · No Obligation</span>
+          <h1 class="landing-title">See exactly where you rank on Google, free</h1>
+          <p class="landing-sub">
+            We will run a local geo-grid scan across your service area and send you a plain-English report within one working day.
+          </p>
+        </div>
+
+        <!-- Report Value Highlights -->
+        <div class="report-value-box">
+          <h2 class="value-title">What your personalised report reveals:</h2>
+          <ul class="value-list">
+            <li>
+              <span class="v-icon">📍</span>
+              <div>
+                <strong>Where you rank for your main search:</strong> A live map showing your position (#1, #4, or #15) across the suburbs you service.
+              </div>
+            </li>
+            <li>
+              <span class="v-icon">🔍</span>
+              <div>
+                <strong>The 3 businesses beating you and why:</strong> Exact category, review, and authority gaps giving your competitors the advantage.
+              </div>
+            </li>
+            <li>
+              <span class="v-icon">🛠️</span>
+              <div>
+                <strong>The top fixes for your profile and site:</strong> Actionable steps you or our team can take immediately to climb into the top 3.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Form Card -->
+        <div class="form-container">
+          <form id="free-check-form" class="check-form" novalidate>
+            <!-- Honeypot field (hidden from humans) -->
+            <div class="honeypot-field" aria-hidden="true" style="display: none;">
+              <label for="website_hp">Leave this empty</label>
+              <input type="text" id="website_hp" name="website_hp" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="businessName" class="form-label">
+                  Business Name <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="businessName"
+                  name="businessName"
+                  class="form-input"
+                  placeholder="e.g. Papakura Plumbing & Gas"
+                  required
+                />
+                <span class="field-error" id="error-businessName"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="websiteUrl" class="form-label">
+                  Website URL <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="websiteUrl"
+                  name="websiteUrl"
+                  class="form-input"
+                  placeholder="e.g. www.papakuraplumbing.co.nz (or Facebook page)"
+                  required
+                />
+                <span class="field-error" id="error-websiteUrl"></span>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="mainService" class="form-label">
+                  Main Service / Trade <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="mainService"
+                  name="mainService"
+                  class="form-input"
+                  placeholder="e.g. Emergency Plumber, Driving Instructor"
+                  required
+                />
+                <span class="field-error" id="error-mainService"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="townCity" class="form-label">
+                  Town / City & Area <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="townCity"
+                  name="townCity"
+                  class="form-input"
+                  placeholder="e.g. South Auckland, Tauranga, Christchurch"
+                  required
+                />
+                <span class="field-error" id="error-townCity"></span>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="email" class="form-label">
+                  Work Email <span class="required">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="name@yourbusiness.co.nz"
+                  required
+                />
+                <span class="field-error" id="error-email"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="phone" class="form-label">
+                  Phone Number <span class="optional">(Optional)</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  class="form-input"
+                  placeholder="e.g. 021 555 1234"
+                />
+              </div>
+            </div>
+
+            <!-- Consent Checkbox (Unsolicited Electronic Messages Act 2007 compliant) -->
+            <div class="consent-group">
+              <label class="consent-label">
+                <input type="checkbox" id="consent" name="consent" class="consent-checkbox" />
+                <span class="consent-text">
+                  I agree to receive my visibility report and occasional local ranking advice from Sinchi (unsubscribe anytime).
+                </span>
+              </label>
+            </div>
+
+            <div class="form-submit-row">
+              <button type="submit" id="submit-btn" class="btn btn-primary btn-submit">
+                <span class="btn-text">Get my free check</span>
+                <span class="btn-loader" style="display: none;">Generating report request...</span>
+              </button>
+            </div>
+
+            <div class="form-global-error" id="form-error" style="display: none;"></div>
+
+            <p class="microcopy">
+              🔒 We'll send your report within one working day. No sales call unless you ask for one.
+            </p>
+          </form>
+        </div>
+
+        <!-- Trust footer -->
+        <div class="landing-trust-bar">
+          <div class="trust-engineer-note">
+            <span class="engineer-avatar-icon">⚙️</span>
+            <p>
+              <strong>Engineer's Guarantee:</strong> Every audit is personally reviewed by Andrew, a systems engineer with 20+ years' experience on high-stakes systems. No automated cookie-cutter fluff.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const form = document.getElementById('free-check-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+  const btnText = submitBtn?.querySelector('.btn-text') as HTMLElement;
+  const btnLoader = submitBtn?.querySelector('.btn-loader') as HTMLElement;
+  const formError = document.getElementById('form-error') as HTMLElement;
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formError.style.display = 'none';
+
+      // Clear field errors
+      document.querySelectorAll('.field-error').forEach((el) => (el.textContent = ''));
+
+      const formData = new FormData(form);
+      const data = {
+        website_hp: formData.get('website_hp') || '',
+        businessName: formData.get('businessName') || '',
+        websiteUrl: formData.get('websiteUrl') || '',
+        mainService: formData.get('mainService') || '',
+        townCity: formData.get('townCity') || '',
+        email: formData.get('email') || '',
+        phone: formData.get('phone') || '',
+        consent: formData.get('consent') === 'on'
+      };
+
+      // Client-side validation
+      let hasError = false;
+      if (!data.businessName) {
+        document.getElementById('error-businessName')!.textContent = 'Business name is required.';
+        hasError = true;
+      }
+      if (!data.websiteUrl) {
+        document.getElementById('error-websiteUrl')!.textContent = 'Website or profile link is required.';
+        hasError = true;
+      }
+      if (!data.mainService) {
+        document.getElementById('error-mainService')!.textContent = 'Main trade or service is required.';
+        hasError = true;
+      }
+      if (!data.townCity) {
+        document.getElementById('error-townCity')!.textContent = 'Town or city is required.';
+        hasError = true;
+      }
+      if (!data.email) {
+        document.getElementById('error-email')!.textContent = 'Work email is required.';
+        hasError = true;
+      }
+
+      if (hasError) return;
+
+      // Loading state
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline';
+
+      try {
+        const res = await fetch('/api/submit-check', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+
+        const result = await res.json();
+
+        if (res.ok && result.success) {
+          window.location.href = result.redirect || '/thanks';
+        } else {
+          formError.textContent = result.error || 'Failed to submit. Please try again.';
+          formError.style.display = 'block';
+          submitBtn.disabled = false;
+          btnText.style.display = 'inline';
+          btnLoader.style.display = 'none';
+        }
+      } catch (err) {
+        formError.textContent = 'Network error. Please check your connection and try again.';
+        formError.style.display = 'block';
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoader.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<style>
+  .landing-wrapper {
+    background-color: var(--color-lilac-subtle);
+    min-height: 100vh;
+    padding-top: 1.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .landing-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .landing-logo {
+    height: 40px;
+    width: auto;
+  }
+
+  .back-home-link {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-plum);
+    text-decoration: none;
+  }
+
+  .back-home-link:hover {
+    text-decoration: underline;
+    color: var(--color-primary);
+  }
+
+  .landing-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    box-shadow: var(--shadow-md);
+  }
+
+  .landing-headline-block {
+    text-align: center;
+    margin-bottom: 2.25rem;
+  }
+
+  .badge-free {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+  }
+
+  .landing-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+  }
+
+  .landing-sub {
+    font-size: 1.125rem;
+    color: var(--color-text-muted);
+    max-width: 580px;
+    margin: 0 auto;
+  }
+
+  .report-value-box {
+    background-color: #FAF8FC;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .value-title {
+    font-size: 1.0625rem;
+    margin-bottom: 1rem;
+    color: var(--color-plum);
+  }
+
+  .value-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .value-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--color-text-main);
+    line-height: 1.5;
+  }
+
+  .v-icon {
+    font-size: 1.125rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Form Styles */
+  .check-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-plum);
+  }
+
+  .required {
+    color: #D32F2F;
+  }
+
+  .optional {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.8125rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.9375rem;
+    color: var(--color-text-main);
+    background-color: #FFFFFF;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(109, 16, 163, 0.15);
+  }
+
+  .field-error {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #D32F2F;
+    min-height: 1rem;
+  }
+
+  .consent-group {
+    margin-top: 0.25rem;
+  }
+
+  .consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+  }
+
+  .consent-checkbox {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+  }
+
+  .consent-text {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+  }
+
+  .form-submit-row {
+    margin-top: 0.75rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 1.125rem;
+    font-size: 1.125rem;
+  }
+
+  .microcopy {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+
+  .form-global-error {
+    background-color: #FFEEEE;
+    border: 1px solid #FFCCCC;
+    color: #C03232;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .landing-trust-bar {
+    margin-top: 2.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .trust-engineer-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: var(--color-lilac-subtle);
+    padding: 1rem 1.25rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-plum);
+  }
+
+  .engineer-avatar-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 650px) {
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,148 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Thank You | Sinchi"
+  description="Your Google visibility check request has been received. We will send your report within one working day."
+  noindex={true}
+>
+  <section class="section thanks-section">
+    <div class="container container-narrow">
+      <div class="thanks-card">
+        <div class="thanks-icon-badge">✓</div>
+        <h1 class="thanks-title">We're on it!</h1>
+        <p class="thanks-lead">
+          Thanks for reaching out. We have received your details and are analyzing your local Google ranking territory.
+        </p>
+
+        <div class="next-steps-box">
+          <h2 class="next-steps-title">What happens next:</h2>
+          <ol class="next-steps-list">
+            <li>
+              <strong>Competitor & Geo-Grid Scan:</strong> We scan where your business ranks across your target suburbs and pinpoint who is taking the top 3 spots.
+            </li>
+            <li>
+              <strong>Engineer's Review:</strong> Andrew personally evaluates your category alignment, review velocity, and website schema.
+            </li>
+            <li>
+              <strong>Report in Your Inbox:</strong> You will receive your complete, plain-English report within <strong>one working day</strong>.
+            </li>
+          </ol>
+        </div>
+
+        <div class="thanks-promise-note">
+          <p>
+            🔒 <strong>Our promise:</strong> There will be no pushy sales call. We send the data, and if you want us to help fix things, the ball is entirely in your court.
+          </p>
+        </div>
+
+        <div class="thanks-actions">
+          <a href="/" class="btn btn-primary">Back to home page</a>
+          <a href="/faq" class="btn btn-secondary">Read our FAQ in the meantime</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thanks-section {
+    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-bottom: clamp(3rem, 6vw, 5rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .thanks-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .thanks-icon-badge {
+    width: 64px;
+    height: 64px;
+    background-color: #E8F5E9;
+    color: #2E7D32;
+    font-size: 2rem;
+    font-weight: 800;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .thanks-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    margin-bottom: 1rem;
+  }
+
+  .thanks-lead {
+    font-size: 1.1875rem;
+    color: var(--color-text-muted);
+    max-width: 580px;
+    margin: 0 auto 2.25rem auto;
+    line-height: 1.5;
+  }
+
+  .next-steps-box {
+    background-color: var(--color-lilac-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+    text-align: left;
+    max-width: 580px;
+    margin: 0 auto 2rem auto;
+  }
+
+  .next-steps-title {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--color-plum);
+  }
+
+  .next-steps-list {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+    color: var(--color-text-main);
+  }
+
+  .thanks-promise-note {
+    background-color: #FAF8FC;
+    border-left: 3px solid var(--color-primary);
+    padding: 1rem 1.25rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.875rem;
+    text-align: left;
+    max-width: 580px;
+    margin: 0 auto 2.5rem auto;
+    color: var(--color-plum);
+  }
+
+  .thanks-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 600px) {
+    .thanks-actions {
+      flex-direction: column;
+    }
+    .thanks-actions .btn {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,472 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="3 Quick Fixes to Climb Google Maps | Sinchi"
+  description="Three immediate Google Business Profile fixes any NZ local business owner can do today to improve Google Maps rankings and phone calls."
+>
+  <section class="section">
+    <div class="container container-narrow">
+      <div class="lead-magnet-header">
+        <span class="guide-badge">Actionable Local SEO Guide</span>
+        <h1 class="guide-title">3 quick fixes to climb Google Maps today</h1>
+        <p class="guide-subtitle">
+          These are the exact three high-impact optimizations you can make immediately without hiring an agency or spending weeks learning SEO.
+        </p>
+      </div>
+
+      <!-- The 3 Actionable Fixes -->
+      <div class="fixes-container">
+        <!-- Fix 1 -->
+        <article class="fix-card">
+          <div class="fix-number-badge">1</div>
+          <div class="fix-body">
+            <h2 class="fix-heading">Get your primary and secondary categories right</h2>
+            <p class="fix-summary">
+              Your primary Google Business category is the single biggest algorithmic lever for local search. Setting the wrong primary category immediately depresses your visibility.
+            </p>
+            <div class="fix-action-box">
+              <strong>How to fix it today:</strong>
+              <ol class="fix-steps">
+                <li>Search Google for your main trade (e.g. <em>"electrician Auckland"</em>) and inspect the top 3 ranking listings.</li>
+                <li>Note the category shown directly below their name (e.g. "Electrician", "Electrical installation service").</li>
+                <li>Update your primary category to match what customers actually search, then add up to 4-5 relevant secondary categories.</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <!-- Fix 2 -->
+        <article class="fix-card">
+          <div class="fix-number-badge">2</div>
+          <div class="fix-body">
+            <h2 class="fix-heading">Get steady weekly reviews and reply to every one</h2>
+            <p class="fix-summary">
+              Google values a consistent review velocity over occasional bursts. More importantly, Google parses keywords inside your owner replies to confirm your local service radius.
+            </p>
+            <div class="fix-action-box">
+              <strong>How to fix it today:</strong>
+              <ol class="fix-steps">
+                <li>Send your direct Google review link via SMS within 2 hours of completing a job while the customer is happiest.</li>
+                <li>Reply to every 5-star review using your trade and suburb naturally (e.g. <em>"Thanks for trusting us for your heat pump installation in Albany, Sarah!"</em>).</li>
+                <li>Never copy-paste generic robotic replies like "Thanks for your business."</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+
+        <!-- Fix 3 -->
+        <article class="fix-card">
+          <div class="fix-number-badge">3</div>
+          <div class="fix-body">
+            <h2 class="fix-heading">Make your website agree with your profile</h2>
+            <p class="fix-summary">
+              Google uses your website to corroborate what your Google Business Profile claims. If your website is slow, lacks local schema, or has different phone numbers, Google suppresses your rank.
+            </p>
+            <div class="fix-action-box">
+              <strong>How to fix it today:</strong>
+              <ol class="fix-steps">
+                <li>Ensure your business name, street/service address, and phone number match character-for-character across your website header and footer.</li>
+                <li>Create dedicated pages for your main services mentioning the specific NZ suburbs you travel to.</li>
+                <li>Add valid <code>LocalBusiness</code> JSON-LD structured data to your site's HTML header.</li>
+              </ol>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Lead Capture Form Card -->
+      <div class="fixes-capture-card" id="get-checklist">
+        <div class="capture-header">
+          <span class="capture-badge">Free Download</span>
+          <h2 class="capture-title">Want the printable 1-page checklist & step-by-step video?</h2>
+          <p class="capture-desc">
+            Enter your email below and we'll send you our complete Google Maps quick-fix PDF checklist and reply templates.
+          </p>
+        </div>
+
+        <form id="quick-fixes-form" class="fixes-form" novalidate>
+          <div class="honeypot-field" aria-hidden="true" style="display: none;">
+            <label for="website_hp">Leave empty</label>
+            <input type="text" id="website_hp" name="website_hp" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-row-single">
+            <div class="form-group">
+              <label for="fixes-email" class="form-label">Your Email Address <span class="required">*</span></label>
+              <input
+                type="email"
+                id="fixes-email"
+                name="email"
+                class="form-input"
+                placeholder="name@yourbusiness.co.nz"
+                required
+              />
+              <span class="field-error" id="error-fixes-email"></span>
+            </div>
+          </div>
+
+          <div class="consent-group">
+            <label class="consent-label">
+              <input type="checkbox" id="fixes-consent" name="consent" class="consent-checkbox" />
+              <span class="consent-text">
+                I agree to receive the checklist and occasional NZ local SEO tips (unsubscribe anytime).
+              </span>
+            </label>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" id="fixes-submit-btn" class="btn btn-primary btn-submit">
+              <span class="btn-text">Send me the 3 fixes</span>
+              <span class="btn-loader" style="display: none;">Sending checklist...</span>
+            </button>
+          </div>
+
+          <div class="form-global-error" id="fixes-form-error" style="display: none;"></div>
+
+          <p class="microcopy">
+            🔒 Instant delivery. No spam, ever.
+          </p>
+        </form>
+      </div>
+
+      <!-- Full Audit Alternative -->
+      <div class="full-audit-callout">
+        <h3 class="callout-title">Prefer us to audit your specific listing?</h3>
+        <p class="callout-text">
+          Get a comprehensive, personalised geo-grid visibility report showing your exact competitors and ranking weaknesses across every suburb.
+        </p>
+        <a href="/free-google-check" class="btn btn-secondary">
+          Request my free visibility check →
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('quick-fixes-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('fixes-submit-btn') as HTMLButtonElement;
+  const btnText = submitBtn?.querySelector('.btn-text') as HTMLElement;
+  const btnLoader = submitBtn?.querySelector('.btn-loader') as HTMLElement;
+  const formError = document.getElementById('fixes-form-error') as HTMLElement;
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      formError.style.display = 'none';
+
+      const emailInput = document.getElementById('fixes-email') as HTMLInputElement;
+      const errorEmail = document.getElementById('error-fixes-email') as HTMLElement;
+      errorEmail.textContent = '';
+
+      const email = emailInput?.value.trim();
+      const consent = (document.getElementById('fixes-consent') as HTMLInputElement)?.checked;
+      const hp = (document.getElementById('website_hp') as HTMLInputElement)?.value;
+
+      if (!email) {
+        errorEmail.textContent = 'Please enter your email address.';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoader.style.display = 'inline';
+
+      try {
+        const res = await fetch('/api/submit-fixes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, consent, website_hp: hp })
+        });
+
+        const result = await res.json();
+
+        if (res.ok && result.success) {
+          window.location.href = result.redirect || '/thanks?source=fixes';
+        } else {
+          formError.textContent = result.error || 'Failed to submit. Please try again.';
+          formError.style.display = 'block';
+          submitBtn.disabled = false;
+          btnText.style.display = 'inline';
+          btnLoader.style.display = 'none';
+        }
+      } catch (err) {
+        formError.textContent = 'Network error. Please try again.';
+        formError.style.display = 'block';
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoader.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<style>
+  .lead-magnet-header {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .guide-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.8125rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 1rem;
+  }
+
+  .guide-title {
+    font-size: clamp(2.15rem, 4.5vw, 3.25rem);
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+
+  .guide-subtitle {
+    font-size: 1.1875rem;
+    color: var(--color-text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.5;
+  }
+
+  .fixes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .fix-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.75rem;
+  }
+
+  .fix-number-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-plum);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .fix-body {
+    flex: 1;
+  }
+
+  .fix-heading {
+    font-size: 1.375rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .fix-summary {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .fix-action-box {
+    background-color: var(--color-lilac-subtle);
+    border-left: 3px solid var(--color-primary);
+    padding: 1.125rem 1.25rem;
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    font-size: 0.9375rem;
+  }
+
+  .fix-action-box strong {
+    display: block;
+    color: var(--color-plum);
+    margin-bottom: 0.5rem;
+  }
+
+  .fix-steps {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--color-text-main);
+  }
+
+  /* Capture Card */
+  .fixes-capture-card {
+    background: linear-gradient(135deg, #FAF4FF 0%, #F5ECFC 100%);
+    border: 2px solid var(--color-primary);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.25rem);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 3rem;
+  }
+
+  .capture-header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+
+  .capture-badge {
+    display: inline-block;
+    background-color: var(--color-lilac-soft);
+    color: var(--color-primary);
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    margin-bottom: 0.5rem;
+  }
+
+  .capture-title {
+    font-size: 1.625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .capture-desc {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .fixes-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .form-row-single {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-plum);
+  }
+
+  .required {
+    color: #D32F2F;
+  }
+
+  .form-input {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: #FFFFFF;
+  }
+
+  .form-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(109, 16, 163, 0.15);
+  }
+
+  .field-error {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #D32F2F;
+    min-height: 1rem;
+  }
+
+  .consent-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+  }
+
+  .consent-checkbox {
+    margin-top: 3px;
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary);
+  }
+
+  .consent-text {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    line-height: 1.45;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .microcopy {
+    text-align: center;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .form-global-error {
+    background-color: #FFEEEE;
+    border: 1px solid #FFCCCC;
+    color: #C03232;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  /* Full Audit Callout */
+  .full-audit-callout {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem;
+    text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .callout-title {
+    font-size: 1.375rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .callout-text {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    max-width: 540px;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  @media (max-width: 650px) {
+    .fix-card {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+</style>
