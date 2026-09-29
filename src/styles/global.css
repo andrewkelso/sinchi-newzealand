@@ -1,12 +1,12 @@
 /* ==========================================================================
-   SINCHI.CO.NZ — DARK PURPLE GRADIENT THEME (LUXURY OBSIDIAN & NEON PLUM)
+   SINCHI.CO.NZ: DARK PURPLE GRADIENT THEME (LUXURY OBSIDIAN & NEON PLUM)
    ========================================================================== */
 
 /* Import self-hosted variable Archivo font */
 @import '@fontsource-variable/archivo';
 
 :root {
-  /* Brand Palette — Dark Purple Theme */
+  /* Brand Palette: Dark Purple Theme */
   --color-primary: #9D38E0;
   --color-primary-hover: #B258F0;
   --color-primary-light: #C084FC;

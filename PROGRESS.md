@@ -69,7 +69,8 @@
 
 ---
 
-## 3. Placeholders to Fill Before Launch
+## 3. Placeholders & Conventions to Maintain
+- **Typography & Punctuation Rule:** Never use em dashes (`—`) or en dashes (`–`) anywhere on the site. Use colons, commas, hyphens, or natural phrasing instead.
 - [ ] `N8N_AUDIT_WEBHOOK_URL` (in `.env` / Vercel env)
 - [ ] `N8N_TIPS_WEBHOOK_URL` (in `.env` / Vercel env)
 - [ ] Starting price placeholder in Service pages (e.g. `From $___ NZD / month`)
