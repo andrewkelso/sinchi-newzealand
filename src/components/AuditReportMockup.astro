@@ -1,11 +1,10 @@
 ---
-// Sample Visibility Check & Suburb Rank Tracking Mockup
-// Illustrates how Sinchi diagnoses ranking issues and tracks local 3-pack positions across suburbs.
+// Sample Visibility Check & Suburb Rank Tracking Mockup (Dark Purple Theme)
 ---
 
 <div class="proof-container">
   <!-- Left Card: Sample Audit Diagnosis -->
-  <div class="proof-card audit-sample-card">
+  <div class="proof-card card-surface audit-sample-card">
     <div class="card-header">
       <div class="header-tag">Sample Visibility Check Report</div>
       <div class="report-meta">Anonymised Auckland Tradie (Pre-Optimisation)</div>
@@ -29,7 +28,7 @@
         <div class="check-status-icon error" aria-label="Action required">✕</div>
         <div class="check-info">
           <span class="check-name">Primary GBP Category</span>
-          <span class="check-detail">Set as "Handyman" instead of "Plumber". Huge ranking penalty.</span>
+          <span class="check-detail">Set as "Handyman" instead of "Plumber". Major ranking penalty.</span>
         </div>
       </li>
       <li class="check-item issue">
@@ -43,7 +42,7 @@
         <div class="check-status-icon error" aria-label="Action required">✕</div>
         <div class="check-info">
           <span class="check-name">Website Schema & Mobile Speed</span>
-          <span class="check-detail">Missing LocalBusiness schema; mobile site takes 4.8s to become interactive.</span>
+          <span class="check-detail">Missing LocalBusiness schema; mobile site takes 4.8s to load.</span>
         </div>
       </li>
       <li class="check-item ok">
@@ -61,7 +60,7 @@
   </div>
 
   <!-- Right Card: Suburb Rank Tracking Matrix -->
-  <div class="proof-card rank-matrix-card">
+  <div class="proof-card card-surface rank-matrix-card">
     <div class="card-header">
       <div class="header-tag">Monthly Geo-Grid Tracking</div>
       <div class="report-meta">Live ranking across your service area</div>
@@ -123,11 +122,7 @@
   }
 
   .proof-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 1.75rem;
-    box-shadow: var(--shadow-sm);
+    padding: 2rem;
     display: flex;
     flex-direction: column;
   }
@@ -146,7 +141,7 @@
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-primary);
+    color: var(--color-primary-light);
   }
 
   .report-meta {
@@ -160,7 +155,8 @@
     align-items: center;
     gap: 1.25rem;
     margin-bottom: 1.5rem;
-    background-color: var(--color-lilac-subtle);
+    background: rgba(157, 56, 224, 0.12);
+    border: 1px solid rgba(168, 85, 247, 0.2);
     padding: 1rem;
     border-radius: var(--radius-md);
   }
@@ -169,13 +165,14 @@
     width: 64px;
     height: 64px;
     border-radius: var(--radius-full);
-    background-color: var(--color-plum);
+    background: linear-gradient(135deg, #9D38E0 0%, #6D10A3 100%);
     color: var(--color-white);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    box-shadow: 0 0 16px rgba(157, 56, 224, 0.4);
   }
 
   .score-val {
@@ -188,11 +185,12 @@
     font-size: 0.625rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: #D6C2EB;
+    color: #E9D5FF;
   }
 
   .summary-title {
-    font-size: 1rem;
+    font-size: 1.0625rem;
+    color: #FFFFFF;
     margin-bottom: 0.25rem;
   }
 
@@ -215,16 +213,18 @@
     align-items: flex-start;
     gap: 0.75rem;
     font-size: 0.875rem;
-    padding: 0.5rem;
+    padding: 0.6rem 0.75rem;
     border-radius: var(--radius-sm);
   }
 
   .check-item.issue {
-    background-color: #FFF6F6;
+    background-color: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.25);
   }
 
   .check-item.ok {
-    background-color: #F4FAF6;
+    background-color: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.25);
   }
 
   .check-status-icon {
@@ -241,13 +241,13 @@
   }
 
   .check-status-icon.error {
-    background-color: #F8D7DA;
-    color: #842029;
+    background-color: #EF4444;
+    color: white;
   }
 
   .check-status-icon.pass {
-    background-color: #D1E7DD;
-    color: #0F5132;
+    background-color: #10B981;
+    color: white;
   }
 
   .check-info {
@@ -258,7 +258,7 @@
 
   .check-name {
     font-weight: 700;
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
   .check-detail {
@@ -270,9 +270,9 @@
     margin-top: auto;
     font-size: 0.8125rem;
     font-weight: 600;
-    color: var(--color-primary);
+    color: var(--color-primary-light);
     text-align: center;
-    padding-top: 0.75rem;
+    padding-top: 0.85rem;
     border-top: 1px solid var(--color-border-subtle);
   }
 
@@ -296,16 +296,17 @@
     border-radius: var(--radius-md);
     overflow: hidden;
     margin-bottom: 1.5rem;
+    background: rgba(18, 2, 31, 0.7);
   }
 
   .grid-header-row {
     display: grid;
     grid-template-columns: 1.2fr 2fr 1fr;
-    padding: 0.5rem 0.75rem;
-    background-color: var(--color-lilac-subtle);
+    padding: 0.6rem 0.85rem;
+    background-color: rgba(157, 56, 224, 0.15);
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--color-plum);
+    color: #FFFFFF;
     border-bottom: 1px solid var(--color-border);
   }
 
@@ -313,7 +314,7 @@
     display: grid;
     grid-template-columns: 1.2fr 2fr 1fr;
     align-items: center;
-    padding: 0.6rem 0.75rem;
+    padding: 0.65rem 0.85rem;
     font-size: 0.8125rem;
     border-bottom: 1px solid var(--color-border-subtle);
   }
@@ -324,7 +325,7 @@
 
   .suburb-name {
     font-weight: 700;
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
   .query-name {
@@ -344,13 +345,14 @@
   }
 
   .rank-top {
-    background-color: #EBD6FA;
-    color: var(--color-primary);
+    background-color: rgba(16, 185, 129, 0.2);
+    color: #34D399;
+    border: 1px solid rgba(16, 185, 129, 0.4);
   }
 
   .proof-placeholder-band {
     margin-top: auto;
-    background-color: #FAF8FC;
+    background-color: rgba(157, 56, 224, 0.08);
     border: 1px dashed var(--color-border);
     padding: 0.75rem;
     border-radius: var(--radius-sm);
@@ -363,12 +365,12 @@
   .placeholder-label {
     font-size: 0.75rem;
     font-weight: 800;
-    color: var(--color-text-muted);
+    color: var(--color-primary-light);
   }
 
   .placeholder-desc {
     font-size: 0.75rem;
-    color: #8C7B99;
+    color: var(--color-text-light);
   }
 
   @media (max-width: 860px) {

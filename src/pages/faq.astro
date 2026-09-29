@@ -84,7 +84,10 @@ const allFaqs = [
   <section class="section faq-hero">
     <div class="container container-narrow">
       <div class="faq-hero-header">
-        <span class="faq-badge">Answer-First Knowledge Base</span>
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Answer-First Knowledge Base</span>
+        </div>
         <h1 class="faq-hero-title">Frequently asked questions</h1>
         <p class="faq-hero-sub">
           Straight, engineer-tested answers to the questions Kiwi business owners ask us most about Google Maps, rankings, and local search.
@@ -97,7 +100,7 @@ const allFaqs = [
             <h2 class="faq-category-title">{section.category}</h2>
             <div class="faq-cards-stack">
               {section.items.map((item) => (
-                <div class="faq-full-card">
+                <div class="faq-full-card card-surface">
                   <h3 class="faq-full-question">{item.q}</h3>
                   <p class="faq-full-answer">{item.a}</p>
                 </div>
@@ -107,7 +110,7 @@ const allFaqs = [
         ))}
       </div>
 
-      <div class="faq-help-box">
+      <div class="faq-help-box card-surface">
         <h3>Have a question not answered here?</h3>
         <p>Send an email directly to Andrew at <a href="mailto:hello@sinchi.co.nz">hello@sinchi.co.nz</a> or request a free visibility check for your listing.</p>
         <div class="faq-help-btn-row">
@@ -123,31 +126,21 @@ const allFaqs = [
 
 <style>
   .faq-hero {
-    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(3rem, 6vw, 5.5rem);
     padding-bottom: clamp(3rem, 6vw, 4.5rem);
   }
 
   .faq-hero-header {
     text-align: center;
     margin-bottom: 3.5rem;
-  }
-
-  .faq-badge {
-    display: inline-block;
-    background-color: var(--color-lilac-soft);
-    color: var(--color-primary);
-    font-size: 0.8125rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .faq-hero-title {
     font-size: clamp(2.25rem, 4.5vw, 3.5rem);
-    margin-bottom: 1rem;
     line-height: 1.15;
   }
 
@@ -173,7 +166,7 @@ const allFaqs = [
 
   .faq-category-title {
     font-size: 1.5rem;
-    color: var(--color-plum);
+    color: #FFFFFF;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--color-border);
   }
@@ -185,17 +178,13 @@ const allFaqs = [
   }
 
   .faq-full-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 1.75rem;
-    box-shadow: var(--shadow-sm);
+    padding: 1.75rem 2rem;
   }
 
   .faq-full-question {
     font-size: 1.1875rem;
     margin-bottom: 0.75rem;
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
   .faq-full-answer {
@@ -206,16 +195,14 @@ const allFaqs = [
 
   .faq-help-box {
     margin-top: 3.5rem;
-    background-color: var(--color-lilac-subtle);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 2.25rem;
+    padding: 2.5rem;
     text-align: center;
   }
 
   .faq-help-box h3 {
     font-size: 1.375rem;
     margin-bottom: 0.5rem;
+    color: #FFFFFF;
   }
 
   .faq-help-box p {

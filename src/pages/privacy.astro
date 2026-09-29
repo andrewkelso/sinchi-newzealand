@@ -9,12 +9,15 @@ import Layout from '../layouts/Layout.astro';
   <section class="section">
     <div class="container container-narrow">
       <div class="legal-header">
-        <span class="legal-badge">New Zealand Compliance</span>
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>New Zealand Compliance</span>
+        </div>
         <h1 class="legal-title">Privacy Policy</h1>
         <p class="legal-updated">Last updated: 29 September 2026 · Compliant with the NZ Privacy Act 2020</p>
       </div>
 
-      <div class="legal-card">
+      <div class="legal-card card-surface">
         <section class="legal-section">
           <h2>1. Introduction</h2>
           <p>
@@ -90,24 +93,15 @@ import Layout from '../layouts/Layout.astro';
   .legal-header {
     text-align: center;
     margin-bottom: 3rem;
-  }
-
-  .legal-badge {
-    display: inline-block;
-    background-color: var(--color-lilac-soft);
-    color: var(--color-primary);
-    font-size: 0.8125rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .legal-title {
     font-size: clamp(2.25rem, 4.5vw, 3.25rem);
-    margin-bottom: 0.75rem;
+    line-height: 1.15;
   }
 
   .legal-updated {
@@ -116,11 +110,7 @@ import Layout from '../layouts/Layout.astro';
   }
 
   .legal-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
     padding: clamp(2rem, 5vw, 3.5rem);
-    box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
     gap: 2.25rem;
@@ -129,7 +119,7 @@ import Layout from '../layouts/Layout.astro';
   .legal-section h2 {
     font-size: 1.375rem;
     margin-bottom: 0.75rem;
-    color: var(--color-plum);
+    color: #FFFFFF;
   }
 
   .legal-section p {
@@ -146,5 +136,10 @@ import Layout from '../layouts/Layout.astro';
     gap: 0.5rem;
     font-size: 0.9375rem;
     line-height: 1.6;
+    color: var(--color-text-main);
+  }
+
+  .legal-list strong {
+    color: #FFFFFF;
   }
 </style>
