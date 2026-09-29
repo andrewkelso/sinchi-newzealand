@@ -1,0 +1,268 @@
+---
+// Live Animated Audit Radar Simulation Component
+// Shows a high-tech diagnostic radar scanning Google Business signals in real time.
+---
+
+<div class="radar-sim-card">
+  <div class="radar-header">
+    <div class="radar-pulse-badge">
+      <span class="pulse-ring"></span>
+      <span class="pulse-dot"></span>
+      <span>Diagnostic Engine Active</span>
+    </div>
+    <h3 class="radar-title">How Sinchi audits your listing</h3>
+  </div>
+
+  <!-- Radar Scanner Visual -->
+  <div class="radar-viewport">
+    <div class="radar-circle rc1"></div>
+    <div class="radar-circle rc2"></div>
+    <div class="radar-circle rc3"></div>
+    <div class="radar-crosshair-h"></div>
+    <div class="radar-crosshair-v"></div>
+    <div class="radar-sweep-beam"></div>
+
+    <!-- Blip targets -->
+    <div class="radar-blip blip-1">#1</div>
+    <div class="radar-blip blip-2">#2</div>
+    <div class="radar-blip blip-3">#3</div>
+    <div class="radar-blip blip-you">YOU</div>
+  </div>
+
+  <!-- Live Diagnostic Stream -->
+  <div class="radar-diagnostics-stream">
+    <div class="diag-item pass">
+      <span class="diag-icon">✓</span>
+      <div class="diag-text">
+        <span class="diag-label">Google Entity Verification</span>
+        <span class="diag-detail">Address and ownership verified</span>
+      </div>
+    </div>
+
+    <div class="diag-item warn">
+      <span class="diag-icon">!</span>
+      <div class="diag-text">
+        <span class="diag-label">Primary Category Alignment</span>
+        <span class="diag-detail">Sub-optimal category detected</span>
+      </div>
+    </div>
+
+    <div class="diag-item warn">
+      <span class="diag-icon">!</span>
+      <div class="diag-text">
+        <span class="diag-label">Review Velocity & Replies</span>
+        <span class="diag-detail">Missing suburb keyword replies</span>
+      </div>
+    </div>
+
+    <div class="diag-item warn">
+      <span class="diag-icon">!</span>
+      <div class="diag-text">
+        <span class="diag-label">LocalBusiness Schema Markup</span>
+        <span class="diag-detail">Not detected on homepage</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="radar-footer-note">
+    🔒 Personalized audit delivered in 1 working day.
+  </div>
+</div>
+
+<style>
+  .radar-sim-card {
+    background: linear-gradient(135deg, #240537 0%, #150222 100%);
+    border: 1.5px solid rgba(142, 43, 201, 0.35);
+    border-radius: var(--radius-xl);
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-white);
+    box-shadow: 0 16px 36px rgba(42, 8, 64, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    height: 100%;
+  }
+
+  .radar-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .radar-pulse-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: var(--radius-full);
+    padding: 0.3rem 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #34D399;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: fit-content;
+    position: relative;
+  }
+
+  .pulse-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: var(--radius-full);
+    background-color: #34D399;
+  }
+
+  .radar-title {
+    font-size: 1.375rem;
+    color: var(--color-white);
+  }
+
+  /* Radar Viewport */
+  .radar-viewport {
+    width: 100%;
+    height: 200px;
+    background: radial-gradient(circle, rgba(109, 16, 163, 0.2) 0%, rgba(20, 2, 32, 0.9) 80%);
+    border: 1px solid rgba(142, 43, 201, 0.3);
+    border-radius: var(--radius-md);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .radar-circle {
+    position: absolute;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+  }
+
+  .radar-circle.rc1 { width: 60px; height: 60px; }
+  .radar-circle.rc2 { width: 120px; height: 120px; }
+  .radar-circle.rc3 { width: 180px; height: 180px; }
+
+  .radar-crosshair-h {
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background-color: rgba(168, 85, 247, 0.2);
+  }
+
+  .radar-crosshair-v {
+    position: absolute;
+    height: 100%;
+    width: 1px;
+    background-color: rgba(168, 85, 247, 0.2);
+  }
+
+  .radar-sweep-beam {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius-full);
+    background: conic-gradient(from 0deg at 50% 50%, rgba(142, 43, 201, 0) 0deg, rgba(142, 43, 201, 0.35) 45deg, rgba(142, 43, 201, 0) 90deg);
+    animation: radarSweep 3.5s linear infinite;
+  }
+
+  .radar-blip {
+    position: absolute;
+    padding: 0.15rem 0.4rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.6875rem;
+    font-weight: 800;
+    z-index: 2;
+  }
+
+  .blip-1 { top: 25%; left: 35%; background-color: #10B981; color: white; }
+  .blip-2 { top: 40%; right: 30%; background-color: #10B981; color: white; }
+  .blip-3 { bottom: 30%; right: 42%; background-color: #10B981; color: white; }
+  .blip-you {
+    bottom: 20%;
+    left: 25%;
+    background-color: #EF4444;
+    color: white;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.8);
+    animation: pulseYou 2s infinite;
+  }
+
+  /* Diagnostic Stream */
+  .radar-diagnostics-stream {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .diag-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .diag-icon {
+    width: 22px;
+    height: 22px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+
+  .diag-item.pass .diag-icon {
+    background-color: rgba(16, 185, 129, 0.25);
+    color: #34D399;
+  }
+
+  .diag-item.warn .diag-icon {
+    background-color: rgba(245, 158, 11, 0.25);
+    color: #FBBF24;
+  }
+
+  .diag-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .diag-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .diag-detail {
+    font-size: 0.75rem;
+    color: #CBB4E5;
+  }
+
+  .radar-footer-note {
+    margin-top: auto;
+    font-size: 0.8125rem;
+    color: #A98EC7;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+  }
+
+  @keyframes radarSweep {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  @keyframes pulseYou {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); box-shadow: 0 0 16px rgba(239, 68, 68, 1); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .radar-sweep-beam { animation: none; }
+    .blip-you { animation: none; }
+  }
+</style>

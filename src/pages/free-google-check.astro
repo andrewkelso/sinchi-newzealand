@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import AuditRadarSimulation from '../components/AuditRadarSimulation.astro';
 ---
 
 <Layout
@@ -8,7 +9,7 @@ import Layout from '../layouts/Layout.astro';
   hideNav={true}
 >
   <div class="landing-wrapper">
-    <div class="container container-narrow">
+    <div class="container">
       <!-- Top Minimal Nav -->
       <div class="landing-header">
         <a href="/" class="landing-logo-link" aria-label="Sinchi — Home">
@@ -24,42 +25,24 @@ import Layout from '../layouts/Layout.astro';
         <a href="/" class="back-home-link">← Back to main site</a>
       </div>
 
-      <div class="landing-card">
-        <div class="landing-headline-block">
-          <span class="badge-free">100% Free · No Obligation</span>
-          <h1 class="landing-title">See exactly where you rank on Google, free</h1>
-          <p class="landing-sub">
-            We will run a local geo-grid scan across your service area and send you a plain-English report within one working day.
-          </p>
+      <div class="landing-hero-headline">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>100% Free · No Obligation</span>
         </div>
+        <h1 class="landing-title">See exactly where you rank on Google, free</h1>
+        <p class="landing-sub">
+          We will run a local geo-grid scan across your service area and send you a plain-English report within one working day.
+        </p>
+      </div>
 
-        <!-- Report Value Highlights -->
-        <div class="report-value-box">
-          <h2 class="value-title">What your personalised report reveals:</h2>
-          <ul class="value-list">
-            <li>
-              <span class="v-icon">📍</span>
-              <div>
-                <strong>Where you rank for your main search:</strong> A live map showing your position (#1, #4, or #15) across the suburbs you service.
-              </div>
-            </li>
-            <li>
-              <span class="v-icon">🔍</span>
-              <div>
-                <strong>The 3 businesses beating you and why:</strong> Exact category, review, and authority gaps giving your competitors the advantage.
-              </div>
-            </li>
-            <li>
-              <span class="v-icon">🛠️</span>
-              <div>
-                <strong>The top fixes for your profile and site:</strong> Actionable steps you or our team can take immediately to climb into the top 3.
-              </div>
-            </li>
-          </ul>
-        </div>
+      <!-- 2-Column Split: Form on Left, Live Radar Simulation on Right -->
+      <div class="landing-split-grid">
+        <!-- Left: High Converting Form Card -->
+        <div class="landing-card form-side card-surface">
+          <h2 class="form-card-title">Request your personalised ranking audit</h2>
+          <p class="form-card-sub">Fill in your business details below. Takes 60 seconds.</p>
 
-        <!-- Form Card -->
-        <div class="form-container">
           <form id="free-check-form" class="check-form" novalidate>
             <!-- Honeypot field (hidden from humans) -->
             <div class="honeypot-field" aria-hidden="true" style="display: none;">
@@ -92,7 +75,7 @@ import Layout from '../layouts/Layout.astro';
                   id="websiteUrl"
                   name="websiteUrl"
                   class="form-input"
-                  placeholder="e.g. www.papakuraplumbing.co.nz (or Facebook page)"
+                  placeholder="e.g. www.papakuraplumbing.co.nz (or FB page)"
                   required
                 />
                 <span class="field-error" id="error-websiteUrl"></span>
@@ -109,7 +92,7 @@ import Layout from '../layouts/Layout.astro';
                   id="mainService"
                   name="mainService"
                   class="form-input"
-                  placeholder="e.g. Emergency Plumber, Driving Instructor"
+                  placeholder="e.g. Emergency Plumber, Dentist"
                   required
                 />
                 <span class="field-error" id="error-mainService"></span>
@@ -124,7 +107,7 @@ import Layout from '../layouts/Layout.astro';
                   id="townCity"
                   name="townCity"
                   class="form-input"
-                  placeholder="e.g. South Auckland, Tauranga, Christchurch"
+                  placeholder="e.g. South Auckland, Tauranga"
                   required
                 />
                 <span class="field-error" id="error-townCity"></span>
@@ -161,7 +144,7 @@ import Layout from '../layouts/Layout.astro';
               </div>
             </div>
 
-            <!-- Consent Checkbox (Unsolicited Electronic Messages Act 2007 compliant) -->
+            <!-- Consent Checkbox -->
             <div class="consent-group">
               <label class="consent-label">
                 <input type="checkbox" id="consent" name="consent" class="consent-checkbox" />
@@ -174,7 +157,7 @@ import Layout from '../layouts/Layout.astro';
             <div class="form-submit-row">
               <button type="submit" id="submit-btn" class="btn btn-primary btn-submit">
                 <span class="btn-text">Get my free check</span>
-                <span class="btn-loader" style="display: none;">Generating report request...</span>
+                <span class="btn-loader" style="display: none;">Scanning listing...</span>
               </button>
             </div>
 
@@ -184,16 +167,21 @@ import Layout from '../layouts/Layout.astro';
               🔒 We'll send your report within one working day. No sales call unless you ask for one.
             </p>
           </form>
+
+          <!-- Engineer Trust bar -->
+          <div class="landing-trust-bar">
+            <div class="trust-engineer-note">
+              <span class="engineer-avatar-icon">⚙️</span>
+              <p>
+                <strong>Engineer's Guarantee:</strong> Every audit is personally reviewed by Andrew, a systems engineer with 20+ years' experience on high-stakes systems. No automated spam.
+              </p>
+            </div>
+          </div>
         </div>
 
-        <!-- Trust footer -->
-        <div class="landing-trust-bar">
-          <div class="trust-engineer-note">
-            <span class="engineer-avatar-icon">⚙️</span>
-            <p>
-              <strong>Engineer's Guarantee:</strong> Every audit is personally reviewed by Andrew, a systems engineer with 20+ years' experience on high-stakes systems. No automated cookie-cutter fluff.
-            </p>
-          </div>
+        <!-- Right: Radar Simulation Visual Card -->
+        <div class="landing-radar-side">
+          <AuditRadarSimulation />
         </div>
       </div>
     </div>
@@ -212,7 +200,6 @@ import Layout from '../layouts/Layout.astro';
       e.preventDefault();
       formError.style.display = 'none';
 
-      // Clear field errors
       document.querySelectorAll('.field-error').forEach((el) => (el.textContent = ''));
 
       const formData = new FormData(form);
@@ -227,14 +214,13 @@ import Layout from '../layouts/Layout.astro';
         consent: formData.get('consent') === 'on'
       };
 
-      // Client-side validation
       let hasError = false;
       if (!data.businessName) {
         document.getElementById('error-businessName')!.textContent = 'Business name is required.';
         hasError = true;
       }
       if (!data.websiteUrl) {
-        document.getElementById('error-websiteUrl')!.textContent = 'Website or profile link is required.';
+        document.getElementById('error-websiteUrl')!.textContent = 'Website link is required.';
         hasError = true;
       }
       if (!data.mainService) {
@@ -252,7 +238,6 @@ import Layout from '../layouts/Layout.astro';
 
       if (hasError) return;
 
-      // Loading state
       submitBtn.disabled = true;
       btnText.style.display = 'none';
       btnLoader.style.display = 'inline';
@@ -276,7 +261,7 @@ import Layout from '../layouts/Layout.astro';
           btnLoader.style.display = 'none';
         }
       } catch (err) {
-        formError.textContent = 'Network error. Please check your connection and try again.';
+        formError.textContent = 'Network error. Please try again.';
         formError.style.display = 'block';
         submitBtn.disabled = false;
         btnText.style.display = 'inline';
@@ -288,21 +273,20 @@ import Layout from '../layouts/Layout.astro';
 
 <style>
   .landing-wrapper {
-    background-color: var(--color-lilac-subtle);
     min-height: 100vh;
     padding-top: 1.5rem;
-    padding-bottom: 4rem;
+    padding-bottom: 4.5rem;
   }
 
   .landing-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 
   .landing-logo {
-    height: 40px;
+    height: 44px;
     width: auto;
   }
 
@@ -318,98 +302,65 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-primary);
   }
 
-  .landing-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: clamp(2rem, 5vw, 3.5rem);
-    box-shadow: var(--shadow-md);
-  }
-
-  .landing-headline-block {
+  .landing-hero-headline {
     text-align: center;
-    margin-bottom: 2.25rem;
-  }
-
-  .badge-free {
-    display: inline-block;
-    background-color: var(--color-lilac-soft);
-    color: var(--color-primary);
-    font-size: 0.8125rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1rem;
+    max-width: 720px;
+    margin: 0 auto 3rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .landing-title {
-    font-size: clamp(2rem, 4vw, 2.75rem);
-    margin-bottom: 0.75rem;
+    font-size: clamp(2.15rem, 4.5vw, 3.25rem);
     line-height: 1.15;
   }
 
   .landing-sub {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
     color: var(--color-text-muted);
-    max-width: 580px;
-    margin: 0 auto;
   }
 
-  .report-value-box {
-    background-color: #FAF8FC;
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    margin-bottom: 2.5rem;
+  .landing-split-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    gap: 2.5rem;
+    align-items: stretch;
   }
 
-  .value-title {
-    font-size: 1.0625rem;
-    margin-bottom: 1rem;
-    color: var(--color-plum);
+  .landing-card {
+    padding: clamp(2rem, 4vw, 3rem);
   }
 
-  .value-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.875rem;
+  .form-card-title {
+    font-size: 1.375rem;
+    margin-bottom: 0.35rem;
   }
 
-  .value-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
+  .form-card-sub {
     font-size: 0.9375rem;
-    color: var(--color-text-main);
-    line-height: 1.5;
-  }
-
-  .v-icon {
-    font-size: 1.125rem;
-    flex-shrink: 0;
-    margin-top: 2px;
+    color: var(--color-text-muted);
+    margin-bottom: 1.75rem;
   }
 
   /* Form Styles */
   .check-form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.15rem;
   }
 
   .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
+    gap: 1.15rem;
   }
 
   .form-group {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.35rem;
   }
 
   .form-label {
@@ -418,15 +369,8 @@ import Layout from '../layouts/Layout.astro';
     color: var(--color-plum);
   }
 
-  .required {
-    color: #D32F2F;
-  }
-
-  .optional {
-    font-size: 0.75rem;
-    font-weight: 500;
-    color: var(--color-text-light);
-  }
+  .required { color: #D32F2F; }
+  .optional { font-size: 0.75rem; color: var(--color-text-light); }
 
   .form-input {
     width: 100%;
@@ -435,9 +379,8 @@ import Layout from '../layouts/Layout.astro';
     border-radius: var(--radius-sm);
     font-family: inherit;
     font-size: 0.9375rem;
-    color: var(--color-text-main);
     background-color: #FFFFFF;
-    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    color: var(--color-plum);
   }
 
   .form-input:focus {
@@ -450,11 +393,7 @@ import Layout from '../layouts/Layout.astro';
     font-size: 0.75rem;
     font-weight: 600;
     color: #D32F2F;
-    min-height: 1rem;
-  }
-
-  .consent-group {
-    margin-top: 0.25rem;
+    min-height: 0.9rem;
   }
 
   .consent-label {
@@ -469,17 +408,12 @@ import Layout from '../layouts/Layout.astro';
     width: 18px;
     height: 18px;
     accent-color: var(--color-primary);
-    cursor: pointer;
   }
 
   .consent-text {
     font-size: 0.8125rem;
     color: var(--color-text-muted);
     line-height: 1.45;
-  }
-
-  .form-submit-row {
-    margin-top: 0.75rem;
   }
 
   .btn-submit {
@@ -490,26 +424,24 @@ import Layout from '../layouts/Layout.astro';
 
   .microcopy {
     text-align: center;
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     color: var(--color-text-muted);
-    margin-top: 0.5rem;
-    font-weight: 500;
   }
 
   .form-global-error {
     background-color: #FFEEEE;
     border: 1px solid #FFCCCC;
     color: #C03232;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem;
     border-radius: var(--radius-sm);
     font-size: 0.875rem;
-    font-weight: 600;
     text-align: center;
+    font-weight: 600;
   }
 
   .landing-trust-bar {
-    margin-top: 2.5rem;
-    padding-top: 1.75rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
     border-top: 1px solid var(--color-border-subtle);
   }
 
@@ -530,7 +462,13 @@ import Layout from '../layouts/Layout.astro';
     flex-shrink: 0;
   }
 
-  @media (max-width: 650px) {
+  @media (max-width: 960px) {
+    .landing-split-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
     .form-grid {
       grid-template-columns: 1fr;
     }

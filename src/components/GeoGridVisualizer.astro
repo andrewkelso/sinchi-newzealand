@@ -1,0 +1,476 @@
+---
+// Interactive 3x3 Suburb Geo-Grid Map Visualizer
+// Demonstrates how Google Maps rankings drop off by distance before optimisation,
+// and expand across all suburbs after Sinchi's geo-radius optimisation.
+---
+
+<div class="geogrid-wrapper" id="geogrid-module">
+  <div class="geogrid-card">
+    <!-- Header with Live Toggle -->
+    <div class="geogrid-header">
+      <div class="geogrid-title-block">
+        <span class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Live Geo-Grid Simulation</span>
+        </span>
+        <h3 class="geogrid-title">Google Maps Suburb Ranking Heatmap</h3>
+        <p class="geogrid-sub">Toggle between Before & After to see how rank radius expands across Auckland suburbs.</p>
+      </div>
+
+      <!-- State Toggle Buttons -->
+      <div class="toggle-pill-group" role="tablist" aria-label="Ranking comparison toggle">
+        <button
+          type="button"
+          class="toggle-btn active"
+          id="btn-before-rank"
+          data-state="before"
+          role="tab"
+          aria-selected="true"
+        >
+          <span class="state-indicator red"></span>
+          <span>Before Optimisation</span>
+        </button>
+        <button
+          type="button"
+          class="toggle-btn"
+          id="btn-after-rank"
+          data-state="after"
+          role="tab"
+          aria-selected="false"
+        >
+          <span class="state-indicator green"></span>
+          <span>After Sinchi Top 3</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Interactive Map Grid Canvas -->
+    <div class="map-grid-canvas">
+      <div class="map-bg-lines" aria-hidden="true">
+        <div class="radius-circle r1"></div>
+        <div class="radius-circle r2"></div>
+        <div class="radius-circle r3"></div>
+      </div>
+
+      <!-- 3x3 Suburb Pins Grid -->
+      <div class="pins-grid" id="pins-grid">
+        <!-- Pin 1: North Suburb (Takapuna) -->
+        <div class="suburb-pin" data-suburb="Takapuna" data-before="8" data-after="1">
+          <div class="pin-badge"><span class="pin-num">#8</span></div>
+          <span class="pin-name">Takapuna</span>
+        </div>
+
+        <!-- Pin 2: North-East (Devonport) -->
+        <div class="suburb-pin" data-suburb="Devonport" data-before="12" data-after="2">
+          <div class="pin-badge"><span class="pin-num">#12</span></div>
+          <span class="pin-name">Devonport</span>
+        </div>
+
+        <!-- Pin 3: East (Orakei) -->
+        <div class="suburb-pin" data-suburb="Orakei" data-before="15" data-after="1">
+          <div class="pin-badge"><span class="pin-num">#15</span></div>
+          <span class="pin-name">Orakei</span>
+        </div>
+
+        <!-- Pin 4: West (Grey Lynn) -->
+        <div class="suburb-pin" data-suburb="Grey Lynn" data-before="5" data-after="1">
+          <div class="pin-badge"><span class="pin-num">#5</span></div>
+          <span class="pin-name">Grey Lynn</span>
+        </div>
+
+        <!-- Pin 5: Center Base (Ponsonby / Central) -->
+        <div class="suburb-pin pin-center" data-suburb="Ponsonby" data-before="4" data-after="1">
+          <div class="pin-badge"><span class="pin-num">#4</span></div>
+          <span class="pin-name">Ponsonby (Base)</span>
+        </div>
+
+        <!-- Pin 6: East-Central (Newmarket) -->
+        <div class="suburb-pin" data-suburb="Newmarket" data-before="6" data-after="1">
+          <div class="pin-badge"><span class="pin-num">#6</span></div>
+          <span class="pin-name">Newmarket</span>
+        </div>
+
+        <!-- Pin 7: South-West (Mt Albert) -->
+        <div class="suburb-pin" data-suburb="Mt Albert" data-before="14" data-after="2">
+          <div class="pin-badge"><span class="pin-num">#14</span></div>
+          <span class="pin-name">Mt Albert</span>
+        </div>
+
+        <!-- Pin 8: South (Mt Eden) -->
+        <div class="suburb-pin" data-suburb="Mt Eden" data-before="7" data-after="1">
+          <div class="pin-badge"><span class="pin-num">#7</span></div>
+          <span class="pin-name">Mt Eden</span>
+        </div>
+
+        <!-- Pin 9: South-East (Remuera) -->
+        <div class="suburb-pin" data-suburb="Remuera" data-before="11" data-after="2">
+          <div class="pin-badge"><span class="pin-num">#11</span></div>
+          <span class="pin-name">Remuera</span>
+        </div>
+      </div>
+
+      <!-- Live Floating Call Volume Chip -->
+      <div class="floating-status-chip" id="floating-status">
+        <span class="chip-dot red" id="chip-dot"></span>
+        <span class="chip-text" id="chip-text">Outside Top 3 · Losing ~85% of nearby phone calls</span>
+      </div>
+    </div>
+
+    <!-- Bottom Stat Bar -->
+    <div class="geogrid-footer">
+      <div class="stat-pill">
+        <span class="stat-lbl">Territory Coverage</span>
+        <span class="stat-val" id="coverage-val">18% (1.5 km radius)</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-lbl">Average Position</span>
+        <span class="stat-val" id="avg-pos-val">#9.3 Across Suburbs</span>
+      </div>
+      <div class="stat-pill">
+        <span class="stat-lbl">Estimated Call Capture</span>
+        <span class="stat-val highlight" id="call-rate-val">~14 Calls / month</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const beforeBtn = document.getElementById('btn-before-rank');
+  const afterBtn = document.getElementById('btn-after-rank');
+  const pins = document.querySelectorAll('.suburb-pin');
+  const floatingChip = document.getElementById('floating-status');
+  const chipDot = document.getElementById('chip-dot');
+  const chipText = document.getElementById('chip-text');
+  const coverageVal = document.getElementById('coverage-val');
+  const avgPosVal = document.getElementById('avg-pos-val');
+  const callRateVal = document.getElementById('call-rate-val');
+
+  function setGridState(state: 'before' | 'after') {
+    if (!beforeBtn || !afterBtn) return;
+
+    if (state === 'before') {
+      beforeBtn.classList.add('active');
+      afterBtn.classList.remove('active');
+      beforeBtn.setAttribute('aria-selected', 'true');
+      afterBtn.setAttribute('aria-selected', 'false');
+
+      pins.forEach((pin) => {
+        const el = pin as HTMLElement;
+        const rank = el.getAttribute('data-before') || '7';
+        const numEl = el.querySelector('.pin-num');
+        const badgeEl = el.querySelector('.pin-badge');
+        if (numEl) numEl.textContent = `#${rank}`;
+        
+        badgeEl?.classList.remove('rank-green', 'rank-yellow');
+        if (parseInt(rank, 10) <= 3) {
+          badgeEl?.classList.add('rank-green');
+        } else if (parseInt(rank, 10) <= 6) {
+          badgeEl?.classList.add('rank-yellow');
+        } else {
+          badgeEl?.classList.add('rank-red');
+        }
+      });
+
+      if (chipDot && chipText) {
+        chipDot.className = 'chip-dot red';
+        chipText.textContent = 'Outside Top 3 · Losing ~85% of nearby calls';
+      }
+      if (coverageVal) coverageVal.textContent = '18% (1.5 km radius)';
+      if (avgPosVal) avgPosVal.textContent = '#9.3 Across Suburbs';
+      if (callRateVal) {
+        callRateVal.textContent = '~14 Calls / month';
+        callRateVal.classList.remove('green');
+      }
+    } else {
+      afterBtn.classList.add('active');
+      beforeBtn.classList.remove('active');
+      afterBtn.setAttribute('aria-selected', 'true');
+      beforeBtn.setAttribute('aria-selected', 'false');
+
+      pins.forEach((pin) => {
+        const el = pin as HTMLElement;
+        const rank = el.getAttribute('data-after') || '1';
+        const numEl = el.querySelector('.pin-num');
+        const badgeEl = el.querySelector('.pin-badge');
+        if (numEl) numEl.textContent = `#${rank}`;
+
+        badgeEl?.classList.remove('rank-red', 'rank-yellow');
+        badgeEl?.classList.add('rank-green');
+      });
+
+      if (chipDot && chipText) {
+        chipDot.className = 'chip-dot green';
+        chipText.textContent = 'Top 3 Domination · Capturing ~210+ direct calls / mo';
+      }
+      if (coverageVal) coverageVal.textContent = '94% (12 km radius)';
+      if (avgPosVal) avgPosVal.textContent = '#1.3 Average Rank';
+      if (callRateVal) {
+        callRateVal.textContent = '~218 Calls / month';
+        callRateVal.classList.add('green');
+      }
+    }
+  }
+
+  beforeBtn?.addEventListener('click', () => setGridState('before'));
+  afterBtn?.addEventListener('click', () => setGridState('after'));
+  setGridState('before');
+</script>
+
+<style>
+  .geogrid-wrapper {
+    width: 100%;
+    margin-top: 1.5rem;
+  }
+
+  .geogrid-card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAF6FD 100%);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: clamp(1.75rem, 4vw, 2.75rem);
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .geogrid-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .geogrid-title-block {
+    max-width: 540px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .geogrid-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--color-plum);
+  }
+
+  .geogrid-sub {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+  }
+
+  .toggle-pill-group {
+    display: inline-flex;
+    background-color: var(--color-lilac-soft);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    padding: 0.35rem;
+    gap: 0.35rem;
+  }
+
+  .toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1.15rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    border-radius: var(--radius-full);
+    border: none;
+    background: transparent;
+    color: var(--color-plum);
+    cursor: pointer;
+    transition: background-color var(--transition-fast), color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .toggle-btn.active {
+    background-color: var(--color-white);
+    color: var(--color-plum);
+    box-shadow: 0 2px 8px rgba(42, 8, 64, 0.1);
+  }
+
+  .state-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+  }
+
+  .state-indicator.red {
+    background-color: #E53935;
+  }
+
+  .state-indicator.green {
+    background-color: #10B981;
+  }
+
+  /* Map Grid Canvas */
+  .map-grid-canvas {
+    background: linear-gradient(135deg, #240537 0%, #150222 100%);
+    border-radius: var(--radius-lg);
+    border: 1.5px solid rgba(142, 43, 201, 0.3);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    position: relative;
+    overflow: hidden;
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.4);
+  }
+
+  .map-bg-lines {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+  }
+
+  .radius-circle {
+    position: absolute;
+    border-radius: var(--radius-full);
+    border: 1px dashed rgba(168, 85, 247, 0.2);
+  }
+
+  .radius-circle.r1 { width: 160px; height: 160px; }
+  .radius-circle.r2 { width: 300px; height: 300px; }
+  .radius-circle.r3 { width: 440px; height: 440px; }
+
+  /* Pins Grid */
+  .pins-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    width: 100%;
+    max-width: 580px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .suburb-pin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-align: center;
+  }
+
+  .pin-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--color-white);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+  }
+
+  .pin-badge.rank-red {
+    background: linear-gradient(135deg, #EF4444 0%, #B91C1C 100%);
+  }
+
+  .pin-badge.rank-yellow {
+    background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+  }
+
+  .pin-badge.rank-green {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    box-shadow: 0 0 16px rgba(16, 185, 129, 0.5);
+    transform: scale(1.08);
+  }
+
+  .pin-name {
+    font-size: 0.78125rem;
+    font-weight: 700;
+    color: #E2D4F0;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+    white-space: nowrap;
+  }
+
+  .floating-status-chip {
+    position: absolute;
+    bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-full);
+    padding: 0.4rem 1rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    z-index: 3;
+  }
+
+  .chip-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: var(--radius-full);
+  }
+
+  .chip-dot.red { background-color: #EF4444; }
+  .chip-dot.green { background-color: #10B981; }
+
+  /* Footer Stats */
+  .geogrid-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .stat-pill {
+    background-color: var(--color-lilac-subtle);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+  }
+
+  .stat-lbl {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+  }
+
+  .stat-val {
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--color-plum);
+  }
+
+  .stat-val.highlight.green {
+    color: #059669;
+  }
+
+  @media (max-width: 760px) {
+    .geogrid-header {
+      flex-direction: column;
+    }
+    .toggle-pill-group {
+      width: 100%;
+    }
+    .toggle-btn {
+      flex: 1;
+      justify-content: center;
+    }
+    .geogrid-footer {
+      grid-template-columns: 1fr;
+    }
+    .pins-grid {
+      gap: 1rem;
+    }
+  }
+</style>

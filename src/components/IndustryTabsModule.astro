@@ -1,0 +1,291 @@
+---
+// Kiwi Industry Category & Search Intent Selector
+// Allows tradies, clinics, schools, and professionals to inspect category recommendations and search strategies for their exact trade.
+---
+
+<div class="industry-module-card" id="industry-tabs-module">
+  <div class="industry-module-header">
+    <div class="badge-pill">
+      <span class="badge-dot"></span>
+      <span>NZ Industry Strategy Matrix</span>
+    </div>
+    <h3 class="industry-module-title">Tailored Google Maps strategies by industry</h3>
+    <p class="industry-module-sub">Select your trade to see the specific category architecture, high-intent searches, and review formulas that drive calls.</p>
+  </div>
+
+  <!-- Tab Bar Navigation -->
+  <div class="industry-tab-bar" role="tablist">
+    <button type="button" class="ind-tab active" data-tab="tradies" role="tab" aria-selected="true">
+      <span class="tab-icon">🔧</span>
+      <span>Tradies & Trades</span>
+    </button>
+    <button type="button" class="ind-tab" data-tab="health" role="tab" aria-selected="false">
+      <span class="tab-icon">🩺</span>
+      <span>Clinics & Health</span>
+    </button>
+    <button type="button" class="ind-tab" data-tab="driving" role="tab" aria-selected="false">
+      <span class="tab-icon">🚗</span>
+      <span>Driving & Mobile</span>
+    </button>
+    <button type="button" class="ind-tab" data-tab="legal" role="tab" aria-selected="false">
+      <span class="tab-icon">⚖️</span>
+      <span>Legal & Professional</span>
+    </button>
+  </div>
+
+  <!-- Tab Contents -->
+  <div class="industry-tab-content-area">
+    <!-- Tab 1: Tradies -->
+    <div class="ind-panel active" id="panel-tradies" role="tabpanel">
+      <div class="panel-grid">
+        <div class="panel-box">
+          <span class="panel-tag">Top Primary Categories</span>
+          <h4 class="panel-h4">Plumber, Electrician, Gasfitter, Builder</h4>
+          <p>The biggest mistake is selecting "Handyman" or "Construction Company". Pick the exact high-search trade, then add specific secondary categories like "Hot water system supplier" or "Drainage service".</p>
+        </div>
+        <div class="panel-box">
+          <span class="panel-tag">High-Intent NZ Search Terms</span>
+          <h4 class="panel-h4">"emergency plumber [suburb]", "blocked drain near me"</h4>
+          <p>Tradie searchers are in urgent need. Over 80% tap the click-to-call button directly from the Google 3-pack without visiting the website first.</p>
+        </div>
+        <div class="panel-box full-width">
+          <span class="panel-tag">Winning Review Reply Formula</span>
+          <div class="quote-box">
+            "Thanks for trusting us to fix your hot water cylinder in <strong>Papakura</strong>, Dave! Glad our team could get your gas hot water running the same afternoon."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Health & Dental -->
+    <div class="ind-panel" id="panel-health" role="tabpanel">
+      <div class="panel-grid">
+        <div class="panel-box">
+          <span class="panel-tag">Top Primary Categories</span>
+          <h4 class="panel-h4">Dentist, Physiotherapist, Chiropractor</h4>
+          <p>Storefront verification is critical. Secondary categories should reflect high-margin treatments: "Cosmetic dentist", "Teeth whitening service", "Emergency dental service".</p>
+        </div>
+        <div class="panel-box">
+          <span class="panel-tag">High-Intent NZ Search Terms</span>
+          <h4 class="panel-h4">"dentist [suburb]", "emergency tooth pain auckland"</h4>
+          <p>Patients look closely at total review count, recent 5-star ratings, and clear opening hours before making an online appointment booking.</p>
+        </div>
+        <div class="panel-box full-width">
+          <span class="panel-tag">Winning Review Reply Formula</span>
+          <div class="quote-box">
+            "Thank you for visiting our clinic in <strong>Takapuna</strong>, Sarah! We're so pleased our gentle dental team made your hygiene treatment comfortable."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 3: Driving & Mobile -->
+    <div class="ind-panel" id="panel-driving" role="tabpanel">
+      <div class="panel-grid">
+        <div class="panel-box">
+          <span class="panel-tag">Top Primary Categories</span>
+          <h4 class="panel-h4">Driving School, Mobile Mechanic</h4>
+          <p>Service-Area Business (SAB) setup: Hide residential addresses to avoid suspension, and specify exact licensed territorial suburbs across your city.</p>
+        </div>
+        <div class="panel-box">
+          <span class="panel-tag">High-Intent NZ Search Terms</span>
+          <h4 class="panel-h4">"driving instructor [area]", "restricted test lessons nz"</h4>
+          <p>Parents and students search for high pass rates and immediate weekend availability. Geo-grid radius expansion wins bookings in neighbouring suburbs.</p>
+        </div>
+        <div class="panel-box full-width">
+          <span class="panel-tag">Winning Review Reply Formula</span>
+          <div class="quote-box">
+            "Huge congratulations on passing your restricted driving test in <strong>Westgate</strong> on the first attempt, Liam! Safe driving out there."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 4: Legal & Professional -->
+    <div class="ind-panel" id="panel-legal" role="tabpanel">
+      <div class="panel-grid">
+        <div class="panel-box">
+          <span class="panel-tag">Top Primary Categories</span>
+          <h4 class="panel-h4">Lawyer, Conveyancer, Accountant</h4>
+          <p>Requires practitioner profiles + practice firm profile synchronization. E-E-A-T credentials, NZ Law Society / CA ANZ verification must match website.</p>
+        </div>
+        <div class="panel-box">
+          <span class="panel-tag">High-Intent NZ Search Terms</span>
+          <h4 class="panel-h4">"property lawyer [city]", "small business accountant near me"</h4>
+          <p>Clients search for trust, specialist accreditations, and transparent fee schedules before initiating a consultation call.</p>
+        </div>
+        <div class="panel-box full-width">
+          <span class="panel-tag">Winning Review Reply Formula</span>
+          <div class="quote-box">
+            "Thank you for choosing our team for your commercial property conveyance in <strong>Christchurch</strong>, Mark. It was a pleasure assisting your business."
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const tabs = document.querySelectorAll('.ind-tab');
+  const panels = document.querySelectorAll('.ind-panel');
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const target = tab.getAttribute('data-tab');
+
+      tabs.forEach((t) => {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      panels.forEach((p) => p.classList.remove('active'));
+
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+      document.getElementById(`panel-${target}`)?.classList.add('active');
+    });
+  });
+</script>
+
+<style>
+  .industry-module-card {
+    background: linear-gradient(180deg, #FFFFFF 0%, #FAF6FD 100%);
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: clamp(2rem, 5vw, 3.25rem);
+    box-shadow: var(--shadow-md);
+    margin-top: 1.5rem;
+  }
+
+  .industry-module-header {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 2.25rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .industry-module-title {
+    font-size: clamp(1.65rem, 3.5vw, 2.25rem);
+  }
+
+  .industry-module-sub {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+  }
+
+  /* Tab Bar */
+  .industry-tab-bar {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--color-border);
+    padding-bottom: 1rem;
+  }
+
+  .ind-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--color-white);
+    border: 1.5px solid var(--color-border);
+    padding: 0.65rem 1.25rem;
+    border-radius: var(--radius-full);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: var(--color-plum);
+    cursor: pointer;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .ind-tab:hover {
+    border-color: var(--color-primary);
+    background-color: var(--color-lilac-soft);
+  }
+
+  .ind-tab.active {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-plum) 100%);
+    color: var(--color-white);
+    border-color: transparent;
+    box-shadow: 0 4px 14px rgba(109, 16, 163, 0.25);
+  }
+
+  .tab-icon {
+    font-size: 1.125rem;
+  }
+
+  /* Panels */
+  .ind-panel {
+    display: none;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .ind-panel.active {
+    display: block;
+  }
+
+  .panel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .panel-box {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .panel-box.full-width {
+    grid-column: 1 / -1;
+    background: linear-gradient(180deg, #F8F3FC 0%, #F3ECFA 100%);
+    border-left: 4px solid var(--color-primary);
+  }
+
+  .panel-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-primary);
+  }
+
+  .panel-h4 {
+    font-size: 1.125rem;
+    color: var(--color-plum);
+  }
+
+  .panel-box p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+  }
+
+  .quote-box {
+    font-size: 1rem;
+    color: var(--color-plum);
+    font-style: italic;
+    line-height: 1.6;
+    margin-top: 0.25rem;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 760px) {
+    .panel-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

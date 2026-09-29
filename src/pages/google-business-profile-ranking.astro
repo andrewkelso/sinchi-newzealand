@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import GeoGridVisualizer from '../components/GeoGridVisualizer.astro';
+import IndustryTabsModule from '../components/IndustryTabsModule.astro';
 import CtaBand from '../components/CtaBand.astro';
 
 const gbpFaqs = [
@@ -33,13 +35,16 @@ const gbpFaqs = [
   <!-- Service Hero -->
   <section class="service-hero">
     <div class="container container-narrow">
-      <div class="hero-badge">Google Maps Local Search</div>
+      <div class="badge-pill">
+        <span class="badge-dot"></span>
+        <span>Google Maps Local Search</span>
+      </div>
       <h1 class="service-title">
         Google Business Profile optimisation for NZ businesses
       </h1>
       
       <!-- AEO Answer-First Lead Paragraph (40-60 words) -->
-      <div class="answer-first-lead">
+      <div class="answer-first-lead card-surface">
         <p>
           Google Business Profile optimisation is the process of configuring, verifying, and actively managing your Google listing so your business appears in the coveted local 3-pack on Google Maps. It is designed for New Zealand tradies, clinics, and service providers who want local customers to find and call them within 3 to 8 weeks.
         </p>
@@ -56,10 +61,21 @@ const gbpFaqs = [
     </div>
   </section>
 
+  <!-- Interactive Geo-Grid Suburb Heatmap Simulation -->
+  <section class="section">
+    <div class="container">
+      <GeoGridVisualizer />
+    </div>
+  </section>
+
   <!-- Inclusions Section -->
   <section class="section section-alt" id="whats-included">
     <div class="container">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Comprehensive Scope</span>
+        </div>
         <h2>What's included in profile optimisation</h2>
         <p class="section-intro">
           Every lever required to climb Google Maps and maintain your position against aggressive local competitors.
@@ -67,7 +83,7 @@ const gbpFaqs = [
       </div>
 
       <div class="features-grid">
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">🏷️</div>
           <h3>Category & Service Architecture</h3>
           <p>
@@ -75,7 +91,7 @@ const gbpFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">⭐</div>
           <h3>Review Velocity System & Keyword Replies</h3>
           <p>
@@ -83,7 +99,7 @@ const gbpFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">📍</div>
           <h3>NZ Citation & Directory Sync</h3>
           <p>
@@ -91,7 +107,7 @@ const gbpFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">🛡️</div>
           <h3>Spam & Duplicate Redressal</h3>
           <p>
@@ -99,7 +115,7 @@ const gbpFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">📸</div>
           <h3>Geotagged Photo & Post Updates</h3>
           <p>
@@ -107,7 +123,7 @@ const gbpFaqs = [
           </p>
         </div>
 
-        <div class="feature-item">
+        <div class="feature-item card-surface">
           <div class="feature-icon">📊</div>
           <h3>Monthly 5km Geo-Grid Tracking</h3>
           <p>
@@ -118,17 +134,28 @@ const gbpFaqs = [
     </div>
   </section>
 
-  <!-- Monthly Deliverable Breakdown -->
+  <!-- Interactive Kiwi Industry Strategy Selector -->
   <section class="section">
+    <div class="container">
+      <IndustryTabsModule />
+    </div>
+  </section>
+
+  <!-- Monthly Deliverable Breakdown -->
+  <section class="section section-alt">
     <div class="container container-narrow">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Reporting Standards</span>
+        </div>
         <h2>What you receive every month</h2>
         <p class="section-intro">
           No 50-page jargon PDFs. You get clear numbers showing visibility, phone calls, and ranking progression.
         </p>
       </div>
 
-      <div class="report-breakdown-card">
+      <div class="report-breakdown-card card-surface">
         <div class="report-row">
           <div class="report-icon">🗺️</div>
           <div class="report-text">
@@ -165,10 +192,13 @@ const gbpFaqs = [
   </section>
 
   <!-- Transparent Pricing Section -->
-  <section class="section section-alt" id="pricing">
+  <section class="section" id="pricing">
     <div class="container container-narrow">
-      <div class="pricing-card">
-        <div class="pricing-badge">Simple, Transparent Pricing</div>
+      <div class="pricing-card card-surface">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Simple, Transparent Pricing</span>
+        </div>
         <h2 class="pricing-title">Google Business Profile Ranking</h2>
         <p class="pricing-subtitle">Everything needed to gain and keep your top 3 position.</p>
 
@@ -200,16 +230,20 @@ const gbpFaqs = [
   </section>
 
   <!-- FAQ Section -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container container-narrow">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>FAQ</span>
+        </div>
         <h2>Frequently asked questions</h2>
         <p class="section-intro">Got questions about Google Business Profile ranking? Here are the facts.</p>
       </div>
 
       <div class="faq-list">
         {gbpFaqs.map((faq) => (
-          <div class="faq-card">
+          <div class="faq-card card-surface">
             <h3 class="faq-card-title">{faq.q}</h3>
             <p class="faq-card-desc">{faq.a}</p>
           </div>
@@ -229,39 +263,26 @@ const gbpFaqs = [
 <style>
   /* Service Hero */
   .service-hero {
-    padding-top: clamp(3rem, 6vw, 5rem);
+    padding-top: clamp(3rem, 6vw, 5.5rem);
     padding-bottom: clamp(3rem, 6vw, 4.5rem);
-    background-color: var(--color-white);
     text-align: center;
   }
 
-  .hero-badge {
-    display: inline-block;
-    background-color: var(--color-lilac-soft);
-    color: var(--color-primary);
-    font-size: 0.875rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.35rem 0.85rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1.25rem;
-  }
-
   .service-title {
-    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-size: clamp(2.35rem, 4.5vw, 3.75rem);
+    margin-top: 1rem;
     margin-bottom: 1.5rem;
     line-height: 1.15;
   }
 
   .answer-first-lead {
-    background-color: var(--color-lilac-subtle);
+    background: linear-gradient(180deg, #FAF6FD 0%, #F5ECFA 100%);
     border-left: 4px solid var(--color-primary);
-    padding: 1.25rem 1.5rem;
+    padding: 1.5rem 1.75rem;
     border-radius: 0 var(--radius-md) var(--radius-md) 0;
     text-align: left;
-    margin: 0 auto 2rem auto;
-    max-width: 720px;
+    margin: 0 auto 2.25rem auto;
+    max-width: 740px;
   }
 
   .answer-first-lead p {
@@ -296,10 +317,10 @@ const gbpFaqs = [
     text-align: center;
     max-width: 680px;
     margin: 0 auto 3rem auto;
-  }
-
-  .section-header h2 {
-    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .section-intro {
@@ -315,16 +336,19 @@ const gbpFaqs = [
   }
 
   .feature-item {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 2rem;
-    box-shadow: var(--shadow-sm);
+    padding: 2.25rem;
   }
 
   .feature-icon {
-    font-size: 2rem;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
+    width: 54px;
+    height: 54px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-lilac-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .feature-item h3 {
@@ -340,14 +364,10 @@ const gbpFaqs = [
 
   /* Report Breakdown Card */
   .report-breakdown-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: 2.25rem;
+    padding: 2.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.75rem;
-    box-shadow: var(--shadow-sm);
   }
 
   .report-row {
@@ -381,29 +401,17 @@ const gbpFaqs = [
 
   /* Pricing Card */
   .pricing-card {
-    background-color: var(--color-white);
     border: 2px solid var(--color-primary);
-    border-radius: var(--radius-lg);
-    padding: clamp(2rem, 5vw, 3.5rem);
+    padding: clamp(2.25rem, 5vw, 3.5rem);
     text-align: center;
-    box-shadow: var(--shadow-md);
-  }
-
-  .pricing-badge {
-    display: inline-block;
-    background-color: var(--color-lilac-soft);
-    color: var(--color-primary);
-    font-size: 0.8125rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: 0.3rem 0.8rem;
-    border-radius: var(--radius-full);
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .pricing-title {
-    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-size: clamp(1.75rem, 3vw, 2.35rem);
+    margin-top: 0.85rem;
     margin-bottom: 0.5rem;
   }
 
@@ -464,7 +472,7 @@ const gbpFaqs = [
   .btn-pricing {
     width: 100%;
     max-width: 420px;
-    padding: 1rem 1.75rem;
+    padding: 1.1rem 1.75rem;
     font-size: 1.125rem;
   }
 
@@ -476,11 +484,7 @@ const gbpFaqs = [
   }
 
   .faq-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
+    padding: 1.75rem;
   }
 
   .faq-card-title {
