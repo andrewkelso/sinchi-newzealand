@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import MapsHeroVisual from '../components/MapsHeroVisual.astro';
 import AuditReportMockup from '../components/AuditReportMockup.astro';
+import LocalCallEstimator from '../components/LocalCallEstimator.astro';
 import CtaBand from '../components/CtaBand.astro';
 
 const homeFaqs = [
@@ -32,6 +33,11 @@ const homeFaqs = [
   <section class="hero-section">
     <div class="container hero-container">
       <div class="hero-content">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Google Maps Specialists · New Zealand</span>
+        </div>
+
         <h1 class="hero-title">
           Get found on Google Maps by customers near you
         </h1>
@@ -73,7 +79,11 @@ const homeFaqs = [
   <!-- 2. PROBLEM SECTION: WHY YOU'RE NOT IN THE TOP 3 -->
   <section class="section section-problem">
     <div class="container container-narrow">
-      <div class="problem-card">
+      <div class="problem-card card-surface">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>The Local Visibility Gap</span>
+        </div>
         <h2 class="problem-title">Why you're not in the top 3</h2>
         <div class="problem-text">
           <p>
@@ -90,19 +100,30 @@ const homeFaqs = [
     </div>
   </section>
 
-  <!-- 3. TWO CORE SERVICES -->
+  <!-- 3. INTERACTIVE REVENUE / CALL ESTIMATOR MODULE -->
+  <section class="section">
+    <div class="container">
+      <LocalCallEstimator />
+    </div>
+  </section>
+
+  <!-- 4. TWO CORE SERVICES -->
   <section class="section section-services" id="services">
     <div class="container">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Core Offers</span>
+        </div>
         <h2 class="section-title">Two ways we help your business win local calls</h2>
         <p class="section-intro">
-          We focus exclusively on two levers that generate phone calls for local New Zealand businesses.
+          We focus exclusively on two levers that generate direct phone calls for local New Zealand businesses.
         </p>
       </div>
 
       <div class="services-grid">
         <!-- Service Card 1 -->
-        <div class="service-card">
+        <div class="service-card card-surface">
           <div class="service-icon-box">📍</div>
           <h3 class="service-card-title">Google Business Profile Ranking</h3>
           <p class="service-card-desc">
@@ -123,7 +144,7 @@ const homeFaqs = [
         </div>
 
         <!-- Service Card 2 -->
-        <div class="service-card">
+        <div class="service-card card-surface">
           <div class="service-icon-box">⚡</div>
           <h3 class="service-card-title">Website Updates</h3>
           <p class="service-card-desc">
@@ -146,10 +167,14 @@ const homeFaqs = [
     </div>
   </section>
 
-  <!-- 4. HOW IT WORKS (GENUINE 3-STEP PROCESS) -->
+  <!-- 5. HOW IT WORKS (GENUINE 3-STEP PROCESS) -->
   <section class="section section-alt" id="how-it-works">
     <div class="container container-narrow">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Disciplined Process</span>
+        </div>
         <h2 class="section-title">How it works</h2>
         <p class="section-intro">
           A disciplined, engineer's approach to local search. No guesswork, no fluff.
@@ -158,7 +183,7 @@ const homeFaqs = [
 
       <div class="process-steps">
         <!-- Step 1 -->
-        <div class="process-step">
+        <div class="process-step card-surface">
           <div class="step-num-badge">1</div>
           <div class="step-content">
             <h3 class="step-title">We check where you rank today</h3>
@@ -169,7 +194,7 @@ const homeFaqs = [
         </div>
 
         <!-- Step 2 -->
-        <div class="process-step">
+        <div class="process-step card-surface">
           <div class="step-num-badge">2</div>
           <div class="step-content">
             <h3 class="step-title">We fix your profile and website</h3>
@@ -180,7 +205,7 @@ const homeFaqs = [
         </div>
 
         <!-- Step 3 -->
-        <div class="process-step">
+        <div class="process-step card-surface">
           <div class="step-num-badge">3</div>
           <div class="step-content">
             <h3 class="step-title">We track your position monthly</h3>
@@ -193,10 +218,14 @@ const homeFaqs = [
     </div>
   </section>
 
-  <!-- 5. PROOF & SAMPLE AUDIT SECTION -->
+  <!-- 6. PROOF & SAMPLE AUDIT SECTION -->
   <section class="section" id="proof">
     <div class="container">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Transparent Data</span>
+        </div>
         <h2 class="section-title">What you see in your report</h2>
         <p class="section-intro">
           We believe in complete transparency. You get concrete data about your local competition, not vague SEO promises.
@@ -207,10 +236,14 @@ const homeFaqs = [
     </div>
   </section>
 
-  <!-- 6. FREQUENTLY ASKED QUESTIONS -->
+  <!-- 7. FREQUENTLY ASKED QUESTIONS -->
   <section class="section section-alt" id="faq">
     <div class="container container-narrow">
       <div class="section-header">
+        <div class="badge-pill">
+          <span class="badge-dot"></span>
+          <span>Honest Answers</span>
+        </div>
         <h2 class="section-title">Common questions about Google Maps ranking</h2>
         <p class="section-intro">
           Direct, honest answers to what Kiwi business owners ask us most.
@@ -219,7 +252,7 @@ const homeFaqs = [
 
       <div class="faq-list">
         {homeFaqs.map((faq) => (
-          <div class="faq-item">
+          <div class="faq-item card-surface">
             <h3 class="faq-question">{faq.question}</h3>
             <p class="faq-answer">{faq.answer}</p>
           </div>
@@ -234,16 +267,15 @@ const homeFaqs = [
     </div>
   </section>
 
-  <!-- 7. FINAL CALL TO ACTION -->
+  <!-- 8. FINAL CALL TO ACTION -->
   <CtaBand />
 </Layout>
 
 <style>
   /* Hero Section */
   .hero-section {
-    padding-top: clamp(2.5rem, 5vw, 4.5rem);
-    padding-bottom: clamp(3rem, 6vw, 5rem);
-    background-color: var(--color-white);
+    padding-top: clamp(3rem, 6vw, 5.5rem);
+    padding-bottom: clamp(3.5rem, 7vw, 5.5rem);
   }
 
   .hero-container {
@@ -260,7 +292,7 @@ const homeFaqs = [
   }
 
   .hero-title {
-    font-size: clamp(2.35rem, 4.5vw, 3.75rem);
+    font-size: clamp(2.35rem, 4.5vw, 3.85rem);
     letter-spacing: -0.03em;
     line-height: 1.1;
   }
@@ -280,7 +312,7 @@ const homeFaqs = [
   }
 
   .btn-hero {
-    padding: 1rem 2rem;
+    padding: 1.05rem 2.25rem;
     font-size: 1.125rem;
   }
 
@@ -327,10 +359,10 @@ const homeFaqs = [
     text-align: center;
     max-width: 680px;
     margin: 0 auto 3rem auto;
-  }
-
-  .section-title {
-    margin-bottom: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
   }
 
   .section-intro {
@@ -339,20 +371,13 @@ const homeFaqs = [
   }
 
   /* Problem Section */
-  .section-problem {
-    background-color: var(--color-lilac-subtle);
-  }
-
   .problem-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
     padding: clamp(2rem, 5vw, 3.25rem);
-    box-shadow: var(--shadow-sm);
   }
 
   .problem-title {
     font-size: clamp(1.625rem, 3vw, 2.25rem);
+    margin-top: 1rem;
     margin-bottom: 1.25rem;
     color: var(--color-plum);
   }
@@ -382,23 +407,21 @@ const homeFaqs = [
   }
 
   .service-card {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
     padding: clamp(2rem, 4vw, 2.75rem);
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow-sm);
-    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
-  }
-
-  .service-card:hover {
-    box-shadow: var(--shadow-md);
   }
 
   .service-icon-box {
-    font-size: 2rem;
+    font-size: 2.25rem;
     margin-bottom: 1rem;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background-color: var(--color-lilac-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .service-card-title {
@@ -466,25 +489,22 @@ const homeFaqs = [
     display: flex;
     align-items: flex-start;
     gap: 1.5rem;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 1.5rem 1.75rem;
-    box-shadow: var(--shadow-sm);
+    padding: 1.75rem 2rem;
   }
 
   .step-num-badge {
-    width: 44px;
-    height: 44px;
-    background-color: var(--color-plum);
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-plum) 100%);
     color: var(--color-white);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 800;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(109, 16, 163, 0.25);
   }
 
   .step-content {
@@ -511,15 +531,11 @@ const homeFaqs = [
   }
 
   .faq-item {
-    background-color: var(--color-white);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: 1.5rem;
-    box-shadow: var(--shadow-sm);
+    padding: 1.75rem;
   }
 
   .faq-question {
-    font-size: 1.125rem;
+    font-size: 1.1875rem;
     margin-bottom: 0.6rem;
     color: var(--color-plum);
   }
@@ -531,7 +547,7 @@ const homeFaqs = [
   }
 
   .faq-more-wrapper {
-    margin-top: 2rem;
+    margin-top: 2.25rem;
     text-align: center;
   }
 
