@@ -1,10 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pageBreadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Terms of Service', url: '/terms' }
+];
 ---
 
 <Layout
   title="Terms of Service | Sinchi"
   description="Sinchi Terms of Service. Plain-English terms for our Google Business Profile and website optimization services for New Zealand businesses."
+  breadcrumbs={pageBreadcrumbs}
+  publishDate="2026-09-29"
+  modifiedDate="2026-09-29"
 >
   <section class="section">
     <div class="container container-narrow">

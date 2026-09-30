@@ -1,6 +1,89 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CtaBand from '../components/CtaBand.astro';
+import FeatureAuditModal from '../components/FeatureAuditModal.astro';
+
+const websiteFeatures = [
+  {
+    icon: "⚡",
+    title: "Mobile Speed & Core Web Vitals",
+    badge: "Speed Lever 1 of 6 · Google Mobile Standard",
+    subtitle: "Sub-2-second mobile load speeds and 95+ Google Lighthouse scores.",
+    desc: "We compress images to modern WebP/AVIF formats, optimize render-blocking CSS/JS, and ensure your site loads in under 2 seconds on mobile data.",
+    deepdive: "Google strictly enforces mobile-first indexing and penalizes sites that flunk Core Web Vitals. When a Kiwi customer taps your Google Maps link on a 4G connection, every second of loading lag doubles bounce rates. We optimize assets, streamline scripts, and ensure your site renders near-instantly.",
+    checklist: [
+      "Modern WebP/AVIF image compression with zero visual degradation",
+      "Elimination of render-blocking JavaScript and bulky CSS",
+      "Sub-2-second Largest Contentful Paint (LCP) performance target"
+    ]
+  },
+  {
+    icon: "📱",
+    title: "One-Tap Click-to-Call Buttons",
+    badge: "Conversion Lever 2 of 6 · Immediate Lead Capture",
+    subtitle: "Zero-friction telephone triggers and streamlined mobile enquiry forms.",
+    desc: "We install persistent, high-converting mobile phone call buttons and clean 3-field enquiry forms so customers can reach you with zero friction.",
+    deepdive: "Over 70% of local service queries happen on smartphones where customers want immediate assistance. If your phone number isn't one-tap clickable or is hidden in a desktop header, visitors bounce to your competitor. We install sticky mobile call triggers and friction-free enquiry popups.",
+    checklist: [
+      "Sticky floating mobile call bar with native one-tap dialing",
+      "Streamlined 3-field contact forms with instant mobile validation",
+      "Google Analytics 4 event tracking for phone clicks and form submissions"
+    ]
+  },
+  {
+    icon: "🏙️",
+    title: "Service & Suburb Landing Pages",
+    badge: "Expansion Lever 3 of 6 · Regional Radius Expansion",
+    subtitle: "Capture customer searches across every neighboring town you service.",
+    desc: "We build dedicated pages for each core trade and local suburb you serve (e.g. 'Heat Pump Installation Papakura') so Google ranks you in neighboring towns.",
+    deepdive: "A single homepage can rarely rank for multiple surrounding suburbs. By structuring dedicated landing pages for each service and high-value suburb in your territory, you provide Google with the localized content it requires to serve your business to customers across the region.",
+    checklist: [
+      "Dedicated high-intent suburb URL structure and breadcrumbs",
+      "Custom localized trade copy referencing local landmarks and needs",
+      "Direct cross-linking between your Google Profile service areas and site"
+    ]
+  },
+  {
+    icon: "🤖",
+    title: "LocalBusiness JSON-LD Schema",
+    badge: "Entity Lever 4 of 6 · Machine-Readable Authority",
+    subtitle: "Structured semantic data for Google, Bing, and AI search engines.",
+    desc: "We implement comprehensive machine-readable schema for Google, Apple Maps, and AI search engines, confirming your legal entity, services, and areas served.",
+    deepdive: "AI search engines (Perplexity, ChatGPT) and Google's local knowledge graph rely on structured JSON-LD code to verify your business identity without guessing. We embed rich schemas defining your exact trade categories, geo-coordinates, operating hours, and customer review summaries.",
+    checklist: [
+      "Full LocalBusiness JSON-LD schema integration in site headers",
+      "Precise geo-coordinates, postal areas, and opening hour verification",
+      "BreadcrumbList and FAQ rich snippet markup for enhanced SERP presence"
+    ]
+  },
+  {
+    icon: "🔄",
+    title: "Profile & Website Alignment",
+    badge: "Trust Lever 5 of 6 · Algorithmic Consistency",
+    subtitle: "Matching headings, categories, and NAP character-for-character.",
+    desc: "We align your website's primary heading, metadata, contact info, and business categories with your Google Business Profile to maximize ranking trust.",
+    deepdive: "Google checks whether your website substantiates your Google Business Profile. If your profile claims you specialize in 'Drain Unblocking' but your website never mentions it in an H1 heading or service menu, your authority drops. We align all titles, contact records, and trade terms seamlessly.",
+    checklist: [
+      "H1 and meta title synchronization with primary Google categories",
+      "Exact character-for-character Name, Address, Phone (NAP) matching",
+      "Direct embedded Google Maps verification and business profile link"
+    ]
+  },
+  {
+    icon: "🛡️",
+    title: "Local Trust Signals & Proof",
+    badge: "Authority Lever 6 of 6 · Customer Conversion",
+    subtitle: "Kiwi trade accreditation, real photo galleries, and verified reviews.",
+    desc: "We embed your real Google reviews, trade licences, Master Builders / Master Plumbers credentials, and photos of real work to convert cautious visitors.",
+    deepdive: "Kiwis want proof before letting a tradesperson or professional into their home. We embed live Google review feeds, authentic photos of local work sites, and prominent industry badges (Master Builders, Registered Electricians, Site Safe) to turn casual browsers into booked appointments.",
+    checklist: [
+      "Live verified Google review badge integration with star ratings",
+      "Prominent NZ trade association accreditations and licence proofs",
+      "Authentic on-site photo galleries showcasing local Kiwi projects"
+    ]
+  }
+];
+
 
 const websiteFaqs = [
   {
@@ -24,18 +107,67 @@ const websiteFaqs = [
     a: "Standard speed, schema, and mobile call-to-action updates are typically completed and deployed within 3 to 7 working days with zero downtime to your live website."
   }
 ];
+
+const pageBreadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Website Updates', url: '/website-updates' }
+];
+
+const serviceJsonLd = [
+  {
+    "@type": "Service",
+    "@id": "https://sinchi.co.nz/website-updates#service",
+    "name": "Website Speed & Conversion Updates for NZ Businesses",
+    "serviceType": "Website Performance & Local Conversion Optimisation",
+    "description": "Website updates that turn Google visitors into phone calls. Fast mobile speeds, click-to-call buttons, LocalBusiness schema, and service area pages for NZ businesses.",
+    "provider": {
+      "@id": "https://sinchi.co.nz/#organization"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "New Zealand"
+    },
+    "termsOfService": "https://sinchi.co.nz/terms",
+    "offers": {
+      "@type": "Offer",
+      "price": "650",
+      "priceCurrency": "NZD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "650",
+        "priceCurrency": "NZD"
+      }
+    }
+  },
+  {
+    "@type": "FAQPage",
+    "@id": "https://sinchi.co.nz/website-updates#faq",
+    "mainEntity": websiteFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  }
+];
 ---
 
 <Layout
   title="Website Updates for NZ Small Businesses | Sinchi"
   description="Website updates that turn Google visitors into phone calls. Fast mobile speeds, click-to-call buttons, LocalBusiness schema, and service area pages for NZ businesses."
+  breadcrumbs={pageBreadcrumbs}
+  jsonLd={serviceJsonLd}
+  publishDate="2026-09-29"
+  modifiedDate="2026-09-29"
 >
   <!-- Service Hero -->
   <section class="service-hero">
     <div class="container container-narrow">
       <div class="badge-pill">
         <span class="badge-dot"></span>
-        <span>Website Conversion & Speed</span>
+        <span>Website Conversion & Speed · Updated September 2026</span>
       </div>
       <h1 class="service-title">
         Website updates that turn Google visitors into calls
@@ -74,53 +206,26 @@ const websiteFaqs = [
       </div>
 
       <div class="features-grid">
-        <div class="feature-item card-surface">
-          <div class="feature-icon">⚡</div>
-          <h3>Mobile Speed & Core Web Vitals</h3>
-          <p>
-            We compress images to modern WebP/AVIF formats, optimize render-blocking CSS/JS, and ensure your site loads in under 2 seconds on mobile data.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">📱</div>
-          <h3>One-Tap Click-to-Call Buttons</h3>
-          <p>
-            We install persistent, high-converting mobile phone call buttons and clean 3-field enquiry forms so customers can reach you with zero friction.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">🏙️</div>
-          <h3>Service & Suburb Landing Pages</h3>
-          <p>
-            We build dedicated pages for each core trade and local suburb you serve (e.g. "Heat Pump Installation Papakura") so Google ranks you in neighboring towns.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">🤖</div>
-          <h3>LocalBusiness JSON-LD Schema</h3>
-          <p>
-            We implement comprehensive machine-readable schema for Google, Apple Maps, and AI search engines, confirming your legal entity, services, and areas served.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">🔄</div>
-          <h3>Profile & Website Alignment</h3>
-          <p>
-            We align your website's primary heading, metadata, contact info, and business categories with your Google Business Profile to maximize ranking trust.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">🛡️</div>
-          <h3>Local Trust Signals & Proof</h3>
-          <p>
-            We embed your real Google reviews, trade licences, Master Builders / Master Plumbers credentials, and photos of real work to convert cautious visitors.
-          </p>
-        </div>
+        {websiteFeatures.map((feat) => (
+          <div
+            class="feature-item card-surface"
+            data-feature-card="true"
+            data-feature-data={JSON.stringify(feat)}
+            role="button"
+            tabindex="0"
+            aria-label={`Open details and audit for ${feat.title}`}
+          >
+            <div class="feature-card-header">
+              <div class="feature-icon">{feat.icon}</div>
+              <span class="feature-badge-mini">Tap to inspect & audit ↗</span>
+            </div>
+            <h3>{feat.title}</h3>
+            <p>{feat.desc}</p>
+            <div class="feature-cue-row">
+              <span class="feature-cue-btn">Get free inspection →</span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -240,6 +345,9 @@ const websiteFaqs = [
     subtitle="Let's audit your site's mobile speed, schema, and local Google visibility for free."
     primaryButtonText="Get my free check"
   />
+
+  <!-- Interactive Deep Dive & In-Modal Free Audit Modal -->
+  <FeatureAuditModal />
 </Layout>
 
 <style>
@@ -313,36 +421,100 @@ const websiteFaqs = [
   /* Features Grid */
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 2rem;
   }
 
   .feature-item {
     padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 220ms ease,
+                box-shadow 220ms ease;
+    outline: none;
+  }
+
+  .feature-item:hover,
+  .feature-item:focus-visible {
+    transform: translateY(-5px);
+    border-color: var(--color-primary-light);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(157, 56, 224, 0.35);
+  }
+
+  .feature-item:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  .feature-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
   }
 
   .feature-icon {
     font-size: 2.25rem;
-    margin-bottom: 1rem;
     width: 54px;
     height: 54px;
     border-radius: var(--radius-md);
-    background: rgba(157, 56, 224, 0.18);
+    background-color: var(--color-lilac-soft);
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
+  .feature-badge-mini {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    background: rgba(157, 56, 224, 0.15);
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+    transition: background 150ms ease, color 150ms ease;
+  }
+
+  .feature-item:hover .feature-badge-mini {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    border-color: #C084FC;
+  }
+
   .feature-item h3 {
     font-size: 1.25rem;
-    color: #FFFFFF;
     margin-bottom: 0.6rem;
+    color: #FFFFFF;
   }
 
   .feature-item p {
     color: var(--color-text-muted);
     font-size: 0.9375rem;
     line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-cue-row {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px dashed rgba(192, 132, 252, 0.2);
+  }
+
+  .feature-cue-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    transition: color 150ms ease, transform 150ms ease;
+  }
+
+  .feature-item:hover .feature-cue-btn {
+    color: #FFFFFF;
+    transform: translateX(4px);
   }
 
   /* Comparison Grid */

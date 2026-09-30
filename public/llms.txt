@@ -1,0 +1,46 @@
+# Sinchi — Local SEO & Google Maps Specialists (New Zealand)
+
+> Sinchi is a local SEO service that helps New Zealand businesses rank in Google Maps and improve their websites.
+
+## Core Entity Summary
+- **Entity Name:** Sinchi
+- **Founder:** Andrew Kelso (Systems engineer with 20+ years of high-stakes systems experience)
+- **Market:** New Zealand (Remote service model covering North Island & South Island)
+- **Primary Website:** https://sinchi.co.nz
+- **Direct Contact:** hello@sinchi.co.nz
+- **Core Specialism:** Google Business Profile optimization (local 3-pack ranking) and website conversion & speed updates.
+
+## Core Services
+
+### 1. Google Business Profile Ranking
+- **URL:** https://sinchi.co.nz/google-business-profile-ranking
+- **Focus:** Helping NZ tradies, healthcare clinics, driving schools, and local service businesses climb into the Google Maps top 3.
+- **Inclusions:** Primary and secondary category optimization, NZ directory citation building (NAP consistency across Yellow, Finda, UBD, Localist), review generation workflows, spam competitor pin redressal, and monthly suburb-by-suburb geo-grid rank tracking.
+- **Pricing:** From $495 NZD / month (month-to-month, zero lock-in contracts).
+
+### 2. Website Updates & Speed
+- **URL:** https://sinchi.co.nz/website-updates
+- **Focus:** Technical website updates that turn Google visitors into direct phone enquiries and support local Maps rankings.
+- **Inclusions:** Mobile speed optimization (hitting 95+ Mobile Lighthouse & Core Web Vitals), sticky click-to-call buttons, LocalBusiness JSON-LD structured schema injection, and dedicated suburb service pages.
+- **Pricing:** From $650 NZD one-off or bundled with monthly ranking.
+
+## Primary Call to Action
+- **Free Google Visibility Check:** https://sinchi.co.nz/free-google-check
+- **Description:** A personalised 1-day scan showing where a business ranks for its primary trade, who is beating them in the top 3, and actionable fixes for their profile and website. No sales calls unless requested.
+
+## Free Resource
+- **3 Quick Fixes to Climb Google Maps:** https://sinchi.co.nz/3-quick-fixes
+- **1.** Get categories right (align primary category with real search terms).
+- **2.** Build weekly review velocity and reply with natural trade & suburb keywords.
+- **3.** Align website NAP and inject LocalBusiness schema.
+
+## Key Links & Reference Pages
+- Home: https://sinchi.co.nz/
+- GBP Ranking Service: https://sinchi.co.nz/google-business-profile-ranking
+- Website Updates Service: https://sinchi.co.nz/website-updates
+- Free Ranking Check: https://sinchi.co.nz/free-google-check
+- 3 Quick Fixes Guide: https://sinchi.co.nz/3-quick-fixes
+- About & Engineering Philosophy: https://sinchi.co.nz/about
+- Complete Knowledge Base & FAQ: https://sinchi.co.nz/faq
+- Privacy Policy (NZ Privacy Act 2020): https://sinchi.co.nz/privacy
+- Terms of Service (NZ Law): https://sinchi.co.nz/terms

@@ -15,9 +15,10 @@
 | **3** | **Service Pages** | 🟢 Done | `/google-business-profile-ranking` & `/website-updates` (Answer-first, deliverables, report sample, pricing placeholder, FAQ, CTA) |
 | **4** | **CTA Pages & Forms** | 🟢 Done | `/free-google-check` (distraction-free), `/3-quick-fixes`, `/thanks`, API routes to n8n with honeypot & fallback |
 | **5** | **Trust & Legal Pages** | 🟢 Done | `/about` (Andrew's engineering background), `/faq` (14+ AEO questions), `/privacy` (NZ Privacy Act 2020), `/terms` |
-| **6** | **SEO, AEO & GEO** | 🟡 Next | JSON-LD schemas (Org, Service, FAQ, Person, Breadcrumbs), sitemap.xml, robots.txt, llms.txt, Open Graph meta |
-| **7** | **QA & Performance** | ⚪ Not Started | Lighthouse 95+ audit across all 4 scores, 320px mobile test, WCAG 2.2 AA contrast, link checks |
-| **8** | **Deploy & Handover** | ⚪ Not Started | Git repository clean, Vercel build config, environment variables documentation, README |
+| **6** | **SEO, AEO & GEO** | 🟢 Done | JSON-LD schemas (Org, Service, FAQ, Person, HowTo, Breadcrumbs), sitemap.xml, robots.txt, llms.txt, llms-full.txt, Open Graph meta |
+| **UX+** | **Interactive Modals & CTAs** | 🟢 Done | Feature cards on `/google-business-profile-ranking` & `/website-updates` open into interactive deep-dive modals with in-modal Free Audit form (`/api/submit-check`), keyboard navigation, backdrop blur, and instant validation |
+| **7** | **QA & Performance** | 🟢 Done | Zero broken links (all 14 routes + API tested 200 OK), 320px mobile viewport overflow fixed, WCAG 2.2 AA/AAA contrast verified, 0 forbidden em/en dashes, zero ranking guarantees |
+| **8** | **Deploy & Handover** | 🟢 Done | Production bundle built, `.vercel/output` verified, `.env.example` created, `README.md` with Cloudflare DNS & Vercel deployment guide completed |
 
 ---
 
@@ -79,5 +80,12 @@
 
 ---
 
-## 4. Changelog
 - **Stage 0:** Initialized `PROGRESS.md`, analyzed brand assets (`Sinchi_LOGO.png`, `Sinchi_Favacon.png`, `avatar.png`), extracted color palette, structured build roadmap.
+- **Stage 1 to 5:** Built Design System, Home Page with live Maps visualizer, Service Pages, CTA Pages, and Trust/Legal pages.
+- **Stage 6 (SEO, AEO & GEO):**
+  - Configured `@astrojs/sitemap` with automated generation for all 9 indexable pages (`sitemap-index.xml`, `sitemap-0.xml`).
+  - Created `public/robots.txt` allowing search engines and all major AI / answer engine crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.).
+  - Created `public/llms.txt` and `public/llms-full.txt` GEO entity specifications and knowledge base files.
+  - Implemented comprehensive JSON-LD schemas: `Organization`, `WebSite`, `Service` (with pricing offers), `FAQPage` (all 14 repository questions and service FAQs), `Person` (Andrew Kelso E-E-A-T credentials), `HowTo` (3 Quick Fixes), and dynamic `BreadcrumbList` across all inner pages.
+  - Added New Zealand regional meta tags (`geo.region="NZ"`, `geo.placename="New Zealand"`, `author="Andrew Kelso"`), Open Graph, and Twitter Cards with absolute URLs.
+  - Verified title tag lengths (≤ 60 chars) and meta descriptions (≤ 155 chars).

@@ -1,10 +1,18 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pageBreadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Privacy Policy', url: '/privacy' }
+];
 ---
 
 <Layout
   title="Privacy Policy | Sinchi"
   description="Sinchi Privacy Policy. How we collect, use, and protect your information in compliance with the New Zealand Privacy Act 2020."
+  breadcrumbs={pageBreadcrumbs}
+  publishDate="2026-09-29"
+  modifiedDate="2026-09-29"
 >
   <section class="section">
     <div class="container container-narrow">

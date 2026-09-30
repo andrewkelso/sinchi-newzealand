@@ -23,11 +23,46 @@ const homeFaqs = [
     answer: "In New Zealand, legitimate local SEO and Google Business Profile optimization typically ranges between $450 and $1,200 NZD per month depending on your market competition and service area size. We provide exact, fixed pricing in your free visibility report with no lock-in contracts."
   }
 ];
+
+const homeJsonLd = [
+  {
+    "@type": "FAQPage",
+    "@id": "https://sinchi.co.nz/#faq",
+    "mainEntity": homeFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  },
+  {
+    "@type": "ItemList",
+    "@id": "https://sinchi.co.nz/#services-list",
+    "name": "Sinchi Local SEO Services",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Google Business Profile Ranking",
+        "url": "https://sinchi.co.nz/google-business-profile-ranking"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Website Updates & Speed",
+        "url": "https://sinchi.co.nz/website-updates"
+      }
+    ]
+  }
+];
 ---
 
 <Layout
-  title="Google Business Profile & Local SEO for NZ Businesses | Sinchi"
+  title="Google Business Profile & Local SEO for NZ | Sinchi"
   description="We fix your Google Business Profile and website so local customers call you, not the business down the road. Free Google visibility check for NZ businesses."
+  jsonLd={homeJsonLd}
 >
   <!-- 1. HERO SECTION -->
   <section class="hero-section">

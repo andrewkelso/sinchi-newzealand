@@ -15,12 +15,18 @@ export const POST: APIRoute = async ({ request }) => {
       });
     }
 
-    // 2. Validate required fields
-    const { businessName, websiteUrl, mainService, townCity, email, phone, consent } = data;
+    // 2. Normalize and validate fields (supports full form & modal quick audit form)
+    const businessName = data.businessName || data.websiteUrl || 'New Zealand Business';
+    const websiteUrl = data.websiteUrl || data.businessName || '';
+    const mainService = data.mainService || data.auditType || 'Google Maps Visibility Check';
+    const townCity = data.townCity || 'New Zealand';
+    const email = data.email;
+    const phone = data.phone;
+    const consent = data.consent;
 
-    if (!businessName || !websiteUrl || !mainService || !townCity || !email) {
+    if (!websiteUrl || !email) {
       return new Response(
-        JSON.stringify({ success: false, error: 'Please fill in all required fields.' }),
+        JSON.stringify({ success: false, error: 'Please provide your website/business and email address.' }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
       );
     }

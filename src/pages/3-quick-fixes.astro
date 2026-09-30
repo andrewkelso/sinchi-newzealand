@@ -1,10 +1,48 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const pageBreadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: '3 Quick Fixes', url: '/3-quick-fixes' }
+];
+
+const fixesJsonLd = [
+  {
+    "@type": "HowTo",
+    "@id": "https://sinchi.co.nz/3-quick-fixes#howto",
+    "name": "3 Quick Fixes to Climb Google Maps in New Zealand",
+    "description": "Three immediate Google Business Profile fixes any NZ local business owner can do today to improve Google Maps rankings and phone calls.",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Get your primary and secondary categories right",
+        "text": "Audit the top 3 competitors for your trade in your area and update your primary category to match what customers actually search, adding up to 4-5 relevant secondary categories."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Get steady weekly reviews and reply to every one",
+        "text": "Send a direct review link via SMS after finishing a job and reply to every review naturally including your trade and suburb."
+      },
+      {
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Make your website agree with your profile",
+        "text": "Ensure identical Name, Address, and Phone details across site and profile, build suburb-specific service pages, and embed LocalBusiness JSON-LD structured schema."
+      }
+    ]
+  }
+];
 ---
 
 <Layout
   title="3 Quick Fixes to Climb Google Maps | Sinchi"
   description="Three immediate Google Business Profile fixes any NZ local business owner can do today to improve Google Maps rankings and phone calls."
+  breadcrumbs={pageBreadcrumbs}
+  jsonLd={fixesJsonLd}
+  publishDate="2026-09-29"
+  modifiedDate="2026-09-29"
 >
   <section class="section fixes-hero-section">
     <div class="container container-narrow">

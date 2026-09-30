@@ -2,7 +2,89 @@
 import Layout from '../layouts/Layout.astro';
 import GeoGridVisualizer from '../components/GeoGridVisualizer.astro';
 import IndustryTabsModule from '../components/IndustryTabsModule.astro';
+import FeatureAuditModal from '../components/FeatureAuditModal.astro';
 import CtaBand from '../components/CtaBand.astro';
+
+const gbpFeatures = [
+  {
+    icon: "🏷️",
+    title: "Category & Service Architecture",
+    badge: "Lever 1 of 6 · Primary Algorithmic Signal",
+    subtitle: "Eliminating category dilution and capturing high-intent Kiwi search phrases.",
+    desc: "We audit high-volume search queries and assign the highest-leverage primary category, supported by exact secondary categories and custom service items with local pricing.",
+    deepdive: "Google evaluates your primary Google Business category as its heaviest single algorithmic ranking signal. If an electrician in Papakura is categorized simply as 'Contractor', they miss 80% of local searches. We identify what top 3 competitors use and configure your primary and secondary categories to capture high-intent local calls.",
+    checklist: [
+      "Competitor category audit across top 3 local rankings",
+      "Removal of conflicting secondary categories causing dilution",
+      "Custom service menu items with realistic NZ market pricing"
+    ]
+  },
+  {
+    icon: "⭐",
+    title: "Review Velocity System & Keyword Replies",
+    badge: "Lever 2 of 6 · Trust & Keyword Relevancy",
+    subtitle: "Consistent weekly reviews with natural trade and suburb keyword responses.",
+    desc: "We set up a simple review collection workflow for your customers and provide tailored reply templates that weave in your specific trade and suburb names naturally.",
+    deepdive: "A burst of 20 reviews followed by months of silence signals stagnation to Google. We build an automated post-job review request system for your customers, plus engineer keyword-rich owner reply templates (e.g. 'Thanks for trusting us for your heat pump installation in Albany') that prove your service radius.",
+    checklist: [
+      "1-tap review link automation via SMS / email",
+      "Tailored owner reply templates with trade & suburb keywords",
+      "Flagging & redressal of unfair or policy-violating reviews"
+    ]
+  },
+  {
+    icon: "📍",
+    title: "NZ Citation & Directory Sync",
+    badge: "Lever 3 of 6 · Geographic Entity Certainty",
+    subtitle: "Clean character-for-character NAP across Yellow, Finda, UBD, and Localist.",
+    desc: "We build and clean up your Name, Address, and Phone (NAP) citations across trusted New Zealand directories so Google has zero entity ambiguity.",
+    deepdive: "If Yellow says 'Suite 2', your website says 'Unit 2', and your Google Profile says 'PO Box', Google's confidence in your physical entity drops. We systematically scrub and sync your Name, Address, and Phone across reputable NZ business directories to anchor your local trust.",
+    checklist: [
+      "Scrubbing inconsistent phone numbers and old addresses",
+      "Direct citation creation on tier-1 New Zealand platforms",
+      "Apple Maps, Bing Places, and directory synchronization"
+    ]
+  },
+  {
+    icon: "🛡️",
+    title: "Spam & Duplicate Redressal",
+    badge: "Lever 4 of 6 · Competitor Cleanup",
+    subtitle: "Clearing out fake competitor pins, virtual offices, and stuffed keywords.",
+    desc: "Competitors often stuff keywords into their business names or create fake pin locations. We submit evidence to Google to have illicit competitor pins removed.",
+    deepdive: "In competitive areas like Auckland or Christchurch, rogue operators often create fake Google listings with stuffed names like 'Plumber Emergency Auckland 24/7' or register at unstaffed co-working desks. We gather council, registry, and street-view evidence and file formal redressals to remove them.",
+    checklist: [
+      "5km radius scan for keyword-stuffed business titles",
+      "Identification of virtual office and fake residential pins",
+      "Official Google redressal filing with photographic proof"
+    ]
+  },
+  {
+    icon: "📸",
+    title: "Geotagged Photo & Post Updates",
+    badge: "Lever 5 of 6 · Active Operating Signals",
+    subtitle: "Proving real local work in real New Zealand suburbs every month.",
+    desc: "Regular photo uploads and Google updates showing real, local jobs in your area, signaling active operations to Google's ranking crawlers.",
+    deepdive: "Google rewards businesses that demonstrate fresh, local activity. By regularly uploading photos of real work taken in your target suburbs, you supply Google with geotemporal proof that your team is actively completing jobs in those areas.",
+    checklist: [
+      "Monthly photo upload schedule of authentic job sites",
+      "Keyword-optimised Google updates highlighting services",
+      "Verification of image metadata and local relevance"
+    ]
+  },
+  {
+    icon: "📊",
+    title: "Monthly 5km Geo-Grid Tracking",
+    badge: "Lever 6 of 6 · Precision Measurement",
+    subtitle: "Suburb-by-suburb ranking heatmaps and phone call action trends.",
+    desc: "A multi-point map grid report delivered to your inbox every month showing exactly where you rank across each suburb you service, alongside phone call analytics.",
+    deepdive: "Traditional rank checkers check rankings from one arbitrary point. Our 5km geo-grid tool checks where your business ranks at 25+ geographic points across your service territory, revealing exactly which suburbs you dominate and where competitors are overtaking you.",
+    checklist: [
+      "Multi-point geo-grid rank map for high-volume keywords",
+      "Direct customer call, website visit, and direction trends",
+      "Actionable monthly engineering plan to expand your radius"
+    ]
+  }
+];
 
 const gbpFaqs = [
   {
@@ -26,18 +108,68 @@ const gbpFaqs = [
     a: "Yes. All Sinchi monthly optimization agreements operate on a flexible month-to-month basis with zero lock-in contracts. You stay because you are receiving calls, not because of fine print."
   }
 ];
+
+const pageBreadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Google Business Profile Ranking', url: '/google-business-profile-ranking' }
+];
+
+const serviceJsonLd = [
+  {
+    "@type": "Service",
+    "@id": "https://sinchi.co.nz/google-business-profile-ranking#service",
+    "name": "Google Business Profile Optimisation & Ranking",
+    "serviceType": "Local SEO & Google Maps Optimisation",
+    "description": "Google Business Profile ranking service for New Zealand businesses. Climb into the local 3-pack on Google Maps and turn nearby searchers into phone calls.",
+    "provider": {
+      "@id": "https://sinchi.co.nz/#organization"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "New Zealand"
+    },
+    "termsOfService": "https://sinchi.co.nz/terms",
+    "offers": {
+      "@type": "Offer",
+      "price": "495",
+      "priceCurrency": "NZD",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "price": "495",
+        "priceCurrency": "NZD",
+        "unitText": "MONTH"
+      }
+    }
+  },
+  {
+    "@type": "FAQPage",
+    "@id": "https://sinchi.co.nz/google-business-profile-ranking#faq",
+    "mainEntity": gbpFaqs.map((faq) => ({
+      "@type": "Question",
+      "name": faq.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.a
+      }
+    }))
+  }
+];
 ---
 
 <Layout
   title="Google Business Profile Optimisation NZ | Sinchi"
   description="Google Business Profile ranking service for New Zealand businesses. Climb into the local 3-pack on Google Maps and turn nearby searchers into phone calls."
+  breadcrumbs={pageBreadcrumbs}
+  jsonLd={serviceJsonLd}
+  publishDate="2026-09-29"
+  modifiedDate="2026-09-29"
 >
   <!-- Service Hero -->
   <section class="service-hero">
     <div class="container container-narrow">
       <div class="badge-pill">
         <span class="badge-dot"></span>
-        <span>Google Maps Local Search</span>
+        <span>Google Maps Local Search · Updated September 2026</span>
       </div>
       <h1 class="service-title">
         Google Business Profile optimisation for NZ businesses
@@ -83,53 +215,26 @@ const gbpFaqs = [
       </div>
 
       <div class="features-grid">
-        <div class="feature-item card-surface">
-          <div class="feature-icon">🏷️</div>
-          <h3>Category & Service Architecture</h3>
-          <p>
-            We audit high-volume search queries and assign the highest-leverage primary category, supported by exact secondary categories and custom service items with local pricing.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">⭐</div>
-          <h3>Review Velocity System & Keyword Replies</h3>
-          <p>
-            We set up a simple review collection workflow for your customers and provide tailored reply templates that weave in your specific trade and suburb names naturally.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">📍</div>
-          <h3>NZ Citation & Directory Sync</h3>
-          <p>
-            We build and clean up your Name, Address, and Phone (NAP) citations across trusted New Zealand directories (Yellow, Finda, UBD, Localist) so Google has zero entity ambiguity.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">🛡️</div>
-          <h3>Spam & Duplicate Redressal</h3>
-          <p>
-            Competitors often stuff keywords into their business names or create fake pin locations. We submit evidence to Google to have illicit competitor pins removed.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">📸</div>
-          <h3>Geotagged Photo & Post Updates</h3>
-          <p>
-            Regular photo uploads and Google updates showing real, local jobs in your area, signaling active operations to Google's ranking crawlers.
-          </p>
-        </div>
-
-        <div class="feature-item card-surface">
-          <div class="feature-icon">📊</div>
-          <h3>Monthly 5km Geo-Grid Tracking</h3>
-          <p>
-            A multi-point map grid report delivered to your inbox every month showing exactly where you rank across each suburb you service, alongside phone call analytics.
-          </p>
-        </div>
+        {gbpFeatures.map((feat) => (
+          <div
+            class="feature-item card-surface"
+            data-feature-card="true"
+            data-feature-data={JSON.stringify(feat)}
+            role="button"
+            tabindex="0"
+            aria-label={`Open details and audit for ${feat.title}`}
+          >
+            <div class="feature-card-header">
+              <div class="feature-icon">{feat.icon}</div>
+              <span class="feature-badge-mini">Tap to inspect & audit ↗</span>
+            </div>
+            <h3>{feat.title}</h3>
+            <p>{feat.desc}</p>
+            <div class="feature-cue-row">
+              <span class="feature-cue-btn">Get free inspection →</span>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -258,6 +363,9 @@ const gbpFaqs = [
     subtitle="Request your free visibility check today. We'll show you where you rank and who is currently taking your calls."
     primaryButtonText="Get my free check"
   />
+
+  <!-- Interactive Deep Dive & Audit Modal -->
+  <FeatureAuditModal />
 </Layout>
 
 <style>
@@ -333,17 +441,41 @@ const gbpFaqs = [
   /* Features Grid */
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 2rem;
   }
 
   .feature-item {
     padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    position: relative;
+    border: 1.5px solid var(--color-border);
+    transition: transform var(--transition-fast), border-color var(--transition-fast), box-shadow var(--transition-fast);
+    outline: none;
+  }
+
+  .feature-item:hover,
+  .feature-item:focus-visible {
+    transform: translateY(-5px);
+    border-color: var(--color-primary-light);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 28px rgba(157, 56, 224, 0.35);
+  }
+
+  .feature-item:focus-visible {
+    box-shadow: 0 0 0 3px var(--color-primary-light);
+  }
+
+  .feature-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
   }
 
   .feature-icon {
     font-size: 2.25rem;
-    margin-bottom: 1rem;
     width: 54px;
     height: 54px;
     border-radius: var(--radius-md);
@@ -351,6 +483,23 @@ const gbpFaqs = [
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+
+  .feature-badge-mini {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    background: rgba(157, 56, 224, 0.15);
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    padding: 0.25rem 0.6rem;
+    border-radius: var(--radius-full);
+    transition: background 150ms ease, color 150ms ease;
+  }
+
+  .feature-item:hover .feature-badge-mini {
+    background: var(--color-primary);
+    color: #FFFFFF;
+    border-color: #C084FC;
   }
 
   .feature-item h3 {
@@ -363,6 +512,28 @@ const gbpFaqs = [
     color: var(--color-text-muted);
     font-size: 0.9375rem;
     line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .feature-cue-row {
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(192, 132, 252, 0.15);
+  }
+
+  .feature-cue-btn {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--color-primary-light);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    transition: color 150ms ease, transform 150ms ease;
+  }
+
+  .feature-item:hover .feature-cue-btn {
+    color: #FFFFFF;
+    transform: translateX(4px);
   }
 
   /* Report Breakdown Card */

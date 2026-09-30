@@ -1,12 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import AuditRadarSimulation from '../components/AuditRadarSimulation.astro';
+
+const pageBreadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Free Google Visibility Check', url: '/free-google-check' }
+];
+
+const checkJsonLd = [
+  {
+    "@type": "WebPage",
+    "@id": "https://sinchi.co.nz/free-google-check#webpage",
+    "name": "Free Google Visibility Check for NZ Businesses",
+    "description": "See where your New Zealand business ranks on Google Maps and who is beating you. Get your free personalized visibility check within 1 working day.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "NZD",
+      "availability": "https://schema.org/InStock"
+    }
+  }
+];
 ---
 
 <Layout
   title="Free Google Visibility Check | Sinchi"
-  description="See where your New Zealand business ranks on Google Maps and who is beating you. Get your free personalized visibility check within 1 working day."
+  description="See where your New Zealand business ranks on Google Maps and who is beating you. Get your free personalised visibility check within 1 working day."
   hideNav={true}
+  breadcrumbs={pageBreadcrumbs}
+  jsonLd={checkJsonLd}
 >
   <div class="landing-wrapper">
     <div class="container">

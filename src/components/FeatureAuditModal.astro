@@ -1,0 +1,643 @@
+---
+// Component: FeatureAuditModal.astro
+// Provides an interactive deep-dive modal and in-modal Free Audit CTA for feature cards
+---
+
+<!-- Modal Overlay Container -->
+<div id="feature-modal-overlay" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  
+  <div class="modal-container">
+    <div class="modal-card card-surface" id="modal-card">
+      <!-- Close Button -->
+      <button type="button" class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">
+        ✕
+      </button>
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="modal-badge-row">
+          <span class="modal-icon" id="modal-icon">🏷️</span>
+          <span class="modal-badge-pill" id="modal-badge">High Algorithmic Impact · Google Maps NZ</span>
+        </div>
+        <h2 class="modal-title" id="modal-title">Category & Service Architecture</h2>
+        <p class="modal-subtitle" id="modal-subtitle">
+          How this specific optimization moves your listing into the top 3 on Google Maps.
+        </p>
+      </div>
+
+      <!-- Modal Body: Deep Dive Content -->
+      <div class="modal-body">
+        <div class="modal-deepdive-box">
+          <h3 class="box-heading">Why this matters in New Zealand:</h3>
+          <p id="modal-deepdive-text">
+            Google uses your primary category as its single strongest relevance anchor. Setting the wrong category depresses visibility across all nearby searches.
+          </p>
+
+          <h3 class="box-heading">What Andrew inspects in your audit:</h3>
+          <ul class="audit-check-list" id="modal-checklist">
+            <li>Primary category alignment against top 3 ranking competitors</li>
+            <li>Elimination of irrelevant secondary categories causing dilution</li>
+            <li>Custom service items and pricing matching high-volume Kiwi searches</li>
+          </ul>
+        </div>
+
+        <!-- In-Modal CTA Form: Enter your website for a free audit -->
+        <div class="modal-cta-card">
+          <div class="cta-card-header">
+            <span class="cta-sparkle">⚡</span>
+            <div>
+              <h3 class="cta-card-title" id="modal-cta-title">Get a free inspection of your categories</h3>
+              <p class="cta-card-desc">
+                Enter your website or business name below. We'll run a scan and email your personalised findings within 1 working day.
+              </p>
+            </div>
+          </div>
+
+          <form id="modal-audit-form" class="modal-form" novalidate>
+            <!-- Anti-spam honeypot -->
+            <div style="display: none;" aria-hidden="true">
+              <input type="text" name="website_hp" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <!-- Hidden feature tracker -->
+            <input type="hidden" id="modal-feature-name" name="mainService" value="Category Optimization" />
+
+            <div class="modal-form-grid">
+              <div class="form-group">
+                <label for="modal-website-input" class="form-label">
+                  Website URL or Business Name <span class="required">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="modal-website-input"
+                  name="websiteUrl"
+                  class="modal-input"
+                  placeholder="e.g. www.yoursite.co.nz or Business Name"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="modal-email-input" class="form-label">
+                  Your Work Email <span class="required">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="modal-email-input"
+                  name="email"
+                  class="modal-input"
+                  placeholder="name@yourbusiness.co.nz"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="modal-town-input" class="form-label">
+                  Town / City <span class="optional">(Optional)</span>
+                </label>
+                <input
+                  type="text"
+                  id="modal-town-input"
+                  name="townCity"
+                  class="modal-input"
+                  placeholder="e.g. Auckland, Tauranga, Christchurch"
+                />
+              </div>
+            </div>
+
+            <div class="modal-submit-row">
+              <button type="submit" id="modal-submit-btn" class="btn btn-primary modal-btn-submit">
+                <span class="btn-text" id="modal-submit-text">Run Free Inspection</span>
+                <span class="btn-loading" style="display: none;">Scanning...</span>
+              </button>
+            </div>
+
+            <div class="modal-form-status" id="modal-form-status" style="display: none;"></div>
+
+            <div class="modal-footer-notes">
+              <span>🔒 100% Free · No sales pitch unless requested · 1-day delivery</span>
+              <a href="/free-google-check" class="modal-full-check-link">Or request the full 5-point audit →</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal Controller Script
+  const overlay = document.getElementById('feature-modal-overlay') as HTMLElement;
+  const backdrop = document.getElementById('modal-backdrop') as HTMLElement;
+  const closeBtn = document.getElementById('modal-close-btn') as HTMLElement;
+  const modalIcon = document.getElementById('modal-icon') as HTMLElement;
+  const modalBadge = document.getElementById('modal-badge') as HTMLElement;
+  const modalTitle = document.getElementById('modal-title') as HTMLElement;
+  const modalSubtitle = document.getElementById('modal-subtitle') as HTMLElement;
+  const modalDeepdiveText = document.getElementById('modal-deepdive-text') as HTMLElement;
+  const modalChecklist = document.getElementById('modal-checklist') as HTMLElement;
+  const modalCtaTitle = document.getElementById('modal-cta-title') as HTMLElement;
+  const modalFeatureName = document.getElementById('modal-feature-name') as HTMLInputElement;
+  const modalSubmitText = document.getElementById('modal-submit-text') as HTMLElement;
+
+  const form = document.getElementById('modal-audit-form') as HTMLFormElement;
+  const submitBtn = document.getElementById('modal-submit-btn') as HTMLButtonElement;
+  const btnText = submitBtn?.querySelector('.btn-text') as HTMLElement;
+  const btnLoading = submitBtn?.querySelector('.btn-loading') as HTMLElement;
+  const formStatus = document.getElementById('modal-form-status') as HTMLElement;
+
+  function openModal(data: {
+    icon: string;
+    title: string;
+    subtitle: string;
+    deepdive: string;
+    checklist: string[];
+    badge?: string;
+  }) {
+    if (!overlay) return;
+
+    modalIcon.textContent = data.icon || '📍';
+    modalTitle.textContent = data.title;
+    modalSubtitle.textContent = data.subtitle;
+    modalDeepdiveText.textContent = data.deepdive;
+    modalCtaTitle.textContent = `Get a free audit of your ${data.title.toLowerCase()}`;
+    modalFeatureName.value = data.title;
+    modalSubmitText.textContent = `Run Free ${data.title} Audit`;
+
+    if (data.badge) {
+      modalBadge.textContent = data.badge;
+    }
+
+    // Populate checklist
+    modalChecklist.innerHTML = '';
+    data.checklist.forEach((item) => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      modalChecklist.appendChild(li);
+    });
+
+    // Reset form status
+    if (formStatus) formStatus.style.display = 'none';
+    if (submitBtn) submitBtn.disabled = false;
+    if (btnText) btnText.style.display = 'inline';
+    if (btnLoading) btnLoading.style.display = 'none';
+
+    overlay.classList.add('is-open');
+    overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Focus input
+    setTimeout(() => {
+      const input = document.getElementById('modal-website-input') as HTMLInputElement;
+      input?.focus();
+    }, 100);
+  }
+
+  function closeModal() {
+    if (!overlay) return;
+    overlay.classList.remove('is-open');
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Bind close buttons
+  closeBtn?.addEventListener('click', closeModal);
+  backdrop?.addEventListener('click', closeModal);
+
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay.classList.contains('is-open')) {
+      closeModal();
+    }
+  });
+
+  // Attach click listener to any interactive feature card
+  document.querySelectorAll<HTMLElement>('[data-feature-card]').forEach((card) => {
+    card.style.cursor = 'pointer';
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+
+    const handleTrigger = () => {
+      const rawData = card.getAttribute('data-feature-data');
+      if (rawData) {
+        try {
+          const data = JSON.parse(rawData);
+          openModal(data);
+        } catch (e) {
+          console.error('Error parsing feature card data:', e);
+        }
+      }
+    };
+
+    card.addEventListener('click', handleTrigger);
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleTrigger();
+      }
+    });
+  });
+
+  // Handle in-modal form submission
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!formStatus || !submitBtn) return;
+
+      formStatus.style.display = 'none';
+      const formData = new FormData(form);
+
+      const websiteUrl = String(formData.get('websiteUrl') || '').trim();
+      const email = String(formData.get('email') || '').trim();
+      const townCity = String(formData.get('townCity') || '').trim() || 'New Zealand';
+      const mainService = String(formData.get('mainService') || 'Google Maps Optimization').trim();
+      const hp = String(formData.get('website_hp') || '');
+
+      if (!websiteUrl || !email) {
+        formStatus.textContent = 'Please provide both your website/business and your email.';
+        formStatus.className = 'modal-form-status error';
+        formStatus.style.display = 'block';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      if (btnText) btnText.style.display = 'none';
+      if (btnLoading) btnLoading.style.display = 'inline';
+
+      try {
+        const res = await fetch('/api/submit-check', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            websiteUrl,
+            businessName: websiteUrl,
+            email,
+            townCity,
+            mainService: `${mainService} (Feature Modal Audit)`,
+            website_hp: hp,
+            consent: true
+          })
+        });
+
+        const result = await res.json();
+
+        if (res.ok && result.success) {
+          formStatus.innerHTML = `✓ <strong>Inspection Request Received!</strong> Andrew will analyze your <em>${mainService}</em> signals and email your findings within one working day.`;
+          formStatus.className = 'modal-form-status success';
+          formStatus.style.display = 'block';
+          form.reset();
+
+          setTimeout(() => {
+            window.location.href = '/thanks';
+          }, 1800);
+        } else {
+          formStatus.textContent = result.error || 'Failed to submit. Please try again.';
+          formStatus.className = 'modal-form-status error';
+          formStatus.style.display = 'block';
+          submitBtn.disabled = false;
+          if (btnText) btnText.style.display = 'inline';
+          if (btnLoading) btnLoading.style.display = 'none';
+        }
+      } catch (err) {
+        formStatus.textContent = 'Network error. Please try again or email hello@sinchi.co.nz.';
+        formStatus.className = 'modal-form-status error';
+        formStatus.style.display = 'block';
+        submitBtn.disabled = false;
+        if (btnText) btnText.style.display = 'inline';
+        if (btnLoading) btnLoading.style.display = 'none';
+      }
+    });
+  }
+</script>
+
+<style>
+  /* Modal Overlay */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.25rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .modal-overlay.is-open {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Backdrop Blur */
+  .modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 1, 18, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Modal Card */
+  .modal-container {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    max-width: 680px;
+    max-height: 90vh;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+
+  .modal-card {
+    background: linear-gradient(145deg, rgba(38, 7, 60, 0.98) 0%, rgba(18, 2, 30, 0.98) 100%);
+    border: 2px solid var(--color-primary-light);
+    border-radius: var(--radius-xl);
+    padding: clamp(1.75rem, 4vw, 2.5rem);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 40px rgba(157, 56, 224, 0.35);
+    position: relative;
+    transform: scale(0.96) translateY(10px);
+    transition: transform 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .modal-overlay.is-open .modal-card {
+    transform: scale(1) translateY(0);
+  }
+
+  /* Close Button */
+  .modal-close-btn {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-full);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #FFFFFF;
+    font-size: 1.125rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 150ms ease, transform 150ms ease;
+  }
+
+  .modal-close-btn:hover {
+    background: rgba(239, 68, 68, 0.3);
+    border-color: #EF4444;
+    transform: rotate(90deg);
+  }
+
+  /* Modal Header */
+  .modal-header {
+    margin-bottom: 1.75rem;
+    padding-right: 2.5rem;
+  }
+
+  .modal-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .modal-icon {
+    font-size: 2rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    background: rgba(157, 56, 224, 0.25);
+    border: 1px solid rgba(192, 132, 252, 0.4);
+  }
+
+  .modal-badge-pill {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.65rem;
+    border-radius: var(--radius-full);
+    background: rgba(157, 56, 224, 0.2);
+    border: 1px solid rgba(192, 132, 252, 0.4);
+    color: #E9D5FF;
+  }
+
+  .modal-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: #FFFFFF;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-subtitle {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  /* Deep Dive Box */
+  .modal-deepdive-box {
+    background: rgba(22, 3, 36, 0.7);
+    border: 1px solid var(--color-border);
+    border-left: 4px solid var(--color-primary-light);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .box-heading {
+    font-size: 0.9375rem;
+    color: #FFFFFF;
+    margin-top: 0.75rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .box-heading:first-child {
+    margin-top: 0;
+  }
+
+  .modal-deepdive-box p {
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: #E9D5FF;
+  }
+
+  .audit-check-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .audit-check-list li {
+    position: relative;
+    padding-left: 1.25rem;
+    font-size: 0.875rem;
+    color: #D1B8E8;
+    line-height: 1.45;
+  }
+
+  .audit-check-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #34D399;
+    font-weight: 800;
+  }
+
+  /* CTA Card Inside Modal */
+  .modal-cta-card {
+    background: linear-gradient(135deg, rgba(46, 10, 72, 0.95) 0%, rgba(28, 4, 46, 0.95) 100%);
+    border: 1.5px solid rgba(168, 85, 247, 0.4);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .cta-card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-sparkle {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    background: rgba(157, 56, 224, 0.3);
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+  }
+
+  .cta-card-title {
+    font-size: 1.1875rem;
+    color: #FFFFFF;
+    margin-bottom: 0.25rem;
+  }
+
+  .cta-card-desc {
+    font-size: 0.875rem;
+    color: #D1B8E8;
+    line-height: 1.45;
+  }
+
+  /* Form */
+  .modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .modal-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.875rem;
+  }
+
+  .modal-form-grid .form-group:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .form-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #FFFFFF;
+  }
+
+  .required { color: #FF8080; }
+  .optional { font-size: 0.75rem; color: #A78BFA; }
+
+  .modal-input {
+    width: 100%;
+    padding: 0.75rem 0.95rem;
+    border: 1.5px solid rgba(168, 85, 247, 0.35);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.875rem;
+    background-color: rgba(18, 2, 31, 0.9);
+    color: #FFFFFF;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+
+  .modal-input:focus {
+    outline: none;
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px rgba(157, 56, 224, 0.35);
+  }
+
+  .modal-input::placeholder {
+    color: #8C76A8;
+  }
+
+  .modal-btn-submit {
+    width: 100%;
+    padding: 0.95rem;
+    font-size: 1.0625rem;
+    margin-top: 0.25rem;
+  }
+
+  .modal-form-status {
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    text-align: center;
+  }
+
+  .modal-form-status.success {
+    background-color: rgba(16, 185, 129, 0.2);
+    border: 1px solid rgba(52, 211, 153, 0.4);
+    color: #34D399;
+  }
+
+  .modal-form-status.error {
+    background-color: rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #F87171;
+  }
+
+  .modal-footer-notes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.78125rem;
+    color: #BBA0D9;
+    text-align: center;
+    margin-top: 0.25rem;
+  }
+
+  .modal-full-check-link {
+    color: var(--color-primary-light);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  .modal-full-check-link:hover {
+    color: #FFFFFF;
+  }
+
+  @media (max-width: 600px) {
+    .modal-form-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

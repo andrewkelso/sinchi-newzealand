@@ -1,11 +1,47 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import CtaBand from '../components/CtaBand.astro';
+
+const pageBreadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'About Andrew & Sinchi', url: '/about' }
+];
+
+const aboutJsonLd = [
+  {
+    "@type": "Person",
+    "@id": "https://sinchi.co.nz/about#andrew-kelso",
+    "name": "Andrew Kelso",
+    "jobTitle": "Founder & Systems Specialist",
+    "worksFor": {
+      "@id": "https://sinchi.co.nz/#organization"
+    },
+    "description": "Systems engineer with 20+ years of experience designing high-stakes infrastructure, applying test-and-measure discipline and AI automation to Google Maps local search optimization for New Zealand businesses.",
+    "knowsAbout": [
+      "Local SEO",
+      "Google Business Profile Optimisation",
+      "Google Maps Ranking",
+      "Core Web Vitals",
+      "Structured Data (Schema.org)",
+      "Website Speed Optimisation",
+      "Security Systems Engineering",
+      "AI Search & Generative Engine Optimisation (GEO)"
+    ],
+    "sameAs": [
+      "https://www.linkedin.com"
+    ],
+    "image": "https://sinchi.co.nz/brand/avatar.png"
+  }
+];
 ---
 
 <Layout
   title="About Andrew & Sinchi | Local SEO & Google Maps NZ"
   description="Meet Andrew, the engineer behind Sinchi. Bringing 20+ years of high-stakes systems engineering to local search and Google Maps ranking for NZ businesses."
+  breadcrumbs={pageBreadcrumbs}
+  jsonLd={aboutJsonLd}
+  publishDate="2026-09-29"
+  modifiedDate="2026-09-29"
 >
   <section class="section about-hero">
     <div class="container container-narrow">

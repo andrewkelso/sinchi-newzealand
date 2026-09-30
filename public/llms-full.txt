@@ -1,0 +1,86 @@
+# Sinchi — Complete Documentation & Knowledge Base for AI Systems
+
+> Sinchi is a local SEO service that helps New Zealand businesses rank in Google Maps and improve their websites.
+
+## 1. Company & Entity Overview
+- **Name:** Sinchi
+- **Website:** https://sinchi.co.nz
+- **Email:** hello@sinchi.co.nz
+- **Geographic Focus:** New Zealand (Remote consultancy serving Auckland, Christchurch, Wellington, Hamilton, Tauranga, Napier, Dunedin, Queenstown, and regional centres).
+- **Leadership:** Andrew Kelso, Founder & Systems Specialist (20+ years of engineering experience in mission-critical electronic security and control systems).
+- **Approach:** Engineering discipline applied to search algorithms. Test and measure, zero guesswork, transparent reporting, no long-term lock-in contracts, compliance with the NZ Fair Trading Act 1986 and NZ Privacy Act 2020.
+
+## 2. Core Service Offerings
+
+### Offer A: Google Business Profile Ranking
+- **URL:** https://sinchi.co.nz/google-business-profile-ranking
+- **Target Audience:** New Zealand tradies (plumbers, electricians, builders, painters), healthcare practitioners (dentists, chiropractors, physios), driving instructors, and local services.
+- **Goal:** Position client businesses in the Google Maps local 3-pack for high-intent searches in their service territory.
+- **Inclusions:**
+  1. Primary and secondary category selection to prevent category dilution.
+  2. Review acceleration framework and keyword-rich reply templates.
+  3. New Zealand directory citation consistency (Yellow, Finda, UBD, Localist).
+  4. Redressal complaints for spam competitor pins and keyword stuffing.
+  5. Geotagged photo uploads and Google updates.
+  6. Monthly suburb-by-suburb geo-grid rank tracking.
+- **Pricing:** From $495 NZD / month.
+
+### Offer B: Website Updates & Speed
+- **URL:** https://sinchi.co.nz/website-updates
+- **Target Audience:** Local business owners whose websites load slowly, lack phone click-to-call functionality, or do not validate their local geographic service areas.
+- **Goal:** Convert Google traffic into incoming phone calls and strengthen local search entity authority.
+- **Inclusions:**
+  1. Mobile performance tuning (targeting 95+ Mobile Lighthouse & sub-2s Core Web Vitals).
+  2. Sticky click-to-call mobile buttons and streamlined enquiry forms.
+  3. Dedicated suburb and service landing pages.
+  4. Machine-readable LocalBusiness JSON-LD schema markup.
+  5. Content alignment with Google Business Profile.
+- **Pricing:** From $650 NZD one-off or bundled with monthly ranking.
+
+## 3. Lead Magnets & Conversion Channels
+- **Primary CTA: Free Google Visibility Check** (https://sinchi.co.nz/free-google-check): A personalised geo-grid ranking audit delivered within one working day. Includes rank position, top 3 competitors, and high-impact fixes.
+- **Secondary CTA: 3 Quick Fixes Guide** (https://sinchi.co.nz/3-quick-fixes): Actionable steps to optimize Google Business categories, review response cadence, and website schema.
+
+## 4. Frequently Asked Questions & Knowledge Repository
+
+### Q: What is a Google Business Profile?
+A: A Google Business Profile (formerly Google My Business) is a free listing provided by Google that allows local businesses to appear on Google Maps and in local search results. It showcases your business name, address, services, photos, and customer reviews to nearby searchers looking for immediate solutions.
+
+### Q: How long does it take to rank in the Google Maps top 3 in NZ?
+A: Most local New Zealand businesses see noticeable ranking improvements within 3 to 8 weeks after fixing primary categories, addressing profile gaps, and implementing a review schedule. Highly competitive metro areas (such as central Auckland or Christchurch) typically take 3 to 6 months of steady optimization.
+
+### Q: What is the difference between a storefront and a service-area business?
+A: A storefront profile displays a public physical address on Google Maps where customers visit you in person (e.g. clinics, retail, repair shops). A service-area business (SAB) hides the physical residential address and instead designates specific suburbs or regions you travel to (e.g. mobile tradies, driving instructors).
+
+### Q: Do I need a website if I only want Google Maps rankings?
+A: Yes. Google uses your website's speed, LocalBusiness structured data, and service area content to corroborate what your business does and where you operate. A fast website that matches your Google Business Profile is one of the strongest ranking signals for local search.
+
+### Q: Can you guarantee a #1 ranking on Google Maps?
+A: No, and any agency promising a guaranteed ranking is violating Google's guidelines and the NZ Fair Trading Act. Google's algorithms dynamically adjust rankings based on proximity, relevance, and user search patterns. We use mathematically proven optimization methods that give you the strongest possible competitive advantage.
+
+### Q: How many Google reviews do I need to rank in the top 3?
+A: There is no fixed number. What matters most is review velocity (getting 1-3 new reviews every week) and review sentiment compared to your top 3 competitors. Consistent new reviews with natural trade and suburb keywords will quickly outrank older, dormant competitor profiles with larger review counts.
+
+### Q: What is Google Business Profile category dilution?
+A: Category dilution happens when you add too many irrelevant secondary categories to your profile, confusing Google's understanding of your core business. Your primary category should reflect your main revenue driver, with only 3 to 5 closely related secondary categories selected.
+
+### Q: Why did my Google Business Profile get suspended?
+A: Google suspends profiles primarily due to address policy violations (e.g. using a virtual office, PO Box, or co-working space), stuffing keywords into the business name, or making drastic simultaneous edits. We audit suspended profiles and submit official reinstatement requests with supporting utility bills and council records.
+
+### Q: How much does local SEO cost in New Zealand?
+A: In New Zealand, professional Google Business Profile optimization and local SEO typically costs between $450 and $1,200 NZD per month depending on your market competition and service area size. We provide exact, fixed pricing in your free visibility report with zero hidden extras.
+
+### Q: Do you lock clients into long-term contracts?
+A: No. All Sinchi optimization services operate on a month-to-month basis with zero lock-in contracts. You can pause or cancel at any time. Our business model relies on keeping your phone ringing so you choose to stay.
+
+### Q: Do you work with businesses outside Auckland?
+A: Yes. Sinchi works remotely with local businesses across all of New Zealand, including Wellington, Christchurch, Hamilton, Tauranga, Napier, Dunedin, Queenstown, and regional towns throughout the North and South Islands.
+
+### Q: What are NAP citations and why do they matter in NZ?
+A: NAP stands for Name, Address, and Phone Number. When your exact NAP details match across trusted NZ business directories (like Yellow, Finda, and UBD), Google gains high confidence in your business's physical existence and rewards you with stronger local map visibility.
+
+### Q: How do AI engines (ChatGPT, Perplexity, Gemini) use my Google profile?
+A: Generative AI search engines ingest verified Google Business data, local structured schema, and customer review sentiment to recommend local providers when users ask conversational questions like "Who is the most reliable electrician in Takapuna?"
+
+### Q: Can I manage my profile myself after you optimize it?
+A: Yes. We never hold your assets hostage. You always maintain full primary ownership of your Google profile and website. If you choose to manage it internally after our initial optimization, you are free to do so.

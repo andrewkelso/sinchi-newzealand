@@ -75,18 +75,44 @@ const allFaqs = [
     ]
   }
 ];
+
+const pageBreadcrumbs = [
+  { name: 'Home', url: '/' },
+  { name: 'Frequently Asked Questions', url: '/faq' }
+];
+
+const allFaqItems = allFaqs.flatMap((category) => category.items);
+
+const faqJsonLd = [
+  {
+    "@type": "FAQPage",
+    "@id": "https://sinchi.co.nz/faq#faqpage",
+    "mainEntity": allFaqItems.map((item) => ({
+      "@type": "Question",
+      "name": item.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.a
+      }
+    }))
+  }
+];
 ---
 
 <Layout
-  title="Local SEO & Google Maps FAQ for NZ Businesses | Sinchi"
-  description="Clear, honest answers to common questions about Google Maps rankings, Google Business Profile optimization, review systems, and local SEO costs in New Zealand."
+  title="Local SEO & Google Maps FAQ for NZ | Sinchi"
+  description="Clear answers to common questions about Google Maps rankings, Google Business Profile optimisation, review systems, and local SEO costs in New Zealand."
+  breadcrumbs={pageBreadcrumbs}
+  jsonLd={faqJsonLd}
+  publishDate="2026-09-29"
+  modifiedDate="2026-09-29"
 >
   <section class="section faq-hero">
     <div class="container container-narrow">
       <div class="faq-hero-header">
         <div class="badge-pill">
           <span class="badge-dot"></span>
-          <span>Answer-First Knowledge Base</span>
+          <span>Answer-First Knowledge Base · Updated September 2026</span>
         </div>
         <h1 class="faq-hero-title">Frequently asked questions</h1>
         <p class="faq-hero-sub">

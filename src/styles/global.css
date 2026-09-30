@@ -11,7 +11,7 @@
   --color-primary-hover: #B258F0;
   --color-primary-light: #C084FC;
   --color-primary-glow: rgba(157, 56, 224, 0.45);
-  --color-plum: #FFFFFF;
+  --color-plum: #160226;
   --color-plum-deep: #0D0117;
   --color-lilac-soft: rgba(192, 132, 252, 0.22);
   --color-lilac-subtle: rgba(192, 132, 252, 0.12);
@@ -79,12 +79,14 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  overflow-x: clip;
 }
 
 body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  overflow-x: clip;
   background: 
     radial-gradient(ellipse 90% 55% at 50% -5%, rgba(139, 44, 204, 0.3) 0%, transparent 65%),
     radial-gradient(ellipse 70% 45% at 90% 40%, rgba(109, 16, 163, 0.2) 0%, transparent 55%),
@@ -255,6 +257,14 @@ a:hover {
   margin-right: auto;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+}
+
+@media (max-width: 480px) {
+  .container,
+  .container-narrow {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 .section {

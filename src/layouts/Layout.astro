@@ -3,6 +3,11 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
+export interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
 interface Props {
   title: string;
   description: string;
@@ -10,6 +15,11 @@ interface Props {
   noindex?: boolean;
   hideNav?: boolean;
   hideFooter?: boolean;
+  ogImage?: string;
+  breadcrumbs?: BreadcrumbItem[];
+  jsonLd?: Record<string, any> | Array<Record<string, any>>;
+  publishDate?: string;
+  modifiedDate?: string;
 }
 
 const {
@@ -18,11 +28,83 @@ const {
   canonicalUrl = Astro.url.href,
   noindex = false,
   hideNav = false,
-  hideFooter = false
+  hideFooter = false,
+  ogImage = '/brand/avatar.png',
+  breadcrumbs,
+  jsonLd,
+  publishDate,
+  modifiedDate
 } = Astro.props;
 
 const siteName = 'Sinchi';
 const fullTitle = title.includes('Sinchi') ? title : `${title} | ${siteName}`;
+const siteUrl = 'https://sinchi.co.nz';
+const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
+
+// Base Schema Graph: Organization and WebSite
+const baseSchemaGraph: any[] = [
+  {
+    "@type": "Organization",
+    "@id": `${siteUrl}/#organization`,
+    "name": "Sinchi",
+    "url": siteUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/brand/Sinchi_LOGO.png`,
+      "width": 300,
+      "height": 120
+    },
+    "image": `${siteUrl}/brand/avatar.png`,
+    "sameAs": [
+      "https://www.linkedin.com"
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "New Zealand"
+    },
+    "description": "Sinchi is a local SEO service that helps New Zealand businesses rank in Google Maps and improve their websites.",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "email": "hello@sinchi.co.nz",
+      "areaServed": "NZ",
+      "availableLanguage": ["en-NZ", "en"]
+    }
+  },
+  {
+    "@type": "WebSite",
+    "@id": `${siteUrl}/#website`,
+    "url": siteUrl,
+    "name": "Sinchi",
+    "publisher": {
+      "@id": `${siteUrl}/#organization`
+    },
+    "inLanguage": "en-NZ"
+  }
+];
+
+// Add BreadcrumbList schema if breadcrumbs are present
+if (breadcrumbs && breadcrumbs.length > 0) {
+  baseSchemaGraph.push({
+    "@type": "BreadcrumbList",
+    "@id": `${canonicalUrl}#breadcrumbs`,
+    "itemListElement": breadcrumbs.map((crumb, idx) => ({
+      "@type": "ListItem",
+      "position": idx + 1,
+      "name": crumb.name,
+      "item": crumb.url.startsWith('http') ? crumb.url : `${siteUrl}${crumb.url}`
+    }))
+  });
+}
+
+// Append custom page schemas if provided
+if (jsonLd) {
+  if (Array.isArray(jsonLd)) {
+    baseSchemaGraph.push(...jsonLd);
+  } else {
+    baseSchemaGraph.push(jsonLd);
+  }
+}
 ---
 
 <!doctype html>
@@ -35,16 +117,25 @@ const fullTitle = title.includes('Sinchi') ? title : `${title} | ${siteName}`;
     <link rel="canonical" href={canonicalUrl} />
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
+    <!-- Regional & Author Meta for AEO/GEO -->
+    <meta name="author" content="Andrew Kelso" />
+    <meta name="geo.region" content="NZ" />
+    <meta name="geo.placename" content="New Zealand" />
+    <meta name="theme-color" content="#2A0840" />
+
+    {publishDate && <meta property="article:published_time" content={publishDate} />}
+    {modifiedDate && <meta property="article:modified_time" content={modifiedDate} />}
+
     <!-- Favicon & Icons -->
     <link rel="icon" type="image/png" href="/brand/Sinchi_Favacon.png" />
     <link rel="apple-touch-icon" href="/brand/Sinchi_Favacon.png" />
 
-    <!-- Open Graph / Social -->
+    <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={new URL('/brand/avatar.png', Astro.url).href} />
+    <meta property="og:image" content={absoluteOgImage} />
     <meta property="og:locale" content="en_NZ" />
     <meta property="og:site_name" content={siteName} />
 
@@ -52,45 +143,14 @@ const fullTitle = title.includes('Sinchi') ? title : `${title} | ${siteName}`;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={new URL('/brand/avatar.png', Astro.url).href} />
+    <meta name="twitter:image" content={absoluteOgImage} />
 
-    <!-- Sitewide JSON-LD -->
+    <!-- Structured Data JSON-LD Graph -->
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Organization",
-          "@id": "https://sinchi.co.nz/#organization",
-          "name": "Sinchi",
-          "url": "https://sinchi.co.nz",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://sinchi.co.nz/brand/Sinchi_LOGO.png"
-          },
-          "areaServed": {
-            "@type": "Country",
-            "name": "New Zealand"
-          },
-          "description": "Sinchi is a local SEO service that helps New Zealand businesses rank in Google Maps and improve their websites.",
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "contactType": "customer support",
-            "email": "hello@sinchi.co.nz",
-            "areaServed": "NZ"
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "https://sinchi.co.nz/#website",
-          "url": "https://sinchi.co.nz",
-          "name": "Sinchi",
-          "publisher": {
-            "@id": "https://sinchi.co.nz/#organization"
-          },
-          "inLanguage": "en-NZ"
-        }
-      ]
+      "@graph": baseSchemaGraph
     })} />
+    
     <slot name="head" />
   </head>
   <body>
